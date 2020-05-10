@@ -22,8 +22,147 @@
 <!-------main window--------->
 	<div class="container-fluid" id="main_window">
 		<div class="row">
-		<!------left panel----->
-			<div class="col-sm-3 no-print" id="left">
+		<!------left page----->
+			<div class="col-sm-9 text-center" id="left">
+				<div id="page" class="verdana-sans" contenteditable="true" style="line-height: 1.3em; padding: 0cm .25cm .25cm">
+					
+					<div class="row" id="sectionInfo">
+						<div style="display: block" id="image_box">
+							<img src="./images/iitp_logo.png" height="80" width="80">
+						</div>
+
+						<div class="row" style=" ">
+							<div class="col-sm-5" style="margin-top: 10px; margin-left: 10px; ">
+								<div id="contentName">
+									<span id="fName">fName</span> <span id="sName">sName</span>
+								</div>
+								<div class="light" id="contactLink" >contactLink</div>
+							</div>
+
+							<div class="col-sm-5" id="contacts" style="text-align: right; margin-top: 10px; float: right">contacts</div>
+						</div>
+					</div>
+
+				
+					<div class="section" id="sectionEducation">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h4><strong>Education</strong></h4>
+							<hr class="hr-below">
+						</div>
+						<ul class="nobullet">
+							<li>
+								<table class="table customBordered" id="educationTable">
+									<tbody id="education">
+									</tbody>
+								</table>
+							</li>
+						</ul>
+					</div>
+
+
+					<div class="section" id="sectionExperience">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h4><strong>Experience</strong></h4>
+							<hr class="hr-below">
+						</div>
+						<ul style="padding-left: 30px;" class="disc" id="experience">
+						</ul>
+					</div>
+
+
+					<div class="section" id="sectionPublications" style="display: none;">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h4><strong>Publications</strong></h4>
+							<hr class="hr-below">
+						</div>
+						<ul id="publications">
+						</ul>
+					</div>
+
+
+					<div class="section" id="sectionProjects">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h4><strong>Projects</strong></h4>
+							<hr class="hr-below">
+						</div>
+						<ul style="padding-left: 30px;" id="projects" class="disc">
+						</ul>
+					</div>
+
+				
+					<div class="section" id="sectionSkills">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h4><strong>Technical skills</strong></h4>
+							<hr class="hr-below">
+						</div>
+						<ul style="padding-left: 10px;" id="skills">
+						</ul>
+					</div>
+
+
+					<div class="section" id="sectionResponsibility">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h4><strong>Positions of Responsibility</strong></h4>
+							<hr class="hr-below">
+						</div>
+						<ul style="padding-left: 10px;" id="pors">
+						</ul>
+					</div>
+
+
+					<div class="section" id="sectionAchievements">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h4><strong>Achievements</strong></h4>
+							<hr class="hr-below">
+						</div>
+						<ul style="padding-left: 10px;" id="achievements">
+						</ul>
+					</div>
+
+				
+					<div class="section" id="sectionCourses" style="display: none;">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h4><strong>Key courses taken</strong></h4>
+							<hr class="hr-below">
+						</div>
+						<ul id="courses">
+						</ul>
+					</div>
+
+				
+					<div class="section" id="sectionCurricular" style="display: none;">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h4><strong>Extra-curriculars</strong></h4>
+							<hr class="hr-below">
+						</div>
+						<ul id="cirrculars">
+							<li>
+								<span class="title">ABC workshop : </span>
+								<span class="text">Attended a 3-day workshop on Image sensing satellute development.</span>
+							</li>
+						</ul>
+					</div>
+
+					<div class="section" id="sectionFooterMessage" style="display: none;">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h6 style="margin-left: 20px; "><strong id="footerMsg">your footer message</strong></h6>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		<!------right panel----->
+			<div class="col-sm-3 no-print" id="right">
 				<div id="panel">
 					<button class="btn btn-block btn-primary" >Save</button>
 					<button class="btn btn-block btn-success" onclick="window.print()">Print PDF</button>
@@ -212,144 +351,6 @@
 				</div>
 			</div>
 
-		<!------right page----->
-			<div class="col-sm-9 text-center" id="right">
-				<div id="page" class="verdana-sans" contenteditable="true" style="line-height: 1.3em; padding: 0cm .25cm .25cm">
-					
-					<div class="row" id="sectionInfo">
-						<div style="display: block" id="image_box">
-							<img src="./images/iitp_logo.png" height="80" width="80">
-						</div>
-
-						<div class="row" style=" ">
-							<div class="col-sm-5" style="margin-top: 10px; margin-left: 10px; ">
-								<div id="contentName">
-									<span id="fName">fName</span> <span id="sName">sName</span>
-								</div>
-								<div class="light" id="contactLink" >contactLink</div>
-							</div>
-
-							<div class="col-sm-5" id="contacts" style="text-align: right; margin-top: 10px; float: right">contacts</div>
-						</div>
-					</div>
-
-				
-					<div class="section" id="sectionEducation">
-						<div class="section-title rule-above ruled">
-							<hr class="hr-above">
-							<h4><strong>Education</strong></h4>
-							<hr class="hr-below">
-						</div>
-						<ul class="nobullet">
-							<li>
-								<table class="table customBordered" id="educationTable">
-									<tbody id="education">
-									</tbody>
-								</table>
-							</li>
-						</ul>
-					</div>
-
-
-					<div class="section" id="sectionExperience">
-						<div class="section-title rule-above ruled">
-							<hr class="hr-above">
-							<h4><strong>Experience</strong></h4>
-							<hr class="hr-below">
-						</div>
-						<ul style="padding-left: 30px;" class="disc" id="experience">
-						</ul>
-					</div>
-
-
-					<div class="section" id="sectionPublications" style="display: none;">
-						<div class="section-title rule-above ruled">
-							<hr class="hr-above">
-							<h4><strong>Publications</strong></h4>
-							<hr class="hr-below">
-						</div>
-						<ul id="publications">
-						</ul>
-					</div>
-
-
-					<div class="section" id="sectionProjects">
-						<div class="section-title rule-above ruled">
-							<hr class="hr-above">
-							<h4><strong>Projects</strong></h4>
-							<hr class="hr-below">
-						</div>
-						<ul style="padding-left: 30px;" id="projects" class="disc">
-						</ul>
-					</div>
-
-				
-					<div class="section" id="sectionSkills">
-						<div class="section-title rule-above ruled">
-							<hr class="hr-above">
-							<h4><strong>Technical skills</strong></h4>
-							<hr class="hr-below">
-						</div>
-						<ul style="padding-left: 10px;" id="skills">
-						</ul>
-					</div>
-
-
-					<div class="section" id="sectionResponsibility">
-						<div class="section-title rule-above ruled">
-							<hr class="hr-above">
-							<h4><strong>Positions of Responsibility</strong></h4>
-							<hr class="hr-below">
-						</div>
-						<ul style="padding-left: 10px;" id="pors">
-						</ul>
-					</div>
-
-
-					<div class="section" id="sectionAchievements">
-						<div class="section-title rule-above ruled">
-							<hr class="hr-above">
-							<h4><strong>Achievements</strong></h4>
-							<hr class="hr-below">
-						</div>
-						<ul style="padding-left: 10px;" id="achievements">
-						</ul>
-					</div>
-
-				
-					<div class="section" id="sectionCourses" style="display: none;">
-						<div class="section-title rule-above ruled">
-							<hr class="hr-above">
-							<h4><strong>Key courses taken</strong></h4>
-							<hr class="hr-below">
-						</div>
-						<ul id="courses">
-						</ul>
-					</div>
-
-				
-					<div class="section" id="sectionCurricular" style="display: none;">
-						<div class="section-title rule-above ruled">
-							<hr class="hr-above">
-							<h4><strong>Extra-curriculars</strong></h4>
-							<hr class="hr-below">
-						</div>
-						<ul id="cirrculars">
-							<li>
-								<span class="title">ABC workshop : </span>
-								<span class="text">Attended a 3-day workshop on Image sensing satellute development.</span>
-							</li>
-						</ul>
-					</div>
-
-					<div class="section" id="sectionFooterMessage" style="display: none;">
-						<div class="section-title rule-above ruled">
-							<hr class="hr-above">
-							<h6 style="margin-left: 20px; "><strong id="footerMsg">your footer message</strong></h6>
-						</div>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 

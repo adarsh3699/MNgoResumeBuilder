@@ -6,20 +6,20 @@ body {
 }
 
 
-#left {
+#right {
 	background-color: #363636;
 	line-height: 1em;
 }
-#left * {
+#right * {
 	color: #eee;
 }
-#left h3 , #left h4 {
+#right h3 , #right h4 {
 	color: #fff;
 }
-#left .btn {
+#right .btn {
 	color: #fff;
 }
-#left .btn.btn-default {
+#right .btn.btn-default {
 	color: #666;
 }
 
