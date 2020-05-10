@@ -92,9 +92,8 @@
 							</div>
 						</h5>
 					</div>
-
+					<hr>
 					<div>
-						<br>
 						<h5>
 							Image
 							<div class="toggle-button">
@@ -102,7 +101,8 @@
 								<div class="toggle-option" data-toggle="image" id="imageHide">Hide</div>
 							</div>
 						</h5>
-						
+						<br>
+
 						<h5>
 							Add Education Row
 							<div class="toggle-button">
@@ -150,6 +150,40 @@
 								<div class="toggle-option selected add_achieve_row">Last</div>
 							</div>
 						</h5>
+						<br/>
+
+						<h5>
+							Publications Layout
+							<div class="toggle-button">
+								<div class="toggle-option publication_visibility">Show</div>
+								<div class="toggle-option selected publication_visibility">Hide</div>
+							</div>
+						</h5>
+
+						<h5>
+							Courses Layout
+							<div class="toggle-button">
+								<div class="toggle-option courses_visibility">Show</div>
+								<div class="toggle-option selected courses_visibility">Hide</div>
+							</div>
+						</h5>
+
+						<h5>
+							Extracurricular Layout
+							<div class="toggle-button">
+								<div class="toggle-option circular_visibility">Show</div>
+								<div class="toggle-option selected circular_visibility">Hide</div>
+							</div>
+						</h5>
+
+						<h5>
+							Footer 
+							<div class="toggle-button">
+								<div class="toggle-option footer_visibility">Show</div>
+								<div class="toggle-option selected footer_visibility">Hide</div>
+							</div>
+						</h5>
+						<br/>
 
 						<h5>
 							Education year column
@@ -158,6 +192,7 @@
 								<div class="toggle-option" data-toggle="edyear" id="edyearLat">Last</div>
 							</div>
 						</h5>
+
 						<h5>
 							Experience layout
 							<div class="toggle-button">
@@ -165,6 +200,7 @@
 								<div class="toggle-option" data-toggle="experience" id="experience2">L2</div>
 							</div>
 						</h5>
+
 						<h5>
 							Projects layout
 							<div class="toggle-button">
@@ -172,7 +208,6 @@
 								<div class="toggle-option" data-toggle="projects" id="projects2">L2</div>
 							</div>
 						</h5>
-						<br>						
 					</div>
 				</div>
 			</div>
@@ -233,25 +268,7 @@
 							<h4><strong>Publications</strong></h4>
 							<hr class="hr-below">
 						</div>
-						<ul>
-						<li>
-							<div>	
-							<div class="title">Advanced analysis of damping motion</div>
-							<div class="time right">PCES 2010</div>
-							</div>
-							<div>
-							<div class="mentor">Mentors</div>
-							</div>
-						</li>
-						<li>
-							<div>	
-							<div class="title">Efficient ranking of search results</div>
-							<div class="time right">LOCS 2010</div>
-							</div>
-							<div>
-							<div class="mentor">Mentors</div>
-							</div>
-						</li>
+						<ul id="publications">
 						</ul>
 					</div>
 
@@ -296,16 +313,6 @@
 							<hr class="hr-below">
 						</div>
 						<ul style="padding-left: 10px;" id="achievements">
-						<li>
-							<span class="title">Internship at ISRO:&nbsp;</span>Recieved Letter of Recommendation and ranked among top 2% students worked under S.&nbsp;Santhalakshmi, Scientist ‘SF’ &amp; Manager SDG, ISTRAC-ISRO.</li>
-						<li>
-							<span class="title">Internship at NGCN:&nbsp;</span>Recieved Return Offer &amp; Recommendation on LinkedIn Profile from Justin Sebastian, CEO of NGCN, Oxyvin.</li>
-						<li>
-							<span class="title">Professors of IIT Patna:&nbsp;</span>Got Letter of Recommendation from Dr. Jimson Mathew, Head of Department (HOD)&nbsp;and Letter of Appreciation from Dr. Mayank Agrawal, Assistant Professor, IIT Patna</li>
-						<li>
-							<span class="title">JEE Main:&nbsp;<span style="font-weight: normal;">Secured 98.97 percentile out of 12,07,058 candidates appeared in JEE Main 2016.</span></span><ul class="decimal">
-							</ul>
-						</li><li><span class="title" style="">Key Issue App for IIT Patna:&nbsp;</span>This App resulted in faster issuing and returning of keys which prevents queue and&nbsp;saves time. 2750+ keys of labs &amp; rooms in IIT Patna have been issued and returned till date.</li>
 						</ul>
 					</div>
 
@@ -316,20 +323,7 @@
 							<h4><strong>Key courses taken</strong></h4>
 							<hr class="hr-below">
 						</div>
-						<ul>
-						<div class="row">
-							<div class="col-sm-6">
-								<li>Computer lab</li>
-								<li>Process design</li>
-								<li>Statistics *</li>
-							</div>
-							<div class="col-sm-6">
-								<li>Advanced calculus</li>
-								<li>XYZ architecture *</li>
-								<li>ABC lab *</li>
-							</div>
-						</div>
-						<div class="star"><i>*<span class="light"> To be completed in Nov 2016</span></i></div>
+						<ul id="courses">
 						</ul>
 					</div>
 
@@ -337,46 +331,21 @@
 					<div class="section" id="sectionCurricular" style="display: none;">
 						<div class="section-title rule-above ruled">
 							<hr class="hr-above">
-							<h4><strong>Extracurriculars</strong></h4>
+							<h4><strong>Extra-curriculars</strong></h4>
 							<hr class="hr-below">
 						</div>
-						<ul>
-						<li>
-							<span class="title">ABC workshop : </span>
-							<span class="text">Attended a 3-day workshop on Image sensing satellute development.</span>
-						</li>
-						<li>
-							<span class="title">ABC contest 2016 : </span>
-							<span class="text">Secured 1st position in the National level contest.</span>
-						</li>
+						<ul id="cirrculars">
+							<li>
+								<span class="title">ABC workshop : </span>
+								<span class="text">Attended a 3-day workshop on Image sensing satellute development.</span>
+							</li>
 						</ul>
 					</div>
 
-					
-					<div class="section" id="sectionInterest">
+					<div class="section" id="sectionFooterMessage" style="display: none;">
 						<div class="section-title rule-above ruled">
 							<hr class="hr-above">
-							<h4><strong>Fields of interest (OR Research interests)</strong></h4>
-							<hr class="hr-below">
-						</div>
-						<ul>
-						<div class="row">
-							<div class="col-sm-6">
-								<li>Advanced XYZ</li>
-								<li>ABC design</li>
-							</div>
-							<div class="col-sm-6">
-								<li>XYZ processing</li>
-								<li>Robotics</li>
-							</div>
-						</div>
-						</ul>
-					</div>
-					
-					<div class="section" id="sectionFooterMessage">
-						<div class="section-title rule-above ruled">
-							<hr class="hr-above">
-							<h6><strong>(References available on request)</strong></h6>
+							<h6 style="margin-left: 20px; "><strong id="footerMsg">your footer message</strong></h6>
 						</div>
 					</div>
 				</div>
@@ -498,24 +467,36 @@
 
 				    //generating html for different titles
 				    	var html = "";
-
 				    	if(key == "education") {
+				    	//setting heading
+				    		var heading = val.heading;
+				    		$('#sectionEducation h4 strong').text(heading);
+
+				    	//setting data
 				    		html += '<tr><td class="header"><strong>Year</strong></td><td class="header"><strong>Degree / Certificate</strong></td><td class="header"><strong>Institute / Board</strong></td><td class="header"><strong>CGPA/Percentage</strong></td></tr>';
-				    		for(var k in val) {
-				    			var year = val[k].year;
-				    			var degree = val[k].degree;
-				    			var institute = val[k].institute;
-				    			var grade = val[k].grade;
+				    		var data = val.data;
+				    		for(var k in data) {
+				    			var year = data[k].year;
+				    			var degree = data[k].degree;
+				    			var institute = data[k].institute;
+				    			var grade = data[k].grade;
 
 				    			html += "<tr><td>" + year + "</td><td>" + degree + "</td><td>" + institute + "</td><td>" + grade + "</td></tr>";
 				    		}
 				    	} else if(key == "experience") {
-				    		for(var k in val) {
-				    			var job_title = val[k].job_title;
-				    			var job_duration = val[k].job_duration;
-				    			var job_company_link = val[k].job_company_link;
-				    			var company_name = val[k].company_name;
-				    			var details = val[k].details;
+				    	//setting heading
+				    		var heading = val.heading;
+				    		$('#sectionExperience h4 strong').text(heading);
+				    		// console.log(heading);
+
+				    	//setting data
+				    		var data = val.data;
+				    		for(var k in data) {
+				    			var job_title = data[k].job_title;
+				    			var job_duration = data[k].job_duration;
+				    			var job_company_link = data[k].job_company_link;
+				    			var company_name = data[k].company_name;
+				    			var details = data[k].details;
 
 				    			html += '<li><div><div class="title">' + job_title + '</div><div class="time right" >' + job_duration + '</div></div><div><div class="link right">' + job_company_link + '</div><div class="company_name">' + company_name + '</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;">';
 				    			for(var i = 0; i < details.length; i++) {
@@ -526,12 +507,19 @@
 				    			html += "</ul></div></li>";
 				    		}
 				    	} else if(key == "projects") {
-				    		for(var k in val) {
-				    			var project_title = val[k].project_title;
-				    			var project_duration = val[k].project_duration;
-				    			var project_link = val[k].project_link;
-				    			var company_name = val[k].company_name;
-				    			var details = val[k].details;
+				    	//setting heading
+				    		var heading = val.heading;
+				    		$('#sectionProjects h4 strong').text(heading);
+				    		// console.log(heading);
+				    		
+				    	//setting data
+				    		var data = val.data;
+				    		for(var k in data) {
+				    			var project_title = data[k].project_title;
+				    			var project_duration = data[k].project_duration;
+				    			var project_link = data[k].project_link;
+				    			var company_name = data[k].company_name;
+				    			var details = data[k].details;
 
 				    			html += '<li><div><div class="title">' + project_title + '</div><div class="time right" >' + project_duration + '</div></div><div><div class="link right">' + project_link + '</div><div class="company_name">' + company_name + '</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;">';
 				    			for(var i = 0; i < details.length; i++) {
@@ -542,20 +530,95 @@
 				    			html += "</ul></div></li>";
 				    		}
 				    	} else if(key == "skills") {
-				    		for(var i = 0; i < val.length; i++) {
-			    				var did_this = val[i];
+				    	//setting heading
+				    		var heading = val.heading;
+				    		$('#sectionSkills h4 strong').text(heading);
+				    		// console.log(heading);
+				    		
+				    	//setting data
+				    		var data = val.data;
+				    		for(var i = 0; i < data.length; i++) {
+			    				var did_this = data[i];
 
 			    				html += "<li>" + did_this + "</li>"
 			    			}
 			    		} else if(key == "pors") {
-				    		for(var i = 0; i < val.length; i++) {
-			    				var did_this = val[i];
+			    		//setting heading
+				    		var heading = val.heading;
+				    		$('#sectionResponsibility h4 strong').text(heading);
+				    		// console.log(heading);
+				    		
+				    	//setting data
+				    		var data = val.data;
+				    		for(var i = 0; i < data.length; i++) {
+			    				var did_this = data[i];
 
 			    				html += "<li>" + did_this + "</li>"
 			    			}
 			    		} else if(key == "achievements") {
-				    		for(var i = 0; i < val.length; i++) {
-			    				var did_this = val[i];
+			    		//setting heading
+				    		var heading = val.heading;
+				    		$('#sectionAchievements h4 strong').text(heading);
+				    		// console.log(heading);
+				    		
+				    	//setting data
+				    		var data = val.data;
+				    		for(var i = 0; i < data.length; i++) {
+			    				var did_this = data[i];
+
+			    				html += "<li>" + did_this + "</li>"
+			    			}
+			    		} else if(key == "publications") {
+			    		//setting heading
+				    		var heading = val.heading;
+				    		$('#sectionPublications h4 strong').text(heading);
+				    		// console.log(heading);
+				    		
+				    	//setting data
+				    		var data = val.data;
+				    		for(var k in data) {
+				    			var publication_title = data[k].publication_title;
+				    			var published_at = data[k].published_at;
+				    			var mentors = data[k].mentors;
+
+				    			html += '<li><div><div class="title">' + publication_title + '</div><div class="time right">' + published_at + '</div></div><div><div class="mentor">' + mentors + '</div></div></li>';
+				    		}
+				    	} else if(key == "courses") {
+			    		//setting heading
+				    		var heading = val.heading;
+				    		$('#sectionCourses h4 strong').text(heading);
+				    		// console.log(heading);
+				    		
+				    	//setting data
+				    		html += '<div class="row"><div class="col-sm-6">';
+				    		var data1 = val.data1;
+				    		for(var i = 0; i < data1.length; i++) {
+			    				var did_this = data1[i];
+
+			    				html += "<li>" + did_this + "</li>"
+			    			}
+			    			html += '</div><div class="col-sm-6">';
+
+				    		var data2 = val.data2;
+				    		for(var i = 0; i < data2.length; i++) {
+			    				var did_this = data2[i];
+
+			    				html += "<li>" + did_this + "</li>"
+			    			}
+			    			html += '</div></div>';
+
+			    			var note = val.note;
+							html += '<div class="star light"><i>' + note + '</i></div>';			    			
+				    	} else if(key == "cirrculars") {
+			    		//setting heading
+				    		var heading = val.heading;
+				    		$('#sectionCurricular h4 strong').text(heading);
+				    		// console.log(heading);
+				    		
+				    	//setting data
+				    		var data = val.data;
+				    		for(var i = 0; i < data.length; i++) {
+			    				var did_this = data[i];
 
 			    				html += "<li>" + did_this + "</li>"
 			    			}
@@ -564,7 +627,7 @@
 				    	}
 
 			    	//updating UI
-				       	$('#' + key).html(html);	
+				       	$('#' + key).html(html);
 				    }
 				}
 			}
@@ -672,7 +735,78 @@
 			}
 		});
 		
-	</script>
+	//when publication visibility is changed
+		$('.publication_visibility').on("click", function()
+		{
+			var text = $.trim($(this).text());
 
+			toogle_publication_visibility(text);
+		});
+
+		function toogle_publication_visibility (to_do) {
+			if(to_do == "Show") {
+				$('#sectionPublications').fadeIn(0);
+			} else if(to_do == "Hide") {
+				$('#sectionPublications').fadeOut(0);
+			}
+
+			$(this).addClass('selected');
+		}
+
+	//when courses visibility is changed
+		$('.courses_visibility').on("click", function()
+		{
+			var text = $.trim($(this).text());
+
+			toogle_courses_visibility(text);
+		});
+
+		function toogle_courses_visibility (to_do) {
+			if(to_do == "Show") {
+				$('#sectionCourses').fadeIn(0);
+			} else if(to_do == "Hide") {
+				$('#sectionCourses').fadeOut(0);
+			}
+
+			$(this).addClass('selected');
+		}
+
+	//when courses visibility is changed
+		$('.circular_visibility').on("click", function()
+		{
+			var text = $.trim($(this).text());
+
+			toogle_circular_visibility(text);
+		});
+
+		function toogle_circular_visibility (to_do) {
+			if(to_do == "Show") {
+				$('#sectionCurricular').fadeIn(0);
+			} else if(to_do == "Hide") {
+				$('#sectionCurricular').fadeOut(0);
+			}
+
+			$(this).addClass('selected');
+		}
+
+	//when courses visibility is changed
+		$('.footer_visibility').on("click", function()
+		{
+			var text = $.trim($(this).text());
+
+			toogle_footer_visibility(text);
+		});
+
+		function toogle_footer_visibility (to_do) {
+			if(to_do == "Show") {
+				$('#sectionFooterMessage').fadeIn(0);
+			} else if(to_do == "Hide") {
+				$('#sectionFooterMessage').fadeOut(0);
+			}
+
+			$(this).addClass('selected');
+		}
+		
+	</script>
 </body>
 </html>
