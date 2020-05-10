@@ -187,6 +187,18 @@ li li {
 	color: grey;
 }
 
+.plain_list {
+	margin: 0px; 
+	padding: 0px; 
+	list-style: none;
+}
+
+.plain_list li {
+	margin: 0px; 
+	padding: 0px; 
+	list-style: none;
+}
+
 .col-sm-5 {
 	margin: 0;
 	padding: 2px;

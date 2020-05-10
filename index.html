@@ -36,10 +36,10 @@
 								<div id="contentName">
 									<span id="fName">fName</span> <span id="sName">sName</span>
 								</div>
-								<div class="light" id="contactLink" >contactLink</div>
+								<ul class="light plain_list" id="contactLink" >contactLink</ul>
 							</div>
 
-							<div class="col-sm-5" id="contacts" style="text-align: right; margin-top: 10px; float: right">contacts</div>
+							<ul class="col-sm-5 plain_list light" id="contacts" style="text-align: right; margin-top: 10px; float: right">contacts</ul>
 						</div>
 					</div>
 
@@ -232,6 +232,7 @@
 						</h5>
 					</div>
 					<hr>
+					<div id="print">sas</div>
 
 					<div>
 						<h5>
@@ -413,16 +414,37 @@
 	//function to update UI from data fetched from json file
 		function updateUI(json) 
 		{
-			if( json ) {
+			if( json ) 
+			{
 			//if valid json
-				for (var key in json) {
-				    if (json.hasOwnProperty(key)) {
+				for (var key in json) 
+				{
+				    if (json.hasOwnProperty(key)) 
+				    {
 				    //getting val from json	
 				    	var val = json[key];
 
 				    //generating html for different titles
 				    	var html = "";
-				    	if(key == "education") {
+				    	if(key == "contactLink") {
+				    	///setting data
+				    		var data = val;
+
+				    		for(var i = 0; i < data.length; i++) {
+			    				var did_this = data[i];
+
+			    				html += "<li>" + did_this + "</li>"
+			    			}
+				    	} else if(key == "contacts") {
+				    	///setting data
+				    		var data = val;
+
+				    		for(var i = 0; i < data.length; i++) {
+			    				var did_this = data[i];
+
+			    				html += "<li>" + did_this + "</li>"
+			    			}
+				    	} else if(key == "education") {
 				    	//setting heading
 				    		var heading = val.heading;
 				    		$('#sectionEducation h4 strong').text(heading);
@@ -453,7 +475,7 @@
 				    			var company_name = data[k].company_name;
 				    			var details = data[k].details;
 
-				    			html += '<li><div><div class="title">' + job_title + '</div><div class="time right" >' + job_duration + '</div></div><div><div class="link right">' + job_company_link + '</div><div class="company_name">' + company_name + '</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;">';
+				    			html += '<li class="li"><div><div class="title">' + job_title + '</div><div class="time right" >' + job_duration + '</div></div><div><div class="link right">' + job_company_link + '</div><div class="company_name">' + company_name + '</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;">';
 				    			for(var i = 0; i < details.length; i++) {
 				    				var did_this = details[i];
 
@@ -476,7 +498,7 @@
 				    			var company_name = data[k].company_name;
 				    			var details = data[k].details;
 
-				    			html += '<li><div><div class="title">' + project_title + '</div><div class="time right" >' + project_duration + '</div></div><div><div class="link right">' + project_link + '</div><div class="company_name">' + company_name + '</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;">';
+				    			html += '<li class="li"><div><div class="title">' + project_title + '</div><div class="time right" >' + project_duration + '</div></div><div><div class="link right">' + project_link + '</div><div class="company_name">' + company_name + '</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;">';
 				    			for(var i = 0; i < details.length; i++) {
 				    				var did_this = details[i];
 
@@ -545,14 +567,14 @@
 				    		// console.log(heading);
 				    		
 				    	//setting data
-				    		html += '<div class="row"><div class="col-sm-6">';
+				    		html += '<div class="row"><div class="col-sm-6 data1">';
 				    		var data1 = val.data1;
 				    		for(var i = 0; i < data1.length; i++) {
 			    				var did_this = data1[i];
 
 			    				html += "<li>" + did_this + "</li>"
 			    			}
-			    			html += '</div><div class="col-sm-6">';
+			    			html += '</div><div class="col-sm-6 data2">';
 
 				    		var data2 = val.data2;
 				    		for(var i = 0; i < data2.length; i++) {
@@ -580,8 +602,14 @@
 			    		} else if(key == "isImageVisible") {
 			    			if( val == true ) {
 			    				$('#image_box').css("display", "block");
+
+			    				$('#imageShow').addClass("selected");
+			    				$('#imageHide').removeClass("selected");
 			    			} else {
 			    				$('#image_box').css("display", "none");
+
+			    				$('#imageHide').addClass("selected");
+			    				$('#imageShow').removeClass("selected");
 			    			}
 				    	} else {
 				    		var html = val.replace("\n", "<br />"); // to break word
@@ -616,7 +644,7 @@
 		{
 			var text = $.trim($(this).text());
 
-			var sampleHTML = '<li><div><div class="title">job_title</div><div class="time right" >job_duration</div></div><div><div class="link right">job_company_link</div><div class="company_name">company_name</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li>did this did that</li><li>did this too</li></ul></div></li>';
+			var sampleHTML = '<li class="li"><div><div class="title">job_title</div><div class="time right" >job_duration</div></div><div><div class="link right">job_company_link</div><div class="company_name">company_name</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li>did this did that</li><li>did this too</li></ul></div></li>';
 
 			if( text == "First" ) {
 				var html = sampleHTML;
@@ -633,7 +661,7 @@
 		{
 			var text = $.trim($(this).text());
 
-			var sampleHTML = '<li><div><div class="title">project_title</div><div class="time right" >project_duration</div></div><div><div class="link right">project_link</div><div class="company_name">company_name/project guide</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li>did this did that</li><li>did this too</li></ul></div></li>';
+			var sampleHTML = '<li class="li"><div><div class="title">project_title</div><div class="time right" >project_duration</div></div><div><div class="link right">project_link</div><div class="company_name">company_name/project guide</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li>did this did that</li><li>did this too</li></ul></div></li>';
 
 			if( text == "First" ) {
 				var html = sampleHTML;
@@ -771,7 +799,239 @@
 	//on clicking on save btn
 		$('#save_btn').on("click", function()
 		{
+			var jsonToSend = [];
+			var jsonToStore = {};
+
+		//getting image data
+			var imageVisibility = $('#image_box').css('display');
+			if( imageVisibility == "none" ) {
+				jsonToStore['isImageVisible'] = false;
+			} else if ( imageVisibility == "block" ) {
+				jsonToStore['isImageVisible'] = true;
+			}
+
+		//getting first name
+			var html = $('#fName').html();
+			jsonToStore['fName'] = html;
 			
+		//getting second name
+			var html = $('#sName').html();
+			jsonToStore['sName'] = html;
+			
+		//getting contact links
+			var html = $('#contactLink').html();
+			jsonToStore['contactLink'] = html;
+			
+		//getting contacts
+			var html = $('#contacts').html();
+			jsonToStore['contacts'] = html;
+			
+		//getting education
+			var childJSON = [];
+			childJSON["heading"] = $('#sectionEducation h4 strong').text().trim(); 
+			
+			var dataJSON = [];
+			var i = 0;
+			$('#education tr').each(function()
+			{
+				if(i>0) { //for ignoring table heading row 
+					var temp = {};
+
+					var year = $(this).find("td:nth-child(1)").text().trim();
+					var degree = $(this).find("td:nth-child(2)").text().trim();
+					var institute = $(this).find("td:nth-child(3)").text().trim();
+					var grade = $(this).find("td:nth-child(4)").text().trim();
+
+					temp["year"] = year;
+					temp["degree"] = degree;
+					temp["institute"] = institute;
+					temp["grade"] = grade;
+
+					dataJSON.push(temp);
+				}
+				i++;
+			});
+			childJSON["data"] = dataJSON;
+
+			jsonToStore['education'] = childJSON;
+
+		//getting experience
+			var childJSON = [];
+			childJSON["heading"] = $('#sectionExperience h4 strong').text().trim(); 
+
+			var dataJSON = [];
+			$('#experience .li').each(function()
+			{
+				var temp = {};
+
+				var job_title = $(this).find(".title").text().trim();
+				var job_duration = $(this).find(".time").text().trim();
+				var job_company_link = $(this).find(".link").text().trim();
+				var company_name = $(this).find(".company_name").text().trim();
+
+				temp["job_title"] = job_title;
+				temp["job_duration"] = job_duration;
+				temp["job_company_link"] = job_company_link;
+				temp["company_name"] = company_name;
+
+				var detailsJSON = [];
+				$(this).find(".circle li").each(function() {
+					var detail = $(this).text().trim();
+					detailsJSON.push(detail);
+				});
+
+				temp["details"] = detailsJSON;
+
+				dataJSON.push(temp);
+			});
+			childJSON["data"] = dataJSON;
+			
+			jsonToStore['experience'] = childJSON;
+
+		//getting projects
+			var childJSON = [];
+			childJSON["heading"] = $('#sectionProjects h4 strong').text().trim(); 
+
+			var dataJSON = [];
+			$('#projects .li').each(function()
+			{
+				var temp = {};
+
+				var project_title = $(this).find(".title").text().trim();
+				var project_duration = $(this).find(".time").text().trim();
+				var project_link = $(this).find(".link").text().trim();
+				var company_name = $(this).find(".company_name").text().trim();
+
+				temp["project_title"] = project_title;
+				temp["project_duration"] = project_duration;
+				temp["project_link"] = project_link;
+				temp["company_name"] = company_name;
+
+				var detailsJSON = [];
+				$(this).find(".circle li").each(function() {
+					var detail = $(this).text().trim();
+					detailsJSON.push(detail);
+				});
+
+				temp["details"] = detailsJSON;
+
+				dataJSON.push(temp);
+			});
+			childJSON["data"] = dataJSON;
+			
+			jsonToStore['projects'] = childJSON;
+
+		//getting skills
+			var childJSON = [];
+			childJSON["heading"] = $('#sectionSkills h4 strong').text().trim(); 
+
+			var dataJSON = [];
+			$('#skills li').each(function()
+			{
+				var temp = $(this).html().trim();
+				
+				dataJSON.push(temp);
+			});
+			childJSON["data"] = dataJSON;
+			
+			jsonToStore['skills'] = childJSON;
+
+		//getting pors
+			var childJSON = [];
+			childJSON["heading"] = $('#sectionResponsibility h4 strong').text().trim(); 
+
+			var dataJSON = [];
+			$('#pors li').each(function()
+			{
+				var temp = $(this).html().trim();
+				
+				dataJSON.push(temp);
+			});
+			childJSON["data"] = dataJSON;
+			jsonToStore['pors'] = childJSON;
+
+		//getting achievements
+			var childJSON = [];
+			childJSON["heading"] = $('#sectionAchievements h4 strong').text().trim(); 
+
+			var dataJSON = [];
+			$('#achievements li').each(function()
+			{
+				var temp = $(this).html().trim();
+				
+				dataJSON.push(temp);
+			});
+			childJSON["data"] = dataJSON;
+			jsonToStore['achievements'] = childJSON;
+
+		//getting publications
+			var childJSON = [];
+			childJSON["heading"] = $('#sectionPublications h4 strong').text().trim(); 
+
+			var dataJSON = [];
+			$('#publications li').each(function()
+			{
+				var temp = {};
+
+				var publication_title = $(this).find(".title").text().trim();
+				var published_at = $(this).find(".time").text().trim();
+				var mentors = $(this).find(".mentor").text().trim();
+
+				temp["publication_title"] = publication_title;
+				temp["published_at"] = published_at;
+				temp["mentors"] = mentors;
+
+				dataJSON.push(temp);
+			});
+			childJSON["data"] = dataJSON;
+			
+			jsonToStore['publications'] = childJSON;
+
+		//getting courses
+			var childJSON = [];
+			childJSON["heading"] = $('#sectionCourses h4 strong').text().trim(); 
+
+			var dataJSON = [];
+			$('#courses .data1 li').each(function()
+			{
+				var temp = $(this).html().trim();
+				
+				dataJSON.push(temp);
+			});
+			childJSON["data1"] = dataJSON;
+
+			var dataJSON = [];
+			$('#courses .data2 li').each(function()
+			{
+				var temp = $(this).html().trim();
+				
+				dataJSON.push(temp);
+			});
+			childJSON["data2"] = dataJSON;
+			jsonToStore['courses'] = childJSON;
+
+		//getting cirrculars
+			var childJSON = [];
+			childJSON["heading"] = $('#sectionCurricular h4 strong').text().trim(); 
+
+			var dataJSON = [];
+			$('#cirrculars li').each(function()
+			{
+				var temp = $(this).html().trim();
+				
+				dataJSON.push(temp);
+			});
+			childJSON["data"] = dataJSON;
+			jsonToStore['cirrculars'] = childJSON;
+
+		//getting footer
+			var html = $('#footerMsg').html();
+			jsonToStore['footerMsg'] = html;
+		
+		//printing	
+			jsonToSend.push(jsonToStore);
+			console.log((jsonToSend));
+			// $('#print').html(jsonToStore);
 		});
 	</script>
 </body>

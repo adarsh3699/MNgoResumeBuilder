@@ -178,7 +178,7 @@ function changeTemplate(toggleType,toggleValue)
 			else
 			{
 				$('#image_box').hide();
-				$('#info').css('margin-left','20px');
+				// $('#info').css('margin-left','20px');
 			}
 			break;
 		case 'roll':
