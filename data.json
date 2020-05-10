@@ -1,8 +1,9 @@
 [
 	{
-		"name" 		: "Aditya Suman",
-		"Roll" 		: "1601ME01",
-		"color" 	: "white-mustard",
+		"fName" 						: "Aditya",
+		"sName" 						: "Suman",
+		"contactLink" 					: "www.linkedin.com/in/adityasuman2025<br/>https://adityasuman.mngo.in",
+		"contacts" 	: "+91-8789619252<br/>adityasuman2025@gmail.com<br/>aditya.me16@iitp.ac.in",
 		"age" 		: "5 years"
 	}
 ]

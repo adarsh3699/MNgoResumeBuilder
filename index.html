@@ -8,575 +8,611 @@
 	<link rel="stylesheet" type="text/css" href="css/theme.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 
+	<meta name="viewport" content="width=device-width, initial-scale= 1">	
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="language" content="English">
+	<meta name="author" content="Aditya Suman">	
 </head>
 
 <body>
-<div class="container-fluid">
-	<div class="row">
-	<!------left panel----->
-		<div class="col-sm-3 no-print" id="left">
-			<div id="panel">
-				<button class="btn btn-block btn-primary" >Save</button>
-				<button class="btn btn-block btn-success" onclick="window.print()">PRINT AS PDF</button>
-				<hr>
+<!---------preloader area------->
+	<div class="preloader_container"></div>
 
-				<h5>
-					Minor
-					<div class="toggle-button">
-						<div class="toggle-option" data-toggle="minor" id="minorShow">Show</div>
-						<div class="toggle-option selected" data-toggle="minor" id="minorHide">Hide</div>
-					</div>
-				</h5>
-				<h5>
-					Contact lines
-					<div class="toggle-button">
-						<div class="toggle-option" data-toggle="contact" id="contact3">3</div>
-						<div class="toggle-option" data-toggle="contact" id="contact4">4</div>
-						<div class="toggle-option selected" data-toggle="contact" id="contact5">5</div>
-					</div>
-				</h5>
-				<h5>
-					Horizontal margin
-					<div class="toggle-button">
-						<div class="toggle-option selected" data-toggle="margin" id="margin1">1</div>
-						<div class="toggle-option" data-toggle="margin" id="margin2">2</div>
-						<div class="toggle-option" data-toggle="margin" id="margin3">3</div>
-						<div class="toggle-option" data-toggle="margin" id="margin4">4</div>
-						<div class="toggle-option" data-toggle="margin" id="margin5">5</div>
-						<div class="toggle-option" data-toggle="margin" id="margin6">6</div>
-					</div>
-				</h5>
-				<h5>
-					Line spacing
-					<div class="toggle-button">
-						<div class="toggle-option" data-toggle="line" id="line1">1</div>
-						<div class="toggle-option" data-toggle="line" id="line2">2</div>
-						<div class="toggle-option selected" data-toggle="line" id="line3">3</div>
-						<div class="toggle-option" data-toggle="line" id="line4">4</div>
-						<div class="toggle-option" data-toggle="line" id="line5">5</div>
-						<div class="toggle-option" data-toggle="line" id="line6">6</div>
-					</div>
-				</h5>
-				<h5>
-					Center column no.
-					<div class="toggle-button">
-						<div class="toggle-option multi-select" data-toggle="column" id="column1">1</div>
-						<div class="toggle-option multi-select" data-toggle="column" id="column2">2</div>
-						<div class="toggle-option multi-select" data-toggle="column" id="column3">3</div>
-						<div class="toggle-option multi-select" data-toggle="column" id="column4">4</div>
-					</div>
-				</h5>
-				
-				<br>
-				
-				<div id="customTemplateOptions" style="display: block;">
+<!-------main window--------->
+	<div class="container-fluid" id="main_window">
+		<div class="row">
+		<!------left panel----->
+			<div class="col-sm-3 no-print" id="left">
+				<div id="panel">
+					<button class="btn btn-block btn-primary" >Save</button>
+					<button class="btn btn-block btn-success" onclick="window.print()">PRINT AS PDF</button>
+					<hr>
+
 					<h5>
-						Font type
+						Minor
 						<div class="toggle-button">
-							<div class="toggle-option selected" data-toggle="font" id="fontVerdanaSans">1</div>
-							<div class="toggle-option" data-toggle="font" id="fontVerdanaSerif">2</div>
-							<div class="toggle-option" data-toggle="font" id="fontRoboto">3</div>
-							<div class="toggle-option" data-toggle="font" id="fontDroid">4</div>
+							<div class="toggle-option" data-toggle="minor" id="minorShow">Show</div>
+							<div class="toggle-option selected" data-toggle="minor" id="minorHide">Hide</div>
 						</div>
 					</h5>
 					<h5>
-						Title case
+						Contact lines
 						<div class="toggle-button">
-							<div class="toggle-option selected" data-toggle="case" id="caseNormal">Default</div>
-							<div class="toggle-option" data-toggle="case" id="caseUpper">Uppercase</div>
+							<div class="toggle-option" data-toggle="contact" id="contact3">3</div>
+							<div class="toggle-option" data-toggle="contact" id="contact4">4</div>
+							<div class="toggle-option selected" data-toggle="contact" id="contact5">5</div>
 						</div>
 					</h5>
 					<h5>
-						Title style
+						Horizontal margin
 						<div class="toggle-button">
-							<div class="toggle-option selected" data-toggle="title" id="titleRuled">Ruled</div>
-							<div class="toggle-option" data-toggle="title" id="titleShaded">Shaded</div>
+							<div class="toggle-option selected" data-toggle="margin" id="margin1">1</div>
+							<div class="toggle-option" data-toggle="margin" id="margin2">2</div>
+							<div class="toggle-option" data-toggle="margin" id="margin3">3</div>
+							<div class="toggle-option" data-toggle="margin" id="margin4">4</div>
+							<div class="toggle-option" data-toggle="margin" id="margin5">5</div>
+							<div class="toggle-option" data-toggle="margin" id="margin6">6</div>
 						</div>
 					</h5>
 					<h5>
-						Title rule position
+						Line spacing
 						<div class="toggle-button">
-							<div class="toggle-option selected" data-toggle="rule" id="ruleAbove">Above title</div>
-							<div class="toggle-option" data-toggle="rule" id="ruleBelow">Below title</div>
+							<div class="toggle-option" data-toggle="line" id="line1">1</div>
+							<div class="toggle-option" data-toggle="line" id="line2">2</div>
+							<div class="toggle-option selected" data-toggle="line" id="line3">3</div>
+							<div class="toggle-option" data-toggle="line" id="line4">4</div>
+							<div class="toggle-option" data-toggle="line" id="line5">5</div>
+							<div class="toggle-option" data-toggle="line" id="line6">6</div>
 						</div>
 					</h5>
+					<h5>
+						Center column no.
+						<div class="toggle-button">
+							<div class="toggle-option multi-select" data-toggle="column" id="column1">1</div>
+							<div class="toggle-option multi-select" data-toggle="column" id="column2">2</div>
+							<div class="toggle-option multi-select" data-toggle="column" id="column3">3</div>
+							<div class="toggle-option multi-select" data-toggle="column" id="column4">4</div>
+						</div>
+					</h5>
+					
 					<br>
+					
+					<div id="customTemplateOptions" style="display: block;">
+						<h5>
+							Font type
+							<div class="toggle-button">
+								<div class="toggle-option selected" data-toggle="font" id="fontVerdanaSans">1</div>
+								<div class="toggle-option" data-toggle="font" id="fontVerdanaSerif">2</div>
+								<div class="toggle-option" data-toggle="font" id="fontRoboto">3</div>
+								<div class="toggle-option" data-toggle="font" id="fontDroid">4</div>
+							</div>
+						</h5>
+						<h5>
+							Title case
+							<div class="toggle-button">
+								<div class="toggle-option selected" data-toggle="case" id="caseNormal">Default</div>
+								<div class="toggle-option" data-toggle="case" id="caseUpper">Uppercase</div>
+							</div>
+						</h5>
+						<h5>
+							Title style
+							<div class="toggle-button">
+								<div class="toggle-option selected" data-toggle="title" id="titleRuled">Ruled</div>
+								<div class="toggle-option" data-toggle="title" id="titleShaded">Shaded</div>
+							</div>
+						</h5>
+						<h5>
+							Title rule position
+							<div class="toggle-button">
+								<div class="toggle-option selected" data-toggle="rule" id="ruleAbove">Above title</div>
+								<div class="toggle-option" data-toggle="rule" id="ruleBelow">Below title</div>
+							</div>
+						</h5>
+						<br>
+						<h5>
+							Image
+							<div class="toggle-button">
+								<div class="toggle-option selected" data-toggle="image" id="imageShow">Show</div>
+								<div class="toggle-option" data-toggle="image" id="imageHide">Hide</div>
+							</div>
+						</h5>
+						<h5>
+							Roll No
+							<div class="toggle-button">
+								<div class="toggle-option selected" data-toggle="roll" id="rollShow">Show</div>
+								<div class="toggle-option" data-toggle="roll" id="rollHide">Hide</div>
+							</div>
+						</h5>
+						<h5>
+							Course
+							<div class="toggle-button">
+								<div class="toggle-option selected" data-toggle="course" id="course1">1 line</div>
+								<div class="toggle-option" data-toggle="course" id="course2">2 lines</div>
+							</div>
+						</h5>
+						<h5>
+							Table border
+							<div class="toggle-button">
+								<div class="toggle-option selected" data-toggle="table" id="tableShow">Show</div>
+								<div class="toggle-option" data-toggle="table" id="tableHide">Hide</div>
+							</div>
+						</h5>
+						<h5>
+							Education year column
+							<div class="toggle-button">
+								<div class="toggle-option selected" data-toggle="edyear" id="edyearFirst">First</div>
+								<div class="toggle-option" data-toggle="edyear" id="edyearLat">Last</div>
+							</div>
+						</h5>
+						<h5>
+							Experience layout
+							<div class="toggle-button">
+								<div class="toggle-option selected" data-toggle="experience" id="experience1">L1</div>
+								<div class="toggle-option" data-toggle="experience" id="experience2">L2</div>
+							</div>
+						</h5>
+						<h5>
+							Projects layout
+							<div class="toggle-button">
+								<div class="toggle-option selected" data-toggle="projects" id="projects1">L1</div>
+								<div class="toggle-option" data-toggle="projects" id="projects2">L2</div>
+							</div>
+						</h5>
+						<br>
+					</div>
+
 					<h5>
-						Image
+						<button class="btn btn-sm btn-block btn-primary" data-toggle="modal" data-target="#sectionToggleModal">Show/Hide sections</button>
+					</h5>
+
+					<hr>
+
+					<h3 class="text-center">Lists and points</h3>
+					<button class="btn btn-block btn-xs btn-success" onclick="insertList();">+ Insert sub-list</button>
+					<button class="btn btn-block btn-xs btn-warning" onclick="decreaseIndent();">&lt;&lt; Decrese indentation</button>
+					<button class="btn btn-block btn-xs btn-warning" onclick="increaseIndent();">&gt;&gt; Increase indentation</button>
+					<h5>
+						List style :
 						<div class="toggle-button">
-							<div class="toggle-option selected" data-toggle="image" id="imageShow">Show</div>
-							<div class="toggle-option" data-toggle="image" id="imageHide">Hide</div>
+							<button class="btn btn-xs custom-button" onclick="changeListStyle(&#39;disc&#39;);">&#9899;</button>
+							<button class="btn btn-xs custom-button" onclick="changeListStyle(&#39;circle&#39;);">&#9898;</button>
+							<button class="btn btn-xs custom-button" onclick="changeListStyle(&#39;square&#39;);">&#9632;</button>
+							<button class="btn btn-xs custom-button" onclick="changeListStyle(&#39;dash&#39;);">-</button>
+							<button class="btn btn-xs custom-button" onclick="changeListStyle(&#39;decimal&#39;);">1.</button>
+							<button class="btn btn-xs custom-button" onclick="changeListStyle(&#39;upper-roman&#39;);">I.</button>
+							<button class="btn btn-xs custom-button" onclick="changeListStyle(&#39;lower-roman&#39;);">i.</button>
+							<button class="btn btn-xs custom-button" onclick="changeListStyle(&#39;upper-alpha&#39;);">A.</button>
+							<button class="btn btn-xs custom-button" onclick="changeListStyle(&#39;lower-alpha&#39;);">a.</button>
 						</div>
 					</h5>
-					<h5>
-						Roll No
-						<div class="toggle-button">
-							<div class="toggle-option selected" data-toggle="roll" id="rollShow">Show</div>
-							<div class="toggle-option" data-toggle="roll" id="rollHide">Hide</div>
-						</div>
-					</h5>
-					<h5>
-						Course
-						<div class="toggle-button">
-							<div class="toggle-option selected" data-toggle="course" id="course1">1 line</div>
-							<div class="toggle-option" data-toggle="course" id="course2">2 lines</div>
-						</div>
-					</h5>
-					<h5>
-						Table border
-						<div class="toggle-button">
-							<div class="toggle-option selected" data-toggle="table" id="tableShow">Show</div>
-							<div class="toggle-option" data-toggle="table" id="tableHide">Hide</div>
-						</div>
-					</h5>
-					<h5>
-						Education year column
-						<div class="toggle-button">
-							<div class="toggle-option selected" data-toggle="edyear" id="edyearFirst">First</div>
-							<div class="toggle-option" data-toggle="edyear" id="edyearLat">Last</div>
-						</div>
-					</h5>
-					<h5>
-						Experience layout
-						<div class="toggle-button">
-							<div class="toggle-option selected" data-toggle="experience" id="experience1">L1</div>
-							<div class="toggle-option" data-toggle="experience" id="experience2">L2</div>
-						</div>
-					</h5>
-					<h5>
-						Projects layout
-						<div class="toggle-button">
-							<div class="toggle-option selected" data-toggle="projects" id="projects1">L1</div>
-							<div class="toggle-option" data-toggle="projects" id="projects2">L2</div>
-						</div>
-					</h5>
-					<br>
 				</div>
-
-				<h5>
-					<button class="btn btn-sm btn-block btn-primary" data-toggle="modal" data-target="#sectionToggleModal">Show/Hide sections</button>
-				</h5>
-
-				<hr>
-
-				<h3 class="text-center">Lists and points</h3>
-				<button class="btn btn-block btn-xs btn-success" onclick="insertList();">+ Insert sub-list</button>
-				<button class="btn btn-block btn-xs btn-warning" onclick="decreaseIndent();">&lt;&lt; Decrese indentation</button>
-				<button class="btn btn-block btn-xs btn-warning" onclick="increaseIndent();">&gt;&gt; Increase indentation</button>
-				<h5>
-					List style :
-					<div class="toggle-button">
-						<button class="btn btn-xs custom-button" onclick="changeListStyle(&#39;disc&#39;);">&#9899;</button>
-						<button class="btn btn-xs custom-button" onclick="changeListStyle(&#39;circle&#39;);">&#9898;</button>
-						<button class="btn btn-xs custom-button" onclick="changeListStyle(&#39;square&#39;);">&#9632;</button>
-						<button class="btn btn-xs custom-button" onclick="changeListStyle(&#39;dash&#39;);">-</button>
-						<button class="btn btn-xs custom-button" onclick="changeListStyle(&#39;decimal&#39;);">1.</button>
-						<button class="btn btn-xs custom-button" onclick="changeListStyle(&#39;upper-roman&#39;);">I.</button>
-						<button class="btn btn-xs custom-button" onclick="changeListStyle(&#39;lower-roman&#39;);">i.</button>
-						<button class="btn btn-xs custom-button" onclick="changeListStyle(&#39;upper-alpha&#39;);">A.</button>
-						<button class="btn btn-xs custom-button" onclick="changeListStyle(&#39;lower-alpha&#39;);">a.</button>
-					</div>
-				</h5>
 			</div>
-		</div>
 
-	<!------right page----->
-		<div class="col-sm-9 text-center" id="right">
-			<div id="page" class="verdana-sans" contenteditable="true" style="line-height: 1.3em; padding: 0cm .25cm .25cm">
-				
-				<div class="row" id="info">
-					<div style="display: block" id="image_box">
-						<img src="./images/iitp_logo.png" height="80" width="80">
+		<!------right page----->
+			<div class="col-sm-9 text-center" id="right">
+				<div id="page" class="verdana-sans" contenteditable="true" style="line-height: 1.3em; padding: 0cm .25cm .25cm">
+					
+					<div class="row" id="info">
+						<div style="display: block" id="image_box">
+							<img src="./images/iitp_logo.png" height="80" width="80">
+						</div>
+
+						<div class="row" style=" ">
+							<div class="col-sm-5" style="margin-top: 10px; margin-left: 10px; ">
+								<div id="contentName">
+									<span id="fName">fName</span> <span id="sName">sName</span>
+								</div>
+								<div class="light" id="contactLink" >contactLink</div>
+							</div>
+
+							<div class="col-sm-5" id="contacts" style="text-align: right; margin-top: 10px; float: right">contacts</div>
+						</div>
 					</div>
 
-					<div class="row" style=" ">
-						<div class="col-sm-5" style="margin-top: 10px; margin-left: 10px; ">
-							<div id="contentName">
-								<span class="fName">Aditya</span>
-								<span class="sName">Suman</span>
-							</div>
-							<div class="light" id="contactLink1" >
-								www.linkedin.com/in/adityasuman2025
-								<br />
-								https://adityasuman.mngo.in
-							</div>
+				
+					<div class="section" id="sectionEducation">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h4><strong>Education</strong></h4>
+							<hr class="hr-below">
 						</div>
+						<ul class="nobullet">
+						<li>
+							<table class="table customBordered" id="educationTable">
+								<tbody><tr>
+									<td class="header"><strong>Year</strong></td>
+									<td class="header"><strong>Degree / Certificate</strong></td>
+									<td class="header"><strong>Institute / Board</strong></td>
+									<td class="header"><strong>CGPA/Percentage</strong></td>
+								</tr>
+								<tr>
+									<td class="">2016 - Present</td>
+									<td class="">B.Tech</td>
+									<td>Indian Institute of Technology Patna</td>
+									<td>7.18 (Current)</td>
+								</tr>
+								<tr>
+									<td class="">2016</td>
+									<td class="">Senior secondary</td>
+									<td>BSEB Board</td>
+									<td>70.4%</td>
+								</tr>
+								<tr>
+									<td class="">2014</td>
+									<td class="">Secondary</td>
+									<td>CBSE Board</td>
+									<td>10.0</td>
+								</tr>
+							</tbody></table>
+						</li>
+						</ul>
+					</div>
 
-						<div class="col-sm-5" style="text-align: right; margin-top: 10px; float: right">
-							+91-8789619252<br>adityasuman2025@gmail.com<br>
-							aditya.me16@iitp.ac.in<br>
+
+					<div class="section" id="sectionExperience">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h4><strong>Experience</strong></h4>
+							<hr class="hr-below">
 						</div>
+						<ul style="padding-left: 30px;" class="disc">
+						<li>
+							<div>	
+							<div class="title" style="display: inline-block;">Engineering Intern at ISTRAC-ISRO, Bangalore</div><div class="time right" style="display: inline-block;">May 2019 - July 2019</div>
+							</div>
+							<div>
+							<div class="link right" style="display: block;">https://www.istrac.gov.in</div><div class="text">Worked in SDG Laboratory to develop an App &amp; Web Interface for monitoring and control of MEOSAR.</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li><span style="color: rgb(68, 68, 68); font-size: 13.5px;">Created Web-Socket Client in Java &amp; JavaScript to connect App to the Web-Socket Server built on Python to extract real-time big data coming from&nbsp;</span><font color="#444444"><span style="font-size: 13.5px;">satellites.</span></font></li><li>Process and manipulated data to extract relevant information from JSON into human readable format and in a interacting interface.</li><li>Technologies: Android Studio, Java, REST API, JavaScript, Python, PHP, MySQL, jQuery</li></ul></div></li>
+						<li>
+							<div>	
+							<div class="title" style="display: inline-block;">Software Development Intern at&nbsp;Oxyvin Technologies, Bangalore</div><div class="time right" style="display: inline-block;">Nov 2018 – Jan 2019</div>
+							</div>
+							<div>
+							<div class="link right" style="display: block;">https://oxyvin.com</div>
+							<div class="text">Worked on CodeIgniter framework for MVC Architectural Application Development.</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li>Divided different forms in different steps to be followed in chronological order in each modules and used&nbsp;different Normalization techniques to store data in more structured form in MySQL database.</li><li>Technologies: CodeIgniter, PHP, MySQL, jQuery, JavaScript, AJAX, Bootstrap</li></ul>
+							</div>
+						</li><li><div><div class="title" style="display: inline-block;">Software Development Intern at&nbsp;NGCN Infosolutions, Suratkal</div><div class="time right" style="display: inline-block;">May 2018 – July 2018</div></div><div><div class="link right" style="display: block;">http://ngcn.co.uk/</div><div class="text">Developed an ERP Software used for Billing and Inventory work with features like Multi-Branch &amp; Multi-User.</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li>Created a Single Page Application using jQuery and used AJAX to perform different tasks in background to minimize slow loading and to avoid repeated loading of same UI.</li><li>Technologies: PHP, jQuery, JavaScript, AJAX, MySQL, phpMyAdmin</li></ul></div></li><li><div><div class="title">Full Stack Web Development Intern at&nbsp;CatchFreeDeal, Noida</div><div class="time right">Dec 2017</div></div><div><div class="link right">http://catchfreedeal.com/</div><div class="text">Developed a complete website from scratch which displays deals &amp; coupons from different e-commerce sites.</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li>Technologies: PHP, jQuery, JavaScript, AJAX, MySQL, phpMyAdmin, Bootstrap</li></ul></div></li></ul>
+					</div>
+
+
+					<div class="section" id="sectionPublications" style="display: none;">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h4><strong>Publications</strong></h4>
+							<hr class="hr-below">
+						</div>
+						<ul>
+						<li>
+							<div>	
+							<div class="title">Advanced analysis of damping motion</div>
+							<div class="time right">PCES 2010</div>
+							</div>
+							<div>
+							<div class="mentor">Mentors</div>
+							</div>
+						</li>
+						<li>
+							<div>	
+							<div class="title">Efficient ranking of search results</div>
+							<div class="time right">LOCS 2010</div>
+							</div>
+							<div>
+							<div class="mentor">Mentors</div>
+							</div>
+						</li>
+						</ul>
+					</div>
+
+
+					<div class="section" id="sectionProjects">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h4><strong>Projects</strong></h4>
+							<hr class="hr-below">
+						</div>
+						<ul style="padding-left: 30px;" class="disc">
+						<li>
+							<div>		
+							<div class="title">App for GST Department, Government of Bihar</div>
+							<div class="time right">July 2019 - Ongoing</div>
+							</div>
+							<div><div><div class="mentor tab">Dr. Mayank Agrawal &amp; Dr. Jimson Mathew, Dept. of CSE IIT Patna</div><div class="link right">https://bit.ly/32rf9zd</div></div></div><div><div class="text"><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li>Developing an App to perform task like extracting data from large CSV files, live location tracker, location &amp; user based content, contact number dialer, feedback system, etc.</li></ul></div>
+							</div>
+						</li>
+						<li>
+							<div>
+							<div class="title">Key Issue System for IIT Patna</div>
+							<div class="time right">Feb 2019</div>
+							</div>
+							<div><div class="mentor tab">Dr. Mayank Agrawal &amp; Dr. Jimson Mathew, Dept. of CSE, IIT Patna</div>
+							<div class="link right">https://bit.ly/2LpFmr0</div></div><div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li><span style="color: rgb(68, 68, 68); font-size: 13.5px;">Developed a Key Issue &amp; Return App for the rooms and labs of IIT Patna based on QR Code.</span></li><li><span style="color: rgb(68, 68, 68); font-size: 13.5px;">Used zxing library of Java and enabled mobile phone camera to scan QR code of the keys &amp; person.</span></li></ul></div></li>
+						<li>
+							<div>		
+							<div class="title">Wi-Fi Based Attendance System for IIT Patna</div>
+							<div class="time right">Mar 2019 - Apr 2019</div>
+							</div>
+							<div>
+							<div class="mentor tab">Dr. Mayank Agarawal,&nbsp;Assistant Professor,&nbsp;</div><span style="font-style: italic;">Dept. of CSE, IIT Patna</span><div class="link right">https://bit.ly/2Uix5sC</div>
+							</div>
+							<div>
+							<div class="text"><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li><div class="text">Developed an attendance system App which uses Wi-Fi technology of smartphone to mark attendance. A student can mark his attendance by connecting his phone to the hotspot created by professor’s phone.</div></li><li>Used Socket Programming techniques to let the the sockets communicate with each other at a particular IP &amp; PORT over Wi-Fi Network.</li></ul></div>
+							</div>
+						</li>
+						<li>
+							<div>		
+							<div class="title">ChatApp</div>
+							<div class="time right">June 2018 - July 2018</div>
+							</div>
+							<div><div><div class="link right">http://chat.mngo.in</div></div><div><div class="text">&nbsp; &nbsp;<i>MNgo</i></div></div></div><div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li>Used Socket Programming libraries of Java to create Socket Client to connect to socket.io Node.js Server.</li><li>Wrote REST API on Node.js to get user data &amp; old messages and to store new data in mongoDB.</li><li>Implemented Service &amp; Foreground Process in Android to keep Socket Client running in background even when the app is minimized or closed to get push notification of new messages.</li><li>Used Multithreading feature of Java to make the App faster and to minimize load on UI thread.</li></ul>
+							</div>
+						</li>
+						<li>
+							<div>		
+							<div class="title">Anwesha 2k18 Website’s Front-end</div>
+							<div class="time right">Sep 2017 – Jan 2018</div>
+							</div>
+							<div>
+							<div class="mentor tab">Coordinators, Anwesha, IIT Patna</div><div class="link right">https://2018.anwesha.info</div></div><div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li>Design &amp; developed front-end of the 2018's website of annual cultural fest of IIT Patna.</li><li>Implemented mousewheel.js to scroll the website horizontally and used jQuery features like mouse location, on scroll, image location coordinates, AJAX, etc to create a unique design of the website.</li></ul>
+							</div>
+						</li>
+						<li>
+							<div>		
+							<div class="title">Calculator</div><div class="time right">Sep 2017</div>
+							</div>
+							<div>
+							<div><div class="mentor tab">CS382 - Introduction to OOPs, IIT Patna</div><div class="link right">https://bit.ly/2HBbCGd</div></div>
+							<ul class="circle" style="margin-left: 0px; padding-left: 25px;">
+								<li style="margin-top: 1.65625px;">Implemented Infix to Postfix conversion algorithm, stack data structure and various string functions in Java to develop a standard calculator Android App.
+								</li>
+							</ul>
+							</div>
+						</li>
+						</ul>
+					</div>
+
+				
+					<div class="section" id="sectionSkills">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h4><strong>Technical skills</strong></h4>
+							<hr class="hr-below">
+						</div>
+						<ul style="padding-left: 10px;">
+						<li><strong><span class="skillCategory">General:&nbsp;</span></strong>Android &amp; Web Application Development, API Development, MVC Architectural Application Development</li><li>
+							<span class="skillCategory" style="font-weight: bold;">Programming language &amp;&nbsp;</span><b>Database:</b>
+							Java, JavaScript, Python, PHP, SQL, MySQL, mongoDB
+						</li>
+						<li>
+							<strong><span class="skillCategory">Web Technologies</span>:</strong>
+							jQuery, Node.js, REST API, Web-Socket, CodeIgniter, express.js, HTML, CSS</li>
+						<li><b>Other Tools: </b>Android Studio, Git, cPanel, Heroku, Google Cloud Platform Compute Engine, AWS EC2</li><li><b>Operating System:</b> Linux, Windows</li>
+						</ul>
+					</div>
+
+
+					<div class="section" id="sectionResponsibility">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h4><strong>Positions of Responsibility</strong></h4>
+							<hr class="hr-below">
+						</div>
+						<ul style="padding-left: 10px;">
+							<li>Former Coordinator,Design Club, IIT Patna (2017 - 2019)</li>
+							<li>Former Web &amp; App Team Sub-Coordinator,Anwesha 2018, IIT Patna(2017 - 2018)</li><li>Former Web Master, Entrepreneurship Club, IIT Patna (2017 - 2018)</li>
+						</ul>
+					</div>
+
+
+					<div class="section" id="sectionAchievements">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h4><strong>Achievements</strong></h4>
+							<hr class="hr-below">
+						</div>
+						<ul style="padding-left: 10px;">
+						<li>
+							<span class="title">Internship at ISRO:&nbsp;</span>Recieved Letter of Recommendation and ranked among top 2% students worked under S.&nbsp;Santhalakshmi, Scientist ‘SF’ &amp; Manager SDG, ISTRAC-ISRO.</li>
+						<li>
+							<span class="title">Internship at NGCN:&nbsp;</span>Recieved Return Offer &amp; Recommendation on LinkedIn Profile from Justin Sebastian, CEO of NGCN, Oxyvin.</li>
+						<li>
+							<span class="title">Professors of IIT Patna:&nbsp;</span>Got Letter of Recommendation from Dr. Jimson Mathew, Head of Department (HOD)&nbsp;and Letter of Appreciation from Dr. Mayank Agrawal, Assistant Professor, IIT Patna</li>
+						<li>
+							<span class="title">JEE Main:&nbsp;<span style="font-weight: normal;">Secured 98.97 percentile out of 12,07,058 candidates appeared in JEE Main 2016.</span></span><ul class="decimal">
+							</ul>
+						</li><li><span class="title" style="">Key Issue App for IIT Patna:&nbsp;</span>This App resulted in faster issuing and returning of keys which prevents queue and&nbsp;saves time. 2750+ keys of labs &amp; rooms in IIT Patna have been issued and returned till date.</li>
+						</ul>
+					</div>
+
+				
+					<div class="section" id="sectionCourses" style="display: none;">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h4><strong>Key courses taken</strong></h4>
+							<hr class="hr-below">
+						</div>
+						<ul>
+						<div class="row">
+							<div class="col-sm-6">
+								<li>Computer lab</li>
+								<li>Process design</li>
+								<li>Statistics *</li>
+							</div>
+							<div class="col-sm-6">
+								<li>Advanced calculus</li>
+								<li>XYZ architecture *</li>
+								<li>ABC lab *</li>
+							</div>
+						</div>
+						<div class="star"><i>*<span class="light"> To be completed in Nov 2016</span></i></div>
+						</ul>
+					</div>
+
+				
+					<div class="section" id="sectionCurricular" style="display: none;">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h4><strong>Extracurriculars</strong></h4>
+							<hr class="hr-below">
+						</div>
+						<ul>
+						<li>
+							<span class="title">ABC workshop : </span>
+							<span class="text">Attended a 3-day workshop on Image sensing satellute development.</span>
+						</li>
+						<li>
+							<span class="title">ABC contest 2016 : </span>
+							<span class="text">Secured 1st position in the National level contest.</span>
+						</li>
+						</ul>
+					</div>
+
+					
+					<div class="section" id="sectionInterest">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h4><strong>Fields of interest (OR Research interests)</strong></h4>
+							<hr class="hr-below">
+						</div>
+						<ul>
+						<div class="row">
+							<div class="col-sm-6">
+								<li>Advanced XYZ</li>
+								<li>ABC design</li>
+							</div>
+							<div class="col-sm-6">
+								<li>XYZ processing</li>
+								<li>Robotics</li>
+							</div>
+						</div>
+						</ul>
 					</div>
 					
-				</div>
-
-			
-				<div class="section" id="sectionEducation">
-					<div class="section-title rule-above ruled">
-						<hr class="hr-above">
-						<h4><strong>Education</strong></h4>
-						<hr class="hr-below">
-					</div>
-					<ul class="nobullet">
-					<li>
-						<table class="table customBordered" id="educationTable">
-							<tbody><tr>
-								<td class="header"><strong>Year</strong></td>
-								<td class="header"><strong>Degree / Certificate</strong></td>
-								<td class="header"><strong>Institute / Board</strong></td>
-								<td class="header"><strong>CGPA/Percentage</strong></td>
-							</tr>
-							<tr>
-								<td class="">2016 - Present</td>
-								<td class="">B.Tech</td>
-								<td>Indian Institute of Technology Patna</td>
-								<td>7.18 (Current)</td>
-							</tr>
-							<tr>
-								<td class="">2016</td>
-								<td class="">Senior secondary</td>
-								<td>BSEB Board</td>
-								<td>70.4%</td>
-							</tr>
-							<tr>
-								<td class="">2014</td>
-								<td class="">Secondary</td>
-								<td>CBSE Board</td>
-								<td>10.0</td>
-							</tr>
-						</tbody></table>
-					</li>
-					</ul>
-				</div>
-
-
-				<div class="section" id="sectionExperience">
-					<div class="section-title rule-above ruled">
-						<hr class="hr-above">
-						<h4><strong>Experience</strong></h4>
-						<hr class="hr-below">
-					</div>
-					<ul style="padding-left: 30px;" class="disc">
-					<li>
-						<div>	
-						<div class="title" style="display: inline-block;">Engineering Intern at ISTRAC-ISRO, Bangalore</div><div class="time right" style="display: inline-block;">May 2019 - July 2019</div>
+					<div class="section" id="sectionFooterMessage">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h6><strong>(References available on request)</strong></h6>
 						</div>
-						<div>
-						<div class="link right" style="display: block;">https://www.istrac.gov.in</div><div class="text">Worked in SDG Laboratory to develop an App &amp; Web Interface for monitoring and control of MEOSAR.</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li><span style="color: rgb(68, 68, 68); font-size: 13.5px;">Created Web-Socket Client in Java &amp; JavaScript to connect App to the Web-Socket Server built on Python to extract real-time big data coming from&nbsp;</span><font color="#444444"><span style="font-size: 13.5px;">satellites.</span></font></li><li>Process and manipulated data to extract relevant information from JSON into human readable format and in a interacting interface.</li><li>Technologies: Android Studio, Java, REST API, JavaScript, Python, PHP, MySQL, jQuery</li></ul></div></li>
-					<li>
-						<div>	
-						<div class="title" style="display: inline-block;">Software Development Intern at&nbsp;Oxyvin Technologies, Bangalore</div><div class="time right" style="display: inline-block;">Nov 2018 – Jan 2019</div>
-						</div>
-						<div>
-						<div class="link right" style="display: block;">https://oxyvin.com</div>
-						<div class="text">Worked on CodeIgniter framework for MVC Architectural Application Development.</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li>Divided different forms in different steps to be followed in chronological order in each modules and used&nbsp;different Normalization techniques to store data in more structured form in MySQL database.</li><li>Technologies: CodeIgniter, PHP, MySQL, jQuery, JavaScript, AJAX, Bootstrap</li></ul>
-						</div>
-					</li><li><div><div class="title" style="display: inline-block;">Software Development Intern at&nbsp;NGCN Infosolutions, Suratkal</div><div class="time right" style="display: inline-block;">May 2018 – July 2018</div></div><div><div class="link right" style="display: block;">http://ngcn.co.uk/</div><div class="text">Developed an ERP Software used for Billing and Inventory work with features like Multi-Branch &amp; Multi-User.</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li>Created a Single Page Application using jQuery and used AJAX to perform different tasks in background to minimize slow loading and to avoid repeated loading of same UI.</li><li>Technologies: PHP, jQuery, JavaScript, AJAX, MySQL, phpMyAdmin</li></ul></div></li><li><div><div class="title">Full Stack Web Development Intern at&nbsp;CatchFreeDeal, Noida</div><div class="time right">Dec 2017</div></div><div><div class="link right">http://catchfreedeal.com/</div><div class="text">Developed a complete website from scratch which displays deals &amp; coupons from different e-commerce sites.</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li>Technologies: PHP, jQuery, JavaScript, AJAX, MySQL, phpMyAdmin, Bootstrap</li></ul></div></li></ul>
-				</div>
-
-
-				<div class="section" id="sectionPublications" style="display: none;">
-					<div class="section-title rule-above ruled">
-						<hr class="hr-above">
-						<h4><strong>Publications</strong></h4>
-						<hr class="hr-below">
-					</div>
-					<ul>
-					<li>
-						<div>	
-						<div class="title">Advanced analysis of damping motion</div>
-						<div class="time right">PCES 2010</div>
-						</div>
-						<div>
-						<div class="mentor">Mentors</div>
-						</div>
-					</li>
-					<li>
-						<div>	
-						<div class="title">Efficient ranking of search results</div>
-						<div class="time right">LOCS 2010</div>
-						</div>
-						<div>
-						<div class="mentor">Mentors</div>
-						</div>
-					</li>
-					</ul>
-				</div>
-
-
-				<div class="section" id="sectionProjects">
-					<div class="section-title rule-above ruled">
-						<hr class="hr-above">
-						<h4><strong>Projects</strong></h4>
-						<hr class="hr-below">
-					</div>
-					<ul style="padding-left: 30px;" class="disc">
-					<li>
-						<div>		
-						<div class="title">App for GST Department, Government of Bihar</div>
-						<div class="time right">July 2019 - Ongoing</div>
-						</div>
-						<div><div><div class="mentor tab">Dr. Mayank Agrawal &amp; Dr. Jimson Mathew, Dept. of CSE IIT Patna</div><div class="link right">https://bit.ly/32rf9zd</div></div></div><div><div class="text"><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li>Developing an App to perform task like extracting data from large CSV files, live location tracker, location &amp; user based content, contact number dialer, feedback system, etc.</li></ul></div>
-						</div>
-					</li>
-					<li>
-						<div>
-						<div class="title">Key Issue System for IIT Patna</div>
-						<div class="time right">Feb 2019</div>
-						</div>
-						<div><div class="mentor tab">Dr. Mayank Agrawal &amp; Dr. Jimson Mathew, Dept. of CSE, IIT Patna</div>
-						<div class="link right">https://bit.ly/2LpFmr0</div></div><div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li><span style="color: rgb(68, 68, 68); font-size: 13.5px;">Developed a Key Issue &amp; Return App for the rooms and labs of IIT Patna based on QR Code.</span></li><li><span style="color: rgb(68, 68, 68); font-size: 13.5px;">Used zxing library of Java and enabled mobile phone camera to scan QR code of the keys &amp; person.</span></li></ul></div></li>
-					<li>
-						<div>		
-						<div class="title">Wi-Fi Based Attendance System for IIT Patna</div>
-						<div class="time right">Mar 2019 - Apr 2019</div>
-						</div>
-						<div>
-						<div class="mentor tab">Dr. Mayank Agarawal,&nbsp;Assistant Professor,&nbsp;</div><span style="font-style: italic;">Dept. of CSE, IIT Patna</span><div class="link right">https://bit.ly/2Uix5sC</div>
-						</div>
-						<div>
-						<div class="text"><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li><div class="text">Developed an attendance system App which uses Wi-Fi technology of smartphone to mark attendance. A student can mark his attendance by connecting his phone to the hotspot created by professor’s phone.</div></li><li>Used Socket Programming techniques to let the the sockets communicate with each other at a particular IP &amp; PORT over Wi-Fi Network.</li></ul></div>
-						</div>
-					</li>
-					<li>
-						<div>		
-						<div class="title">ChatApp</div>
-						<div class="time right">June 2018 - July 2018</div>
-						</div>
-						<div><div><div class="link right">http://chat.mngo.in</div></div><div><div class="text">&nbsp; &nbsp;<i>MNgo</i></div></div></div><div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li>Used Socket Programming libraries of Java to create Socket Client to connect to socket.io Node.js Server.</li><li>Wrote REST API on Node.js to get user data &amp; old messages and to store new data in mongoDB.</li><li>Implemented Service &amp; Foreground Process in Android to keep Socket Client running in background even when the app is minimized or closed to get push notification of new messages.</li><li>Used Multithreading feature of Java to make the App faster and to minimize load on UI thread.</li></ul>
-						</div>
-					</li>
-					<li>
-						<div>		
-						<div class="title">Anwesha 2k18 Website’s Front-end</div>
-						<div class="time right">Sep 2017 – Jan 2018</div>
-						</div>
-						<div>
-						<div class="mentor tab">Coordinators, Anwesha, IIT Patna</div><div class="link right">https://2018.anwesha.info</div></div><div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li>Design &amp; developed front-end of the 2018's website of annual cultural fest of IIT Patna.</li><li>Implemented mousewheel.js to scroll the website horizontally and used jQuery features like mouse location, on scroll, image location coordinates, AJAX, etc to create a unique design of the website.</li></ul>
-						</div>
-					</li>
-					<li>
-						<div>		
-						<div class="title">Calculator</div><div class="time right">Sep 2017</div>
-						</div>
-						<div>
-						<div><div class="mentor tab">CS382 - Introduction to OOPs, IIT Patna</div><div class="link right">https://bit.ly/2HBbCGd</div></div>
-						<ul class="circle" style="margin-left: 0px; padding-left: 25px;">
-							<li style="margin-top: 1.65625px;">Implemented Infix to Postfix conversion algorithm, stack data structure and various string functions in Java to develop a standard calculator Android App.
-							</li>
-						</ul>
-						</div>
-					</li>
-					</ul>
-				</div>
-
-			
-				<div class="section" id="sectionSkills">
-					<div class="section-title rule-above ruled">
-						<hr class="hr-above">
-						<h4><strong>Technical skills</strong></h4>
-						<hr class="hr-below">
-					</div>
-					<ul style="padding-left: 10px;">
-					<li><strong><span class="skillCategory">General:&nbsp;</span></strong>Android &amp; Web Application Development, API Development, MVC Architectural Application Development</li><li>
-						<span class="skillCategory" style="font-weight: bold;">Programming language &amp;&nbsp;</span><b>Database:</b>
-						Java, JavaScript, Python, PHP, SQL, MySQL, mongoDB
-					</li>
-					<li>
-						<strong><span class="skillCategory">Web Technologies</span>:</strong>
-						jQuery, Node.js, REST API, Web-Socket, CodeIgniter, express.js, HTML, CSS</li>
-					<li><b>Other Tools: </b>Android Studio, Git, cPanel, Heroku, Google Cloud Platform Compute Engine, AWS EC2</li><li><b>Operating System:</b> Linux, Windows</li>
-					</ul>
-				</div>
-
-
-				<div class="section" id="sectionResponsibility">
-					<div class="section-title rule-above ruled">
-						<hr class="hr-above">
-						<h4><strong>Positions of Responsibility</strong></h4>
-						<hr class="hr-below">
-					</div>
-					<ul style="padding-left: 10px;">
-						<li>Former Coordinator,Design Club, IIT Patna (2017 - 2019)</li>
-						<li>Former Web &amp; App Team Sub-Coordinator,Anwesha 2018, IIT Patna(2017 - 2018)</li><li>Former Web Master, Entrepreneurship Club, IIT Patna (2017 - 2018)</li>
-					</ul>
-				</div>
-
-
-				<div class="section" id="sectionAchievements">
-					<div class="section-title rule-above ruled">
-						<hr class="hr-above">
-						<h4><strong>Achievements</strong></h4>
-						<hr class="hr-below">
-					</div>
-					<ul style="padding-left: 10px;">
-					<li>
-						<span class="title">Internship at ISRO:&nbsp;</span>Recieved Letter of Recommendation and ranked among top 2% students worked under S.&nbsp;Santhalakshmi, Scientist ‘SF’ &amp; Manager SDG, ISTRAC-ISRO.</li>
-					<li>
-						<span class="title">Internship at NGCN:&nbsp;</span>Recieved Return Offer &amp; Recommendation on LinkedIn Profile from Justin Sebastian, CEO of NGCN, Oxyvin.</li>
-					<li>
-						<span class="title">Professors of IIT Patna:&nbsp;</span>Got Letter of Recommendation from Dr. Jimson Mathew, Head of Department (HOD)&nbsp;and Letter of Appreciation from Dr. Mayank Agrawal, Assistant Professor, IIT Patna</li>
-					<li>
-						<span class="title">JEE Main:&nbsp;<span style="font-weight: normal;">Secured 98.97 percentile out of 12,07,058 candidates appeared in JEE Main 2016.</span></span><ul class="decimal">
-						</ul>
-					</li><li><span class="title" style="">Key Issue App for IIT Patna:&nbsp;</span>This App resulted in faster issuing and returning of keys which prevents queue and&nbsp;saves time. 2750+ keys of labs &amp; rooms in IIT Patna have been issued and returned till date.</li>
-					</ul>
-				</div>
-
-			
-				<div class="section" id="sectionCourses" style="display: none;">
-					<div class="section-title rule-above ruled">
-						<hr class="hr-above">
-						<h4><strong>Key courses taken</strong></h4>
-						<hr class="hr-below">
-					</div>
-					<ul>
-					<div class="row">
-						<div class="col-sm-6">
-							<li>Computer lab</li>
-							<li>Process design</li>
-							<li>Statistics *</li>
-						</div>
-						<div class="col-sm-6">
-							<li>Advanced calculus</li>
-							<li>XYZ architecture *</li>
-							<li>ABC lab *</li>
-						</div>
-					</div>
-					<div class="star"><i>*<span class="light"> To be completed in Nov 2016</span></i></div>
-					</ul>
-				</div>
-
-			
-				<div class="section" id="sectionCurricular" style="display: none;">
-					<div class="section-title rule-above ruled">
-						<hr class="hr-above">
-						<h4><strong>Extracurriculars</strong></h4>
-						<hr class="hr-below">
-					</div>
-					<ul>
-					<li>
-						<span class="title">ABC workshop : </span>
-						<span class="text">Attended a 3-day workshop on Image sensing satellute development.</span>
-					</li>
-					<li>
-						<span class="title">ABC contest 2016 : </span>
-						<span class="text">Secured 1st position in the National level contest.</span>
-					</li>
-					</ul>
-				</div>
-
-				
-				<div class="section" id="sectionInterest">
-					<div class="section-title rule-above ruled">
-						<hr class="hr-above">
-						<h4><strong>Fields of interest (OR Research interests)</strong></h4>
-						<hr class="hr-below">
-					</div>
-					<ul>
-					<div class="row">
-						<div class="col-sm-6">
-							<li>Advanced XYZ</li>
-							<li>ABC design</li>
-						</div>
-						<div class="col-sm-6">
-							<li>XYZ processing</li>
-							<li>Robotics</li>
-						</div>
-					</div>
-					</ul>
-				</div>
-				
-				<div class="section" id="sectionFooterMessage">
-					<div class="section-title rule-above ruled">
-						<hr class="hr-above">
-						<h6><strong>(References available on request)</strong></h6>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
 
-<div class="modal fade" id="usageModal" tabindex="-1" style="display: none;">
-	<div class="modal-dialog">
-		<div class="modal-content">
+	<div class="modal fade" id="usageModal" tabindex="-1" style="display: none;">
+		<div class="modal-dialog">
+			<div class="modal-content">
 
-			<div class="modal-body">
-				<button type="button" class="close" data-dismiss="modal">×</button>
-				<h5><strong>Note : </strong>Use <strong>Firefox v65+ (Recommended) / Google Chrome</strong>. Other browsers are unable to print properly and don't support some features.</h5>
-				<h4><strong>Editing content</strong></h4>
-				<ul>
-					<li>Edit the Resume content just like a normal document editor (cut,copy,undo etc).</li>
-					<li>Entire sections can be added, reordered, removed just by cut,copy,pasting method. (Use "show/hide sections" button to hide but retain content)</li>
-					<li>To remove a section/point/mentor/link etc, just delete it.</li>
-					<li>For styled/formatted text, select the text portion and press <kbd>Ctrl+b</kbd> for bold, <kbd>Ctrl+i</kbd> for italics, <kbd>Ctrl+u</kbd> for underlined text.</li>
-					<li>Use "Insert sub-list" button to insert sub-points in a point. (like as in achivements section)</li>
-					<li>Change indentation and bullet style of the list where your cursor is placed.</li>
-				</ul>
-				<h4><strong>Editing template</strong></h4>
-				<ul>
-					<li>Use the options in the left panel to modify the template/look.</li>
-					<li>In case you want to use a different template than the official IITP template, choose the corresponding button to see other setting options. (For on-campus purpose, you must use official IITP template)</li>
-				</ul>
-				<h4><strong>Saving</strong></h4>
-				<ul>
-					<li>Close any popup box (like this instructions popup	) if opened. Press <kbd>Ctrl+s</kbd></li>
-					<li>This will save the webpage (a .html file and a folder will be saved. Keep them together)</li>
-					<li>Open the .html file in browser from your PC.</li>
-					<li>This way, you can maintain multiple saved copies for each profile/template on your PC.</li>
-				</ul>
-				<h4><strong>Print as PDF</strong></h4>
-				<ul>
-					<li>Adjust margin in the Firefox/Chrome's print dialog box. You may need it if a section is getting split between two pages. Print each page separately with different margins if needed.</li>
-					<li>If URLs or some stray text is being shown in print preview, disable the options "Include headers and footers","Include background graphics" etc in the print dialog box.</li>
-				</ul>
-				<h4><strong>Merge and compress PDFs</strong></h4>
-				<ul>
-					<li>If you can run python file on your machine, use the script provided on <a class="blue" target="_blank" href="https://github.com/The-3-Musketeers/IIT-Patna-Resume-Generator">project's github</a></li>
-					<li><a class="blue" target="_blank" href="http://www.pdfmerge.com/">pdfmerge.com/</a> is one of the best sites available for this task.</li>
-				</ul>
-			</div>
+				<div class="modal-body">
+					<button type="button" class="close" data-dismiss="modal">×</button>
+					<h5><strong>Note : </strong>Use <strong>Firefox v65+ (Recommended) / Google Chrome</strong>. Other browsers are unable to print properly and don't support some features.</h5>
+					<h4><strong>Editing content</strong></h4>
+					<ul>
+						<li>Edit the Resume content just like a normal document editor (cut,copy,undo etc).</li>
+						<li>Entire sections can be added, reordered, removed just by cut,copy,pasting method. (Use "show/hide sections" button to hide but retain content)</li>
+						<li>To remove a section/point/mentor/link etc, just delete it.</li>
+						<li>For styled/formatted text, select the text portion and press <kbd>Ctrl+b</kbd> for bold, <kbd>Ctrl+i</kbd> for italics, <kbd>Ctrl+u</kbd> for underlined text.</li>
+						<li>Use "Insert sub-list" button to insert sub-points in a point. (like as in achivements section)</li>
+						<li>Change indentation and bullet style of the list where your cursor is placed.</li>
+					</ul>
+					<h4><strong>Editing template</strong></h4>
+					<ul>
+						<li>Use the options in the left panel to modify the template/look.</li>
+						<li>In case you want to use a different template than the official IITP template, choose the corresponding button to see other setting options. (For on-campus purpose, you must use official IITP template)</li>
+					</ul>
+					<h4><strong>Saving</strong></h4>
+					<ul>
+						<li>Close any popup box (like this instructions popup	) if opened. Press <kbd>Ctrl+s</kbd></li>
+						<li>This will save the webpage (a .html file and a folder will be saved. Keep them together)</li>
+						<li>Open the .html file in browser from your PC.</li>
+						<li>This way, you can maintain multiple saved copies for each profile/template on your PC.</li>
+					</ul>
+					<h4><strong>Print as PDF</strong></h4>
+					<ul>
+						<li>Adjust margin in the Firefox/Chrome's print dialog box. You may need it if a section is getting split between two pages. Print each page separately with different margins if needed.</li>
+						<li>If URLs or some stray text is being shown in print preview, disable the options "Include headers and footers","Include background graphics" etc in the print dialog box.</li>
+					</ul>
+					<h4><strong>Merge and compress PDFs</strong></h4>
+					<ul>
+						<li>If you can run python file on your machine, use the script provided on <a class="blue" target="_blank" href="https://github.com/The-3-Musketeers/IIT-Patna-Resume-Generator">project's github</a></li>
+						<li><a class="blue" target="_blank" href="http://www.pdfmerge.com/">pdfmerge.com/</a> is one of the best sites available for this task.</li>
+					</ul>
+				</div>
 
-		</div>
-	</div>
-</div>
-
-<div class="modal fade" id="sectionToggleModal" tabindex="-1" style="display: none;">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-body">
-				<button type="button" class="close" data-dismiss="modal">×</button>
-				<div class="checkbox"><label><input type="checkbox" name="sectionToggle" checked="true" value="sectionEducation">Education</label></div>
-				<div class="checkbox"><label><input type="checkbox" name="sectionToggle" checked="true" value="sectionExperience">Experience</label></div>
-				<div class="checkbox"><label><input type="checkbox" name="sectionToggle" value="sectionPublications">Publications</label></div>
-				<div class="checkbox"><label><input type="checkbox" name="sectionToggle" checked="true" value="sectionProjects">Projects</label></div>
-				<div class="checkbox"><label><input type="checkbox" name="sectionToggle" checked="true" value="sectionSkills">Technical Skills</label></div>
-				<div class="checkbox"><label><input type="checkbox" name="sectionToggle" checked="true" value="sectionResponsibility">Positions of Responsibility</label></div>
-				<div class="checkbox"><label><input type="checkbox" name="sectionToggle" checked="true" value="sectionAchievements">Achievements</label></div>
-				<div class="checkbox"><label><input type="checkbox" name="sectionToggle" value="sectionCourses">Key courses taken</label></div>
-				<div class="checkbox"><label><input type="checkbox" name="sectionToggle" value="sectionCurricular">Extra curriculars</label></div>
-				<div class="checkbox"><label><input type="checkbox" name="sectionToggle" value="sectionFooterMessage">References message</label></div>
 			</div>
 		</div>
 	</div>
-</div>
+
+	<div class="modal fade" id="sectionToggleModal" tabindex="-1" style="display: none;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body">
+					<button type="button" class="close" data-dismiss="modal">×</button>
+					<div class="checkbox"><label><input type="checkbox" name="sectionToggle" checked="true" value="sectionEducation">Education</label></div>
+					<div class="checkbox"><label><input type="checkbox" name="sectionToggle" checked="true" value="sectionExperience">Experience</label></div>
+					<div class="checkbox"><label><input type="checkbox" name="sectionToggle" value="sectionPublications">Publications</label></div>
+					<div class="checkbox"><label><input type="checkbox" name="sectionToggle" checked="true" value="sectionProjects">Projects</label></div>
+					<div class="checkbox"><label><input type="checkbox" name="sectionToggle" checked="true" value="sectionSkills">Technical Skills</label></div>
+					<div class="checkbox"><label><input type="checkbox" name="sectionToggle" checked="true" value="sectionResponsibility">Positions of Responsibility</label></div>
+					<div class="checkbox"><label><input type="checkbox" name="sectionToggle" checked="true" value="sectionAchievements">Achievements</label></div>
+					<div class="checkbox"><label><input type="checkbox" name="sectionToggle" value="sectionCourses">Key courses taken</label></div>
+					<div class="checkbox"><label><input type="checkbox" name="sectionToggle" value="sectionCurricular">Extra curriculars</label></div>
+					<div class="checkbox"><label><input type="checkbox" name="sectionToggle" value="sectionFooterMessage">References message</label></div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript">
+//function to show and hide preloader
+	$('.preloader_container').load('preloader.html');
+
+
 //getting the stored data from data.json file
 	$.ajax({
         type: "GET",
         url: "data.json",
         dataType: "json",
         success: function(data) {
-        	var jsonData = data[0]
-            
-            console.log(jsonData.name);
-        }
+        //if some data exist
+        	if(data) {
+        		var jsonData = data[0];
+            	updateUI(jsonData);
+        	}
+
+        //removing preloader
+            setTimeout(function()
+			{
+				$('.preloader_container').css('z-index', '100').slideUp(200);
+			}, 200);
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+        //displaying error in preloader
+        	$('#loading_msg').text("Something went wrong while fetching data from storage file data.json: " + thrownError).css("color", 'red');
+
+        	// updateUI(null);
+      	}
     });
+
+//function to update UI from data fetched from json file
+	function updateUI(json) {
+		if( json ) {
+		//if valid json
+			for (var key in json) {
+			    if (json.hasOwnProperty(key)) {
+			    //getting val from json	
+			    	var val = json[key];
+
+			    	var modifiedVal = val.replace("\n", "<br />"); // to break word
+			    	console.log(modifiedVal);
+			    //updating UI	
+			       	$('#' + key).html(modifiedVal);
+			    }
+			}
+		}
+	}
 </script>
 
 </body>

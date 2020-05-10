@@ -36,7 +36,6 @@ body {
 	display: none;
 }
 
-
 #page {
 	/* width: 794px; */
 	/* height: 29.7cm; */
@@ -48,7 +47,6 @@ body {
 	line-height: 1.4em;
 	text-align: left;
 }
-
 
 #page h2 {
 	margin-bottom: 4px;
@@ -85,7 +83,7 @@ li li {
 .row, .container-fluid {
 	margin: 0;
 	padding: 0;
-	word-wrap: break-word;
+	word-wrap: all;
 }
 
 .star {
@@ -112,6 +110,63 @@ li li {
 	margin-left: 10px;
 }
 
+/*-------preloader stuffs---------*/
+	.preloader_container
+	{
+		z-index: 100000;
+		position: fixed;
+		top:0;
+		left:0;
+		height: 100%;
+		width: 100%;
+		background: #181915;
+	}
+
+	.splash_container
+	{	
+		position:absolute; /*it can be fixed too*/
+        left:0; right:0;
+        top:0; bottom:0;
+        margin:auto;
+
+		width: 100%;
+		height: 50%;
+		text-align: center;
+        overflow:auto;
+        color: #f1f1f1;
+
+		background-/*color: #e5e5e5;
+		background-image: linear-gradient(to bottom, #e5e5e5 0%, #d5d5d5 74%);
+		box-shadow: 0px 0px 5px grey;*/
+	}
+
+	#preloader_logo
+	{
+		width: 200px;		
+	}
+
+	#preloader_title
+	{
+		font-size: 120%;
+	}
+
+	.loading_bar
+	{
+		position: absolute;
+		bottom: 50px;
+		text-align: center;
+		width: 100%;
+		color: #f1f1f1;
+	}
+
+	.loading_gif
+	{
+		margin: auto;
+		width: 50px;
+	}
+
+/*-------preloader stuffs---------*/
+
 #image_box {
 	float: left;
 	margin-left: 0px;
@@ -128,12 +183,8 @@ li li {
 	margin-bottom: 8px;
 }
 
-.fName {
+#fName {
 	color: grey;
-}
-
-.sName {
-
 }
 
 .col-sm-5 {
