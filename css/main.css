@@ -1,10 +1,10 @@
-
 body {
 	background-color: #555;
 	line-height: 1.4em;
 	padding: 0;
 	margin: 0;
 }
+
 
 #left {
 	background-color: #363636;
@@ -23,7 +23,6 @@ body {
 	color: #666;
 }
 
-
 #panel {
 	padding: 5%;
 	color: white;
@@ -36,8 +35,6 @@ body {
 #customTemplateOptions {
 	display: none;
 }
-
-
 
 
 #page {
@@ -85,7 +82,11 @@ li li {
 	margin-top: 0.25%;
 }
 
-
+.row, .container-fluid {
+	margin: 0;
+	padding: 0;
+	word-wrap: break-word;
+}
 
 .star {
 	margin-top: 5px;
@@ -111,25 +112,35 @@ li li {
 	margin-left: 10px;
 }
 
-
-
-#image_box 
-{
+#image_box {
 	float: left;
-	margin-top: 25px;
-	margin-left: 5px;
-	margin-right: 15px;
+	margin-left: 0px;
 }
+
 #info {
-	margin-bottom: 0px;
-	margin-top: auto;
+	padding-top: 15px;
+	margin-bottom:10px;
+	/*background: blue;*/
 }
-#contact {
-	position: absolute;
-	bottom: 0;
-	right: 20px;
-	text-align: right;
+
+#contentName {
+	font-size: 33px;
+	margin-bottom: 8px;
 }
+
+.fName {
+	color: grey;
+}
+
+.sName {
+
+}
+
+.col-sm-5 {
+	margin: 0;
+	padding: 2px;
+}
+
 #contentMinor , #contentBranch , #contactLink2 {
 	display: none;
 }

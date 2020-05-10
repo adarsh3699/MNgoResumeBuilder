@@ -1,31 +1,25 @@
 <html>
 <head>
-	<title>MNgo Resume Generator</title>
+	<title>MNgo Resume Builder</title>
+	<link rel="icon" href="images/logo.png" />
+
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<!-- <link rel="stylesheet" type="text/css" href="css/scroll.css"> -->
-	<link rel="stylesheet" type="text/css" href="css/column_scroll.css">
-	<link rel="stylesheet" type="text/css" href="css/thin_scroll.css">
+	<link rel="stylesheet" type="text/css" href="css/scroll.css">
 	<link rel="stylesheet" type="text/css" href="css/theme.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700' rel='stylesheet' type='text/css'>
-	<meta name="description" content="Online document editor like interface to create and save Resume">
-	<meta name="keywords" content="resume,cv,maker,creator,generator,iit,patna,iitp">
+
 </head>
 
 <body>
 <div class="container-fluid">
 	<div class="row">
+	<!------left panel----->
 		<div class="col-sm-3 no-print" id="left">
 			<div id="panel">
-
-				<button class="btn btn-block btn-primary" data-toggle="modal" data-target="#usageModal">VIEW INSTRUCTIONS</button>
+				<button class="btn btn-block btn-primary" >Save</button>
 				<button class="btn btn-block btn-success" onclick="window.print()">PRINT AS PDF</button>
-
 				<hr>
 
-				<h3 class="text-center">Template settings</h3>
-				
 				<h5>
 					Minor
 					<div class="toggle-button">
@@ -186,28 +180,34 @@
 			</div>
 		</div>
 
-
+	<!------right page----->
 		<div class="col-sm-9 text-center" id="right">
-			<div id="page" class="verdana-sans" contenteditable="true" style="line-height: 1.3em; padding: 0cm .75cm .75cm">
+			<div id="page" class="verdana-sans" contenteditable="true" style="line-height: 1.3em; padding: 0cm .25cm .25cm">
+				
+				<div class="row" id="info">
+					<div style="display: block" id="image_box">
+						<img src="./images/iitp_logo.png" height="80" width="80">
+					</div>
 
-				<div class="row" style="margin-bottom:10px;">
-					<div class="col-sm-12" style="">
-						<div style="display: block" id="image_box">
-							<img src="./images/iitp_logo.png" height="80" width="80">
+					<div class="row" style=" ">
+						<div class="col-sm-5" style="margin-top: 10px; margin-left: 10px; ">
+							<div id="contentName">
+								<span class="fName">Aditya</span>
+								<span class="sName">Suman</span>
+							</div>
+							<div class="light" id="contactLink1" >
+								www.linkedin.com/in/adityasuman2025
+								<br />
+								https://adityasuman.mngo.in
+							</div>
 						</div>
-						<div id="info" style="display: inline-block; margin-left: 0px; margin-top: 0px;">
-							<h2 id="contentName">Aditya Suman</h2>
-							<h5 id="contentRoll" style="display: block;">Roll Number : 1601ME01</h5>
-							<h5 id="contentCourse">B.Tech - Mechanical Engineering</h5>
-							<h5 id="contentBranch" style="display: none;">XXX Engineering</h5>
-							<h5 id="contentMinor" style="display: none;">Minor in XXX</h5>
-							<h5 id="contentCollege">Indian Institute of Technology Patna</h5>
-						</div>
-						<div id="contact" style="float:right; display:inline-block;">
+
+						<div class="col-sm-5" style="text-align: right; margin-top: 10px; float: right">
 							+91-8789619252<br>adityasuman2025@gmail.com<br>
 							aditya.me16@iitp.ac.in<br>
-							<span class="light" id="contactLink1" style="display: inline;">www.linkedin.com/in/adityasuman2025<br></span><span class="light" id="contactLink2" style="display: inline;">https://adityasuman.mngo.in</span></div>
+						</div>
 					</div>
+					
 				</div>
 
 			
@@ -564,7 +564,6 @@
 </div>
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
-<!-- <script type="text/javascript" src="js/bootstrap.min.js"></script> -->
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript">
 //getting the stored data from data.json file
