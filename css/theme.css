@@ -76,11 +76,18 @@ ul.lower-alpha {
 	background-color: #222;
 }
 .toggle-option.selected {
-	/* background-color: #27AE60; */
-	/* background-color: #5cb85c; */
-	background-color: #E74C3C;
+	background-color: #751cc9;
 }
 
+.my_button {
+	display: inline-block;
+	padding: 3px;
+	padding-left: 8px;
+	padding-right: 8px;
+	cursor: pointer;
+	border-radius: 2px;
+	background-color: #751cc9;
+}
 
 .custom-button {
 	display: inline-block;
@@ -94,9 +101,8 @@ ul.lower-alpha {
 	background-color: #8E44AD;
 }
 .custom-button.selected {
-	background-color: #E74C3C;
+	background-color: #751cc9;
 }
-
 
 
 .btn-group {

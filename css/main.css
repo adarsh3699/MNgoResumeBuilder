@@ -172,7 +172,7 @@ li li {
 	margin-left: 0px;
 }
 
-#info {
+#sectionInfo {
 	padding-top: 15px;
 	margin-bottom:10px;
 	/*background: blue;*/
@@ -227,6 +227,7 @@ td.header {
 .section-title h4 { 
 	margin-top: 15px;
 	margin-bottom: 0px;
+	font-size: 140%;
 }
 .section-title.uppercase h4 {
 	text-transform: uppercase;
@@ -274,7 +275,7 @@ td.header {
 	font-style: italic;
 }
 .link {
-	color: #666;
+	color: #2390dd;
 	margin-left: 30px;
 	font-weight: 300;
 	font-style: italic;
@@ -291,6 +292,7 @@ td.header {
 #sectionSkills li , #sectionCourses li {
 	margin-top: 0.5%;
 }
+
 #sectionExperience .title , #sectionExperience .time {
 	display: inline-block;
 }
@@ -300,6 +302,19 @@ td.header {
 #sectionProjects .title , #sectionProjects .time {
 	display: inline-block;
 }
+
+.title {
+	font-size: 113%;
+}
+
+.time {
+	font-weight: bold;
+}
+
+.company_name {
+	font-weight: bold;
+}
+
 #sectionInterest {
 	display: none;
 }

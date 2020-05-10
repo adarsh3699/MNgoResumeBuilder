@@ -26,59 +26,34 @@
 			<div class="col-sm-3 no-print" id="left">
 				<div id="panel">
 					<button class="btn btn-block btn-primary" >Save</button>
-					<button class="btn btn-block btn-success" onclick="window.print()">PRINT AS PDF</button>
+					<button class="btn btn-block btn-success" onclick="window.print()">Print PDF</button>
 					<hr>
-
-					<h5>
-						Minor
-						<div class="toggle-button">
-							<div class="toggle-option" data-toggle="minor" id="minorShow">Show</div>
-							<div class="toggle-option selected" data-toggle="minor" id="minorHide">Hide</div>
-						</div>
-					</h5>
-					<h5>
-						Contact lines
-						<div class="toggle-button">
-							<div class="toggle-option" data-toggle="contact" id="contact3">3</div>
-							<div class="toggle-option" data-toggle="contact" id="contact4">4</div>
-							<div class="toggle-option selected" data-toggle="contact" id="contact5">5</div>
-						</div>
-					</h5>
-					<h5>
-						Horizontal margin
-						<div class="toggle-button">
-							<div class="toggle-option selected" data-toggle="margin" id="margin1">1</div>
-							<div class="toggle-option" data-toggle="margin" id="margin2">2</div>
-							<div class="toggle-option" data-toggle="margin" id="margin3">3</div>
-							<div class="toggle-option" data-toggle="margin" id="margin4">4</div>
-							<div class="toggle-option" data-toggle="margin" id="margin5">5</div>
-							<div class="toggle-option" data-toggle="margin" id="margin6">6</div>
-						</div>
-					</h5>
-					<h5>
-						Line spacing
-						<div class="toggle-button">
-							<div class="toggle-option" data-toggle="line" id="line1">1</div>
-							<div class="toggle-option" data-toggle="line" id="line2">2</div>
-							<div class="toggle-option selected" data-toggle="line" id="line3">3</div>
-							<div class="toggle-option" data-toggle="line" id="line4">4</div>
-							<div class="toggle-option" data-toggle="line" id="line5">5</div>
-							<div class="toggle-option" data-toggle="line" id="line6">6</div>
-						</div>
-					</h5>
-					<h5>
-						Center column no.
-						<div class="toggle-button">
-							<div class="toggle-option multi-select" data-toggle="column" id="column1">1</div>
-							<div class="toggle-option multi-select" data-toggle="column" id="column2">2</div>
-							<div class="toggle-option multi-select" data-toggle="column" id="column3">3</div>
-							<div class="toggle-option multi-select" data-toggle="column" id="column4">4</div>
-						</div>
-					</h5>
-					
-					<br>
 					
 					<div id="customTemplateOptions" style="display: block;">
+						<h5>
+							Horizontal margin
+							<div class="toggle-button">
+								<div class="toggle-option selected" data-toggle="margin" id="margin1">1</div>
+								<div class="toggle-option" data-toggle="margin" id="margin2">2</div>
+								<div class="toggle-option" data-toggle="margin" id="margin3">3</div>
+								<div class="toggle-option" data-toggle="margin" id="margin4">4</div>
+								<div class="toggle-option" data-toggle="margin" id="margin5">5</div>
+								<div class="toggle-option" data-toggle="margin" id="margin6">6</div>
+							</div>
+						</h5>
+
+						<h5>
+							Line spacing
+							<div class="toggle-button">
+								<div class="toggle-option" data-toggle="line" id="line1">1</div>
+								<div class="toggle-option" data-toggle="line" id="line2">2</div>
+								<div class="toggle-option selected" data-toggle="line" id="line3">3</div>
+								<div class="toggle-option" data-toggle="line" id="line4">4</div>
+								<div class="toggle-option" data-toggle="line" id="line5">5</div>
+								<div class="toggle-option" data-toggle="line" id="line6">6</div>
+							</div>
+						</h5>
+
 						<h5>
 							Font type
 							<div class="toggle-button">
@@ -109,6 +84,9 @@
 								<div class="toggle-option" data-toggle="rule" id="ruleBelow">Below title</div>
 							</div>
 						</h5>
+					</div>
+
+					<div>
 						<br>
 						<h5>
 							Image
@@ -117,20 +95,21 @@
 								<div class="toggle-option" data-toggle="image" id="imageHide">Hide</div>
 							</div>
 						</h5>
+						
 						<h5>
-							Roll No
+							Add Education Row
 							<div class="toggle-button">
-								<div class="toggle-option selected" data-toggle="roll" id="rollShow">Show</div>
-								<div class="toggle-option" data-toggle="roll" id="rollHide">Hide</div>
+								<div class="toggle-option selected" id="add_educ_row">Add</div>
 							</div>
 						</h5>
+
 						<h5>
-							Course
+							Add Experience Row
 							<div class="toggle-button">
-								<div class="toggle-option selected" data-toggle="course" id="course1">1 line</div>
-								<div class="toggle-option" data-toggle="course" id="course2">2 lines</div>
+								<div class="toggle-option selected" id="add_exp_row">Add</div>
 							</div>
 						</h5>
+						
 						<h5>
 							Table border
 							<div class="toggle-button">
@@ -159,33 +138,8 @@
 								<div class="toggle-option" data-toggle="projects" id="projects2">L2</div>
 							</div>
 						</h5>
-						<br>
+						<br>						
 					</div>
-
-					<h5>
-						<button class="btn btn-sm btn-block btn-primary" data-toggle="modal" data-target="#sectionToggleModal">Show/Hide sections</button>
-					</h5>
-
-					<hr>
-
-					<h3 class="text-center">Lists and points</h3>
-					<button class="btn btn-block btn-xs btn-success" onclick="insertList();">+ Insert sub-list</button>
-					<button class="btn btn-block btn-xs btn-warning" onclick="decreaseIndent();">&lt;&lt; Decrese indentation</button>
-					<button class="btn btn-block btn-xs btn-warning" onclick="increaseIndent();">&gt;&gt; Increase indentation</button>
-					<h5>
-						List style :
-						<div class="toggle-button">
-							<button class="btn btn-xs custom-button" onclick="changeListStyle(&#39;disc&#39;);">&#9899;</button>
-							<button class="btn btn-xs custom-button" onclick="changeListStyle(&#39;circle&#39;);">&#9898;</button>
-							<button class="btn btn-xs custom-button" onclick="changeListStyle(&#39;square&#39;);">&#9632;</button>
-							<button class="btn btn-xs custom-button" onclick="changeListStyle(&#39;dash&#39;);">-</button>
-							<button class="btn btn-xs custom-button" onclick="changeListStyle(&#39;decimal&#39;);">1.</button>
-							<button class="btn btn-xs custom-button" onclick="changeListStyle(&#39;upper-roman&#39;);">I.</button>
-							<button class="btn btn-xs custom-button" onclick="changeListStyle(&#39;lower-roman&#39;);">i.</button>
-							<button class="btn btn-xs custom-button" onclick="changeListStyle(&#39;upper-alpha&#39;);">A.</button>
-							<button class="btn btn-xs custom-button" onclick="changeListStyle(&#39;lower-alpha&#39;);">a.</button>
-						</div>
-					</h5>
 				</div>
 			</div>
 
@@ -193,7 +147,7 @@
 			<div class="col-sm-9 text-center" id="right">
 				<div id="page" class="verdana-sans" contenteditable="true" style="line-height: 1.3em; padding: 0cm .25cm .25cm">
 					
-					<div class="row" id="info">
+					<div class="row" id="sectionInfo">
 						<div style="display: block" id="image_box">
 							<img src="./images/iitp_logo.png" height="80" width="80">
 						</div>
@@ -218,34 +172,12 @@
 							<hr class="hr-below">
 						</div>
 						<ul class="nobullet">
-						<li>
-							<table class="table customBordered" id="educationTable">
-								<tbody><tr>
-									<td class="header"><strong>Year</strong></td>
-									<td class="header"><strong>Degree / Certificate</strong></td>
-									<td class="header"><strong>Institute / Board</strong></td>
-									<td class="header"><strong>CGPA/Percentage</strong></td>
-								</tr>
-								<tr>
-									<td class="">2016 - Present</td>
-									<td class="">B.Tech</td>
-									<td>Indian Institute of Technology Patna</td>
-									<td>7.18 (Current)</td>
-								</tr>
-								<tr>
-									<td class="">2016</td>
-									<td class="">Senior secondary</td>
-									<td>BSEB Board</td>
-									<td>70.4%</td>
-								</tr>
-								<tr>
-									<td class="">2014</td>
-									<td class="">Secondary</td>
-									<td>CBSE Board</td>
-									<td>10.0</td>
-								</tr>
-							</tbody></table>
-						</li>
+							<li>
+								<table class="table customBordered" id="educationTable">
+									<tbody id="education">
+									</tbody>
+								</table>
+							</li>
 						</ul>
 					</div>
 
@@ -256,22 +188,9 @@
 							<h4><strong>Experience</strong></h4>
 							<hr class="hr-below">
 						</div>
-						<ul style="padding-left: 30px;" class="disc">
-						<li>
-							<div>	
-							<div class="title" style="display: inline-block;">Engineering Intern at ISTRAC-ISRO, Bangalore</div><div class="time right" style="display: inline-block;">May 2019 - July 2019</div>
-							</div>
-							<div>
-							<div class="link right" style="display: block;">https://www.istrac.gov.in</div><div class="text">Worked in SDG Laboratory to develop an App &amp; Web Interface for monitoring and control of MEOSAR.</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li><span style="color: rgb(68, 68, 68); font-size: 13.5px;">Created Web-Socket Client in Java &amp; JavaScript to connect App to the Web-Socket Server built on Python to extract real-time big data coming from&nbsp;</span><font color="#444444"><span style="font-size: 13.5px;">satellites.</span></font></li><li>Process and manipulated data to extract relevant information from JSON into human readable format and in a interacting interface.</li><li>Technologies: Android Studio, Java, REST API, JavaScript, Python, PHP, MySQL, jQuery</li></ul></div></li>
-						<li>
-							<div>	
-							<div class="title" style="display: inline-block;">Software Development Intern at&nbsp;Oxyvin Technologies, Bangalore</div><div class="time right" style="display: inline-block;">Nov 2018 – Jan 2019</div>
-							</div>
-							<div>
-							<div class="link right" style="display: block;">https://oxyvin.com</div>
-							<div class="text">Worked on CodeIgniter framework for MVC Architectural Application Development.</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li>Divided different forms in different steps to be followed in chronological order in each modules and used&nbsp;different Normalization techniques to store data in more structured form in MySQL database.</li><li>Technologies: CodeIgniter, PHP, MySQL, jQuery, JavaScript, AJAX, Bootstrap</li></ul>
-							</div>
-						</li><li><div><div class="title" style="display: inline-block;">Software Development Intern at&nbsp;NGCN Infosolutions, Suratkal</div><div class="time right" style="display: inline-block;">May 2018 – July 2018</div></div><div><div class="link right" style="display: block;">http://ngcn.co.uk/</div><div class="text">Developed an ERP Software used for Billing and Inventory work with features like Multi-Branch &amp; Multi-User.</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li>Created a Single Page Application using jQuery and used AJAX to perform different tasks in background to minimize slow loading and to avoid repeated loading of same UI.</li><li>Technologies: PHP, jQuery, JavaScript, AJAX, MySQL, phpMyAdmin</li></ul></div></li><li><div><div class="title">Full Stack Web Development Intern at&nbsp;CatchFreeDeal, Noida</div><div class="time right">Dec 2017</div></div><div><div class="link right">http://catchfreedeal.com/</div><div class="text">Developed a complete website from scratch which displays deals &amp; coupons from different e-commerce sites.</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li>Technologies: PHP, jQuery, JavaScript, AJAX, MySQL, phpMyAdmin, Bootstrap</li></ul></div></li></ul>
+						<ul style="padding-left: 30px;" class="disc" id="experience">
+							
+						</ul>
 					</div>
 
 
@@ -563,57 +482,108 @@
 		</div>
 	</div>
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/main.js"></script>
-<script type="text/javascript">
-//function to show and hide preloader
-	$('.preloader_container').load('preloader.html');
+<!---------scripts-------->
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript">
+	//displaying preloader
+		$('.preloader_container').load('preloader.html');
 
+	//removing context menu
+		document.addEventListener('contextmenu', event => event.preventDefault());
 
-//getting the stored data from data.json file
-	$.ajax({
-        type: "GET",
-        url: "data.json",
-        dataType: "json",
-        success: function(data) {
-        //if some data exist
-        	if(data) {
-        		var jsonData = data[0];
-            	updateUI(jsonData);
-        	}
+	//getting the stored data from data.json file
+		$.ajax({
+	        type: "GET",
+	        url: "data.json",
+	        dataType: "json",
+	        success: function(data) {
+	        //if some data exist
+	        	if(data) {
+	        		var jsonData = data[0];
+	            	updateUI(jsonData);
+	        	}
 
-        //removing preloader
-            setTimeout(function()
-			{
-				$('.preloader_container').css('z-index', '100').slideUp(200);
-			}, 200);
-        },
-        error: function (xhr, ajaxOptions, thrownError) {
-        //displaying error in preloader
-        	$('#loading_msg').text("Something went wrong while fetching data from storage file data.json: " + thrownError).css("color", 'red');
+	        //removing preloader
+	            setTimeout(function()
+				{
+					$('.preloader_container').css('z-index', '100').slideUp(200);
+				}, 200);
+	        },
+	        error: function (xhr, ajaxOptions, thrownError) {
+	        //displaying error in preloader
+	        	$('#loading_msg').text("Something went wrong while fetching data from storage file data.json: " + thrownError).css("color", 'red');
 
-        	// updateUI(null);
-      	}
-    });
+	        	// updateUI(null);
+	      	}
+	    });
 
-//function to update UI from data fetched from json file
-	function updateUI(json) {
-		if( json ) {
-		//if valid json
-			for (var key in json) {
-			    if (json.hasOwnProperty(key)) {
-			    //getting val from json	
-			    	var val = json[key];
+	//function to update UI from data fetched from json file
+		function updateUI(json) 
+		{
+			if( json ) {
+			//if valid json
+				for (var key in json) {
+				    if (json.hasOwnProperty(key)) {
+				    //getting val from json	
+				    	var val = json[key];
+				    	console.log(val);
 
-			    	var modifiedVal = val.replace("\n", "<br />"); // to break word
-			    	console.log(modifiedVal);
-			    //updating UI	
-			       	$('#' + key).html(modifiedVal);
-			    }
+				    	var html = "";
+
+				    //generating html for different titles
+				    	if(key == "education") {
+				    		html += '<tr><td class="header"><strong>Year</strong></td><td class="header"><strong>Degree / Certificate</strong></td><td class="header"><strong>Institute / Board</strong></td><td class="header"><strong>CGPA/Percentage</strong></td></tr>';
+				    		for(var k in val) {
+				    			var year = val[k].year;
+				    			var degree = val[k].degree;
+				    			var institute = val[k].institute;
+				    			var grade = val[k].grade;
+
+				    			html += "<tr><td>" + year + "</td><td>" + degree + "</td><td>" + institute + "</td><td>" + grade + "</td></tr>";
+				    		}
+				    	} else if(key == "experience") {
+				    		for(var k in val) {
+				    			var job_title = val[k].job_title;
+				    			var job_duration = val[k].job_duration;
+				    			var job_company_link = val[k].job_company_link;
+				    			var company_name = val[k].company_name;
+				    			var details = val[k].details;
+
+				    			html += '<li><div><div class="title">' + job_title + '</div><div class="time right" >' + job_duration + '</div></div><div><div class="link right">' + job_company_link + '</div><div class="company_name">' + company_name + '</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;">';
+				    			for(var i = 0; i < details.length; i++) {
+				    				var did_this = details[i];
+
+				    				html += "<li>" + did_this + "</li>"
+				    			}
+				    			html += "</ul></div></li>";
+				    		}
+				    	} else {
+				    		var html = val.replace("\n", "<br />"); // to break word
+				    	}
+
+			    	//updating UI
+				       	$('#' + key).html(html);	
+				    }
+				}
 			}
 		}
-	}
-</script>
+
+	//on clicking on add educ_row btn
+		$('#add_educ_row').on("click", function()
+		{
+			var html = "<tr><td></td><td></td><td></td><td></td></tr>";
+			$('#education').append(html);
+		});
+	
+	//on clicking on add experince btn
+		$('#add_exp_row').on("click", function()
+		{
+			var html = '<li><div><div class="title">job_title</div><div class="time right" >job_duration</div></div><div><div class="link right">job_company_link</div><div class="company_name">company_name</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li>did this did that</li><li>did this too</li></ul></div></li>';
+
+			$('#experience').append(html);
+		});
+	</script>
 
 </body>
 </html>
