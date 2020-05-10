@@ -1,7 +1,6 @@
 <html>
-
 <head>
-	<title>Resume generator</title>
+	<title>MNgo Resume Generator</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<!-- <link rel="stylesheet" type="text/css" href="css/scroll.css"> -->
 	<link rel="stylesheet" type="text/css" href="css/column_scroll.css">
@@ -15,14 +14,9 @@
 </head>
 
 <body>
-
 <div class="container-fluid">
-
 	<div class="row">
-
-
 		<div class="col-sm-3 no-print" id="left">
-
 			<div id="panel">
 
 				<button class="btn btn-block btn-primary" data-toggle="modal" data-target="#usageModal">VIEW INSTRUCTIONS</button>
@@ -31,8 +25,7 @@
 				<hr>
 
 				<h3 class="text-center">Template settings</h3>
-				<button id="defaultTemplateBtn" class="btn btn-block btn-default" onclick="template(&#39;default&#39;);">Use official IITP template</button>
-				<button id="customTemplateBtn" class="btn btn-block btn-danger" onclick="template(&#39;custom&#39;);">Use custom template</button>
+				
 				<h5>
 					Minor
 					<div class="toggle-button">
@@ -190,14 +183,11 @@
 						<button class="btn btn-xs custom-button" onclick="changeListStyle(&#39;lower-alpha&#39;);">a.</button>
 					</div>
 				</h5>
-
 			</div>
-
 		</div>
 
 
 		<div class="col-sm-9 text-center" id="right">
-
 			<div id="page" class="verdana-sans" contenteditable="true" style="line-height: 1.3em; padding: 0cm .75cm .75cm">
 
 				<div class="row" style="margin-bottom:10px;">
@@ -272,7 +262,7 @@
 						<div class="title" style="display: inline-block;">Engineering Intern at ISTRAC-ISRO, Bangalore</div><div class="time right" style="display: inline-block;">May 2019 - July 2019</div>
 						</div>
 						<div>
-<div class="link right" style="display: block;">https://www.istrac.gov.in</div><div class="text">Worked in SDG Laboratory to develop an App &amp; Web Interface for monitoring and control of MEOSAR.</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li><span style="color: rgb(68, 68, 68); font-size: 13.5px;">Created Web-Socket Client in Java &amp; JavaScript to connect App to the Web-Socket Server built on Python to extract real-time big data coming from&nbsp;</span><font color="#444444"><span style="font-size: 13.5px;">satellites.</span></font></li><li>Process and manipulated data to extract relevant information from JSON into human readable format and in a interacting interface.</li><li>Technologies: Android Studio, Java, REST API, JavaScript, Python, PHP, MySQL, jQuery</li></ul></div></li>
+						<div class="link right" style="display: block;">https://www.istrac.gov.in</div><div class="text">Worked in SDG Laboratory to develop an App &amp; Web Interface for monitoring and control of MEOSAR.</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li><span style="color: rgb(68, 68, 68); font-size: 13.5px;">Created Web-Socket Client in Java &amp; JavaScript to connect App to the Web-Socket Server built on Python to extract real-time big data coming from&nbsp;</span><font color="#444444"><span style="font-size: 13.5px;">satellites.</span></font></li><li>Process and manipulated data to extract relevant information from JSON into human readable format and in a interacting interface.</li><li>Technologies: Android Studio, Java, REST API, JavaScript, Python, PHP, MySQL, jQuery</li></ul></div></li>
 					<li>
 						<div>	
 						<div class="title" style="display: inline-block;">Software Development Intern at&nbsp;Oxyvin Technologies, Bangalore</div><div class="time right" style="display: inline-block;">Nov 2018 – Jan 2019</div>
@@ -503,14 +493,9 @@
 						<h6><strong>(References available on request)</strong></h6>
 					</div>
 				</div>
-
 			</div>
-			
 		</div>
-
-
 	</div>
-
 </div>
 
 
@@ -578,12 +563,22 @@
 	</div>
 </div>
 
-
-
 <script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- <script type="text/javascript" src="js/bootstrap.min.js"></script> -->
 <script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript">
+//getting the stored data from data.json file
+	$.ajax({
+        type: "GET",
+        url: "data.json",
+        dataType: "json",
+        success: function(data) {
+        	var jsonData = data[0]
+            
+            console.log(jsonData.name);
+        }
+    });
+</script>
 
 </body>
-
 </html>
