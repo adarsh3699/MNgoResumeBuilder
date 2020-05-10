@@ -819,15 +819,27 @@
 			jsonToStore['sName'] = html;
 			
 		//getting contact links
-			var html = $('#contactLink').html();
-			jsonToStore['contactLink'] = html;
+			var dataJSON = [];
+			$('#contactLink li').each(function()
+			{
+				var temp = $(this).html().trim();
+				
+				dataJSON.push(temp);
+			});
+			jsonToStore['contactLink'] = dataJSON;
 			
 		//getting contacts
-			var html = $('#contacts').html();
-			jsonToStore['contacts'] = html;
+			var dataJSON = [];
+			$('#contacts li').each(function()
+			{
+				var temp = $(this).html().trim();
+				
+				dataJSON.push(temp);
+			});
+			jsonToStore['contacts'] = dataJSON;
 			
 		//getting education
-			var childJSON = [];
+			var childJSON = {};
 			childJSON["heading"] = $('#sectionEducation h4 strong').text().trim(); 
 			
 			var dataJSON = [];
@@ -856,7 +868,7 @@
 			jsonToStore['education'] = childJSON;
 
 		//getting experience
-			var childJSON = [];
+			var childJSON = {};
 			childJSON["heading"] = $('#sectionExperience h4 strong').text().trim(); 
 
 			var dataJSON = [];
@@ -889,7 +901,7 @@
 			jsonToStore['experience'] = childJSON;
 
 		//getting projects
-			var childJSON = [];
+			var childJSON = {};
 			childJSON["heading"] = $('#sectionProjects h4 strong').text().trim(); 
 
 			var dataJSON = [];
@@ -922,7 +934,7 @@
 			jsonToStore['projects'] = childJSON;
 
 		//getting skills
-			var childJSON = [];
+			var childJSON = {};
 			childJSON["heading"] = $('#sectionSkills h4 strong').text().trim(); 
 
 			var dataJSON = [];
@@ -937,7 +949,7 @@
 			jsonToStore['skills'] = childJSON;
 
 		//getting pors
-			var childJSON = [];
+			var childJSON = {};
 			childJSON["heading"] = $('#sectionResponsibility h4 strong').text().trim(); 
 
 			var dataJSON = [];
@@ -951,7 +963,7 @@
 			jsonToStore['pors'] = childJSON;
 
 		//getting achievements
-			var childJSON = [];
+			var childJSON = {};
 			childJSON["heading"] = $('#sectionAchievements h4 strong').text().trim(); 
 
 			var dataJSON = [];
@@ -965,7 +977,7 @@
 			jsonToStore['achievements'] = childJSON;
 
 		//getting publications
-			var childJSON = [];
+			var childJSON = {};
 			childJSON["heading"] = $('#sectionPublications h4 strong').text().trim(); 
 
 			var dataJSON = [];
@@ -988,7 +1000,7 @@
 			jsonToStore['publications'] = childJSON;
 
 		//getting courses
-			var childJSON = [];
+			var childJSON = {};
 			childJSON["heading"] = $('#sectionCourses h4 strong').text().trim(); 
 
 			var dataJSON = [];
@@ -1011,7 +1023,7 @@
 			jsonToStore['courses'] = childJSON;
 
 		//getting cirrculars
-			var childJSON = [];
+			var childJSON = {};
 			childJSON["heading"] = $('#sectionCurricular h4 strong').text().trim(); 
 
 			var dataJSON = [];
@@ -1030,8 +1042,13 @@
 		
 		//printing	
 			jsonToSend.push(jsonToStore);
+
 			console.log((jsonToSend));
-			// $('#print').html(jsonToStore);
+
+			$.post("write_json.php", {jsonToSend: JSON.stringify(jsonToSend)}, function(resp)
+			{
+				console.log(resp);
+			})
 		});
 	</script>
 </body>
