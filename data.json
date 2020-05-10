@@ -61,6 +61,37 @@
 																						"Technologies: CodeIgniter, PHP, MySQL, jQuery, JavaScript, AJAX, Bootstrap"
 																					]
 												}
+											],
+		"projects"						:	[
+												{
+													"project_title"					:  "Key Issue System for IIT Patna",
+													"project_duration"				:  "Feb 2019",
+													"project_link"					:  "https://bit.ly/2LpFmr0",
+													"company_name"					:  "Dr. Mayank Agrawal & Dr. Jimson Mathew, Dept. of CSE, IIT Patna",
+													"details"						: 	[
+																							"Developed a Key Issue & Return App for the rooms and labs of IIT Patna based on QR Code.",
+																							"Used zxing library of Java and enabled mobile phone camera to scan QR code of the keys & person."
+																						]
+												}
+											],
+		"skills"						: 	[
+												"<b>General:</b> Android & Web Application Development, API Development, MVC Architectural Application Development",
+												"<b>Programming Language & Database:</b> Java, JavaScript, Python, PHP, SQL, MySQL, mongoDB",
+												"<b>Web Technologies:</b> jQuery, Node.js, REST API, Web-Socket, CodeIgniter, express.js, HTML, CSS",
+												"<b>Other Tools:</b> Android Studio, Git, cPanel, Heroku, Google Cloud Platform Compute Engine, AWS EC2",
+												"<b>Operating System:</b> Linux, Windows"
+											],
+		"pors"							: 	[
+												"Former Coordinator,Design Club, IIT Patna (2017 - 2019)",
+												"Former Web & App Team Sub-Coordinator,Anwesha 2018, IIT Patna(2017 - 2018)",
+												"Former Web Master, Entrepreneurship Club, IIT Patna (2017 - 2018)"
+											],
+		"achievements"					: 	[
+												"<b>Internship at ISRO:</b> Recieved Letter of Recommendation and ranked among top 2% students worked under S. Santhalakshmi, Scientist ‘SF’ & Manager SDG, ISTRAC-ISRO.",
+												"<b>Internship at NGCN:</b> Recieved Return Offer & Recommendation on LinkedIn Profile from Justin Sebastian, CEO of NGCN, Oxyvin.",
+												"<b>Professors of IIT Patna:</b> Got Letter of Recommendation from Dr. Jimson Mathew, Head of Department (HOD) and Letter of Appreciation from Dr. Mayank Agrawal, Assistant Professor, IIT Patna",
+												"<b>JEE Main:</b> Secured 98.97 percentile out of 12,07,058 candidates appeared in JEE Main 2016.",
+												"<b>Key Issue App for IIT Patna:</b> This App resulted in faster issuing and returning of keys which prevents queue and saves time. 2750+ keys of labs & rooms in IIT Patna have been issued and returned till date."
 											]
 	}
 ]

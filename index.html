@@ -84,6 +84,13 @@
 								<div class="toggle-option" data-toggle="rule" id="ruleBelow">Below title</div>
 							</div>
 						</h5>
+						<h5>
+							Table border
+							<div class="toggle-button">
+								<div class="toggle-option selected" data-toggle="table" id="tableShow">Show</div>
+								<div class="toggle-option" data-toggle="table" id="tableHide">Hide</div>
+							</div>
+						</h5>
 					</div>
 
 					<div>
@@ -99,24 +106,51 @@
 						<h5>
 							Add Education Row
 							<div class="toggle-button">
-								<div class="toggle-option selected" id="add_educ_row">Add</div>
+								<div class="toggle-option selected add_educ_row" >First</div>
+								<div class="toggle-option selected add_educ_row" >Last</div>
 							</div>
 						</h5>
 
 						<h5>
 							Add Experience Row
 							<div class="toggle-button">
-								<div class="toggle-option selected" id="add_exp_row">Add</div>
+								<div class="toggle-option selected add_exp_row">First</div>
+								<div class="toggle-option selected add_exp_row">Last</div>
+							</div>
+						</h5>
+
+						<h5>
+							Add Projects Row
+							<div class="toggle-button">
+								<div class="toggle-option selected add_projects_row">First</div>
+								<div class="toggle-option selected add_projects_row">Last</div>
+							</div>
+						</h5>
+
+						<h5>
+							Add Skills Row
+							<div class="toggle-button">
+								<div class="toggle-option selected add_skills_row">First</div>
+								<div class="toggle-option selected add_skills_row">Last</div>
 							</div>
 						</h5>
 						
 						<h5>
-							Table border
+							Add POR Row
 							<div class="toggle-button">
-								<div class="toggle-option selected" data-toggle="table" id="tableShow">Show</div>
-								<div class="toggle-option" data-toggle="table" id="tableHide">Hide</div>
+								<div class="toggle-option selected add_por_row">First</div>
+								<div class="toggle-option selected add_por_row">Last</div>
 							</div>
 						</h5>
+
+						<h5>
+							Add Achievements Row
+							<div class="toggle-button">
+								<div class="toggle-option selected add_achieve_row">First</div>
+								<div class="toggle-option selected add_achieve_row">Last</div>
+							</div>
+						</h5>
+
 						<h5>
 							Education year column
 							<div class="toggle-button">
@@ -189,7 +223,6 @@
 							<hr class="hr-below">
 						</div>
 						<ul style="padding-left: 30px;" class="disc" id="experience">
-							
 						</ul>
 					</div>
 
@@ -229,63 +262,7 @@
 							<h4><strong>Projects</strong></h4>
 							<hr class="hr-below">
 						</div>
-						<ul style="padding-left: 30px;" class="disc">
-						<li>
-							<div>		
-							<div class="title">App for GST Department, Government of Bihar</div>
-							<div class="time right">July 2019 - Ongoing</div>
-							</div>
-							<div><div><div class="mentor tab">Dr. Mayank Agrawal &amp; Dr. Jimson Mathew, Dept. of CSE IIT Patna</div><div class="link right">https://bit.ly/32rf9zd</div></div></div><div><div class="text"><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li>Developing an App to perform task like extracting data from large CSV files, live location tracker, location &amp; user based content, contact number dialer, feedback system, etc.</li></ul></div>
-							</div>
-						</li>
-						<li>
-							<div>
-							<div class="title">Key Issue System for IIT Patna</div>
-							<div class="time right">Feb 2019</div>
-							</div>
-							<div><div class="mentor tab">Dr. Mayank Agrawal &amp; Dr. Jimson Mathew, Dept. of CSE, IIT Patna</div>
-							<div class="link right">https://bit.ly/2LpFmr0</div></div><div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li><span style="color: rgb(68, 68, 68); font-size: 13.5px;">Developed a Key Issue &amp; Return App for the rooms and labs of IIT Patna based on QR Code.</span></li><li><span style="color: rgb(68, 68, 68); font-size: 13.5px;">Used zxing library of Java and enabled mobile phone camera to scan QR code of the keys &amp; person.</span></li></ul></div></li>
-						<li>
-							<div>		
-							<div class="title">Wi-Fi Based Attendance System for IIT Patna</div>
-							<div class="time right">Mar 2019 - Apr 2019</div>
-							</div>
-							<div>
-							<div class="mentor tab">Dr. Mayank Agarawal,&nbsp;Assistant Professor,&nbsp;</div><span style="font-style: italic;">Dept. of CSE, IIT Patna</span><div class="link right">https://bit.ly/2Uix5sC</div>
-							</div>
-							<div>
-							<div class="text"><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li><div class="text">Developed an attendance system App which uses Wi-Fi technology of smartphone to mark attendance. A student can mark his attendance by connecting his phone to the hotspot created by professor’s phone.</div></li><li>Used Socket Programming techniques to let the the sockets communicate with each other at a particular IP &amp; PORT over Wi-Fi Network.</li></ul></div>
-							</div>
-						</li>
-						<li>
-							<div>		
-							<div class="title">ChatApp</div>
-							<div class="time right">June 2018 - July 2018</div>
-							</div>
-							<div><div><div class="link right">http://chat.mngo.in</div></div><div><div class="text">&nbsp; &nbsp;<i>MNgo</i></div></div></div><div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li>Used Socket Programming libraries of Java to create Socket Client to connect to socket.io Node.js Server.</li><li>Wrote REST API on Node.js to get user data &amp; old messages and to store new data in mongoDB.</li><li>Implemented Service &amp; Foreground Process in Android to keep Socket Client running in background even when the app is minimized or closed to get push notification of new messages.</li><li>Used Multithreading feature of Java to make the App faster and to minimize load on UI thread.</li></ul>
-							</div>
-						</li>
-						<li>
-							<div>		
-							<div class="title">Anwesha 2k18 Website’s Front-end</div>
-							<div class="time right">Sep 2017 – Jan 2018</div>
-							</div>
-							<div>
-							<div class="mentor tab">Coordinators, Anwesha, IIT Patna</div><div class="link right">https://2018.anwesha.info</div></div><div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li>Design &amp; developed front-end of the 2018's website of annual cultural fest of IIT Patna.</li><li>Implemented mousewheel.js to scroll the website horizontally and used jQuery features like mouse location, on scroll, image location coordinates, AJAX, etc to create a unique design of the website.</li></ul>
-							</div>
-						</li>
-						<li>
-							<div>		
-							<div class="title">Calculator</div><div class="time right">Sep 2017</div>
-							</div>
-							<div>
-							<div><div class="mentor tab">CS382 - Introduction to OOPs, IIT Patna</div><div class="link right">https://bit.ly/2HBbCGd</div></div>
-							<ul class="circle" style="margin-left: 0px; padding-left: 25px;">
-								<li style="margin-top: 1.65625px;">Implemented Infix to Postfix conversion algorithm, stack data structure and various string functions in Java to develop a standard calculator Android App.
-								</li>
-							</ul>
-							</div>
-						</li>
+						<ul style="padding-left: 30px;" id="projects" class="disc">
 						</ul>
 					</div>
 
@@ -296,15 +273,7 @@
 							<h4><strong>Technical skills</strong></h4>
 							<hr class="hr-below">
 						</div>
-						<ul style="padding-left: 10px;">
-						<li><strong><span class="skillCategory">General:&nbsp;</span></strong>Android &amp; Web Application Development, API Development, MVC Architectural Application Development</li><li>
-							<span class="skillCategory" style="font-weight: bold;">Programming language &amp;&nbsp;</span><b>Database:</b>
-							Java, JavaScript, Python, PHP, SQL, MySQL, mongoDB
-						</li>
-						<li>
-							<strong><span class="skillCategory">Web Technologies</span>:</strong>
-							jQuery, Node.js, REST API, Web-Socket, CodeIgniter, express.js, HTML, CSS</li>
-						<li><b>Other Tools: </b>Android Studio, Git, cPanel, Heroku, Google Cloud Platform Compute Engine, AWS EC2</li><li><b>Operating System:</b> Linux, Windows</li>
+						<ul style="padding-left: 10px;" id="skills">
 						</ul>
 					</div>
 
@@ -315,9 +284,7 @@
 							<h4><strong>Positions of Responsibility</strong></h4>
 							<hr class="hr-below">
 						</div>
-						<ul style="padding-left: 10px;">
-							<li>Former Coordinator,Design Club, IIT Patna (2017 - 2019)</li>
-							<li>Former Web &amp; App Team Sub-Coordinator,Anwesha 2018, IIT Patna(2017 - 2018)</li><li>Former Web Master, Entrepreneurship Club, IIT Patna (2017 - 2018)</li>
+						<ul style="padding-left: 10px;" id="pors">
 						</ul>
 					</div>
 
@@ -328,7 +295,7 @@
 							<h4><strong>Achievements</strong></h4>
 							<hr class="hr-below">
 						</div>
-						<ul style="padding-left: 10px;">
+						<ul style="padding-left: 10px;" id="achievements">
 						<li>
 							<span class="title">Internship at ISRO:&nbsp;</span>Recieved Letter of Recommendation and ranked among top 2% students worked under S.&nbsp;Santhalakshmi, Scientist ‘SF’ &amp; Manager SDG, ISTRAC-ISRO.</li>
 						<li>
@@ -527,11 +494,11 @@
 				    if (json.hasOwnProperty(key)) {
 				    //getting val from json	
 				    	var val = json[key];
-				    	console.log(val);
-
-				    	var html = "";
+				    	// console.log(val);
 
 				    //generating html for different titles
+				    	var html = "";
+
 				    	if(key == "education") {
 				    		html += '<tr><td class="header"><strong>Year</strong></td><td class="header"><strong>Degree / Certificate</strong></td><td class="header"><strong>Institute / Board</strong></td><td class="header"><strong>CGPA/Percentage</strong></td></tr>';
 				    		for(var k in val) {
@@ -558,6 +525,40 @@
 				    			}
 				    			html += "</ul></div></li>";
 				    		}
+				    	} else if(key == "projects") {
+				    		for(var k in val) {
+				    			var project_title = val[k].project_title;
+				    			var project_duration = val[k].project_duration;
+				    			var project_link = val[k].project_link;
+				    			var company_name = val[k].company_name;
+				    			var details = val[k].details;
+
+				    			html += '<li><div><div class="title">' + project_title + '</div><div class="time right" >' + project_duration + '</div></div><div><div class="link right">' + project_link + '</div><div class="company_name">' + company_name + '</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;">';
+				    			for(var i = 0; i < details.length; i++) {
+				    				var did_this = details[i];
+
+				    				html += "<li>" + did_this + "</li>"
+				    			}
+				    			html += "</ul></div></li>";
+				    		}
+				    	} else if(key == "skills") {
+				    		for(var i = 0; i < val.length; i++) {
+			    				var did_this = val[i];
+
+			    				html += "<li>" + did_this + "</li>"
+			    			}
+			    		} else if(key == "pors") {
+				    		for(var i = 0; i < val.length; i++) {
+			    				var did_this = val[i];
+
+			    				html += "<li>" + did_this + "</li>"
+			    			}
+			    		} else if(key == "achievements") {
+				    		for(var i = 0; i < val.length; i++) {
+			    				var did_this = val[i];
+
+			    				html += "<li>" + did_this + "</li>"
+			    			}
 				    	} else {
 				    		var html = val.replace("\n", "<br />"); // to break word
 				    	}
@@ -570,19 +571,107 @@
 		}
 
 	//on clicking on add educ_row btn
-		$('#add_educ_row').on("click", function()
+		$('.add_educ_row').on("click", function()
 		{
-			var html = "<tr><td></td><td></td><td></td><td></td></tr>";
-			$('#education').append(html);
+			var text = $.trim($(this).text());
+			
+			var sampleHTML = "<tr><td></td><td></td><td></td><td></td></tr>";
+		
+			if( text == "First" ) {
+				var html = sampleHTML;
+				html += $('#education').html();
+				
+				$('#education').html(html);
+			} else if ( text == "Last" ) {
+				$('#education').append(sampleHTML);
+			}
 		});
 	
 	//on clicking on add experince btn
-		$('#add_exp_row').on("click", function()
+		$('.add_exp_row').on("click", function()
 		{
-			var html = '<li><div><div class="title">job_title</div><div class="time right" >job_duration</div></div><div><div class="link right">job_company_link</div><div class="company_name">company_name</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li>did this did that</li><li>did this too</li></ul></div></li>';
+			var text = $.trim($(this).text());
 
-			$('#experience').append(html);
+			var sampleHTML = '<li><div><div class="title">job_title</div><div class="time right" >job_duration</div></div><div><div class="link right">job_company_link</div><div class="company_name">company_name</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li>did this did that</li><li>did this too</li></ul></div></li>';
+
+			if( text == "First" ) {
+				var html = sampleHTML;
+				html += $('#experience').html();
+				
+				$('#experience').html(html);
+			} else if ( text == "Last" ) {
+				$('#experience').append(sampleHTML);
+			}
 		});
+
+	//on clicking on add proejcts btn
+		$('.add_projects_row').on("click", function()
+		{
+			var text = $.trim($(this).text());
+
+			var sampleHTML = '<li><div><div class="title">project_title</div><div class="time right" >project_duration</div></div><div><div class="link right">project_link</div><div class="company_name">company_name/project guide</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;"><li>did this did that</li><li>did this too</li></ul></div></li>';
+
+			if( text == "First" ) {
+				var html = sampleHTML;
+				html += $('#projects').html();
+				
+				$('#projects').html(html);
+			} else if ( text == "Last" ) {
+				$('#projects').append(sampleHTML);
+			}
+		});
+
+	//on clicking on add skills btn
+		$('.add_skills_row').on("click", function()
+		{
+			var text = $.trim($(this).text());
+
+			var sampleHTML = '<li><b>skill type: </b>skill 1, skill 2';
+
+			if( text == "First" ) {
+				var html = sampleHTML;
+				html += $('#skills').html();
+				
+				$('#skills').html(html);
+			} else if ( text == "Last" ) {
+				$('#skills').append(sampleHTML);
+			}
+		});
+		
+	//on clicking on add por btn
+		$('.add_por_row').on("click", function()
+		{
+			var text = $.trim($(this).text());
+
+			var sampleHTML = '<li>write por post, location (duration)';
+
+			if( text == "First" ) {
+				var html = sampleHTML;
+				html += $('#pors').html();
+				
+				$('#pors').html(html);
+			} else if ( text == "Last" ) {
+				$('#pors').append(sampleHTML);
+			}
+		});
+		
+	//on clicking on add achievements btn
+		$('.add_achieve_row').on("click", function()
+		{
+			var text = $.trim($(this).text());
+
+			var sampleHTML = '<li><b>achievement at:</b> graded A + here';
+
+			if( text == "First" ) {
+				var html = sampleHTML;
+				html += $('#achievements').html();
+				
+				$('#achievements').html(html);
+			} else if ( text == "Last" ) {
+				$('#achievements').append(sampleHTML);
+			}
+		});
+		
 	</script>
 
 </body>
