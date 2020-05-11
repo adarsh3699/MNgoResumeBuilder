@@ -28,7 +28,7 @@
 					
 					<div class="row" id="sectionInfo">
 						<div style="display: block" id="image_box">
-							<img src="./images/iitp_logo.png" height="80" width="80">
+							<img src="./images/image.png" height="80" width="80">
 						</div>
 
 						<div class="row" style=" ">
@@ -234,6 +234,14 @@
 					<hr>
 					
 					<div>
+						<h5>
+							Upload Image
+							<div class="my_button" style="width: 100%; padding: 5px;">
+								<input type="file" name="file" id="file">	
+							</div>
+						</h5>
+						<br/>
+
 						<h5>
 							Image
 							<div class="toggle-button">
@@ -1351,6 +1359,72 @@
 				}
 			});
 		});
+
+	//function to upload image
+		var post_address = "extra/upload_image.php";
+		$(document).on('change', '#file', function()
+	    {
+	      	$('.feed').html('<img src="images/loaders2.gif" class="loading_gif" />');
+
+      	//sending upload request to api 
+	        var property = document.getElementById("file").files[0];
+	        var image_name = property.name;
+	        var image_extension = image_name.split('.').pop().toLowerCase();
+
+	        if(image_extension == "png" || image_extension == "jpg" || image_extension == "jpeg") {
+	        }
+	        else {
+	        	$('.feed').text("please upload a image file").css("color", 'red');
+	        	return;
+	        }
+
+	        var form_data = new FormData();
+			form_data.append("file", property);
+			$.ajax(
+			{
+				url: post_address,
+				method: "POST",
+				data: form_data,
+				contentType: false,
+				cache: false,
+				processData: false,
+				beforeSend:function()
+				{
+					$('.feed').html('<img src="images/loaders2.gif" class="loading_gif" />');
+				},
+				success: function(data)
+				{		
+					if(data == 0)
+					{
+						$('.feed').text('Failed to upload file').css("color", 'red');
+					}
+					else if(data == -2)
+					{
+						$('.feed').text("File uploading directory not present on server").css("color", 'red');
+					}
+					else if(data == -1)
+					{
+						$('.feed').text("Something went wrong").css("color", 'red');
+					}
+					else if(data == 1)
+					{
+						$('.feed').text("Image uploaded successfully").css("color", "#5cb85c");
+
+					//displaying the newly uploaded image
+						var time = Math.floor(Date.now() / 1000);
+						var img_addrs = "./images/image.png?v=" + time;
+						
+						$('#image_box').html('<img src="' + img_addrs + '" height="80" width="80">');
+					}
+					else
+					{
+						console.log(data);
+						$('.feed').text("Unknown error").css("color", 'red');
+					}
+				}
+			});
+	    });
+		
 	</script>
 </body>
 </html>
