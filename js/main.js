@@ -223,22 +223,22 @@ function changeTemplate(toggleType,toggleValue)
 				$("#educationTable tr").each(function () {
 					$(this).find("td").eq(0).before($(this).find("td").eq(3));
 				});
-				var temp = document.getElementById('column4').className;
-				document.getElementById('column4').className = document.getElementById('column3').className;
-				document.getElementById('column3').className = document.getElementById('column2').className;
-				document.getElementById('column2').className = document.getElementById('column1').className;
-				document.getElementById('column1').className = temp;
+				// var temp = document.getElementById('column4').className;
+				// document.getElementById('column4').className = document.getElementById('column3').className;
+				// document.getElementById('column3').className = document.getElementById('column2').className;
+				// document.getElementById('column2').className = document.getElementById('column1').className;
+				// document.getElementById('column1').className = temp;
 			}
 			else
 			{
 				$("#educationTable tr").each(function () {
 					$(this).find("td").eq(3).after($(this).find("td").eq(0));
 				});
-				var temp = document.getElementById('column1').className;
-				document.getElementById('column1').className = document.getElementById('column2').className;
-				document.getElementById('column2').className = document.getElementById('column3').className;
-				document.getElementById('column3').className = document.getElementById('column4').className;
-				document.getElementById('column4').className = temp;
+				// var temp = document.getElementById('column1').className;
+				// document.getElementById('column1').className = document.getElementById('column2').className;
+				// document.getElementById('column2').className = document.getElementById('column3').className;
+				// document.getElementById('column3').className = document.getElementById('column4').className;
+				// document.getElementById('column4').className = temp;
 			}
 			break;
 		case 'experience':

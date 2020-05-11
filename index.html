@@ -36,10 +36,10 @@
 								<div id="contentName">
 									<span id="fName">fName</span> <span id="sName">sName</span>
 								</div>
-								<ul class="light plain_list" id="contactLink" >contactLink</ul>
+								<ul class="light plain_list" id="contactLink" ><li>contactLink</li></ul>
 							</div>
 
-							<ul class="col-sm-5 plain_list light" id="contacts" style="text-align: right; margin-top: 10px; float: right">contacts</ul>
+							<ul class="col-sm-5 plain_list light" id="contacts" style="text-align: right; margin-top: 10px; float: right"><li>contacts</li></ul>
 						</div>
 					</div>
 
@@ -53,6 +53,14 @@
 						<ul class="nobullet">
 							<li>
 								<table class="table customBordered" id="educationTable">
+									<thead style="font-size: 87%;">
+										<tr>
+											<td class="header"><strong>Year</strong></td>
+											<td class="header"><strong>Degree / Certificate</strong></td>
+											<td class="header"><strong>Institute / Board</strong></td>
+											<td class="header"><strong>CGPA/Percentage</strong></td>
+										</tr>
+									</thead>
 									<tbody id="education">
 									</tbody>
 								</table>
@@ -232,8 +240,7 @@
 						</h5>
 					</div>
 					<hr>
-					<div id="print">sas</div>
-
+					
 					<div>
 						<h5>
 							Image
@@ -249,6 +256,14 @@
 							<div class="toggle-button">
 								<div class="toggle-option selected add_educ_row" >First</div>
 								<div class="toggle-option selected add_educ_row" >Last</div>
+							</div>
+						</h5>
+
+						<h5>
+							Delete Education Row
+							<div class="toggle-button">
+								<div class="toggle-option selected delete_educ_row" >First</div>
+								<div class="toggle-option selected delete_educ_row" >Last</div>
 							</div>
 						</h5>
 
@@ -328,7 +343,7 @@
 
 						<h5>
 							Education year column
-							<div class="toggle-button">
+							<div class="toggle-button eduYearLayout">
 								<div class="toggle-option selected" data-toggle="edyear" id="edyearFirst">First</div>
 								<div class="toggle-option" data-toggle="edyear" id="edyearLat">Last</div>
 							</div>
@@ -349,6 +364,12 @@
 								<div class="toggle-option" data-toggle="projects" id="projects2">L2</div>
 							</div>
 						</h5>
+						<hr>
+
+						<br />
+						<center class="feed">
+							
+						</center>
 					</div>
 				</div>
 			</div>
@@ -386,9 +407,12 @@
 		document.addEventListener('contextmenu', event => event.preventDefault());
 
 	//getting the stored data from data.json file
+		var time = Math.floor(Date.now() / 1000);
+		var url = "data.json?v=" + time; // to always load from latest data.json i.e this prevents loading from cache of data.json
+
 		$.ajax({
 	        type: "GET",
-	        url: "data.json",
+	        url: url,
 	        dataType: "json",
 	        success: function(data) {
 	        //if some data exist
@@ -396,18 +420,10 @@
 	        		var jsonData = data[0];
 	            	updateUI(jsonData);
 	        	}
-
-	        //removing preloader
-	            setTimeout(function()
-				{
-					$('.preloader_container').css('z-index', '100').slideUp(200);
-				}, 200);
 	        },
 	        error: function (xhr, ajaxOptions, thrownError) {
 	        //displaying error in preloader
 	        	$('#loading_msg').text("Something went wrong while fetching data from storage file data.json: " + thrownError).css("color", 'red');
-
-	        	// updateUI(null);
 	      	}
 	    });
 
@@ -450,7 +466,6 @@
 				    		$('#sectionEducation h4 strong').text(heading);
 
 				    	//setting data
-				    		html += '<tr><td class="header"><strong>Year</strong></td><td class="header"><strong>Degree / Certificate</strong></td><td class="header"><strong>Institute / Board</strong></td><td class="header"><strong>CGPA/Percentage</strong></td></tr>';
 				    		var data = val.data;
 				    		for(var k in data) {
 				    			var year = data[k].year;
@@ -611,6 +626,15 @@
 			    				$('#imageHide').addClass("selected");
 			    				$('#imageShow').removeClass("selected");
 			    			}
+			    		} else if(key == "eduYearLayout") {
+			    			if( val == "Last" ) {
+			    				educYearLayout("edyearLat");
+
+			    				$('#edyearLat').addClass("selected");
+			    				$('#edyearFirst').removeClass("selected");
+			    			} else {
+			    			// by default it is at first //so nothing is required
+			    			}
 				    	} else {
 				    		var html = val.replace("\n", "<br />"); // to break word
 				    	}
@@ -619,6 +643,12 @@
 				       	$('#' + key).html(html);
 				    }
 				}
+
+	        //removing preloader
+	            setTimeout(function()
+				{
+					$('.preloader_container').css('z-index', '100').slideUp(200);
+				}, 200);
 			}
 		}
 
@@ -632,13 +662,25 @@
 			if( text == "First" ) {
 				var html = sampleHTML;
 				html += $('#education').html();
-				
+
 				$('#education').html(html);
 			} else if ( text == "Last" ) {
 				$('#education').append(sampleHTML);
 			}
 		});
 	
+	//on clicking on delete education row btn
+		$('.delete_educ_row').on("click", function()
+		{
+			var text = $.trim($(this).text());
+
+			if( text == "First" ) {
+				$('#education tr:nth-child(1)').remove();
+			} else if ( text == "Last" ) {
+				$('#education tr:last-child').remove();
+			}
+		});
+
 	//on clicking on add experince btn
 		$('.add_exp_row').on("click", function()
 		{
@@ -796,9 +838,27 @@
 			$(this).addClass('selected');
 		}
 	
+	//function to change education year layout
+		function educYearLayout(toggleValue) {
+			if(toggleValue=='edyearFirst')
+			{
+				$("#educationTable tr").each(function () {
+					$(this).find("td").eq(0).before($(this).find("td").eq(3));
+				});
+			}
+			else
+			{
+				$("#educationTable tr").each(function () {
+					$(this).find("td").eq(3).after($(this).find("td").eq(0));
+				});
+			}
+		}
+
 	//on clicking on save btn
 		$('#save_btn').on("click", function()
 		{
+			$('.feed').html('<img src="images/loaders2.gif" class="loading_gif" />');
+
 			var jsonToSend = [];
 			var jsonToStore = {};
 
@@ -809,6 +869,20 @@
 			} else if ( imageVisibility == "block" ) {
 				jsonToStore['isImageVisible'] = true;
 			}
+
+		//getting education year layout
+			var eduYearLayout = "First";
+
+			$('.eduYearLayout .toggle-option').each(function()
+			{
+				var id = $(this).attr("id");
+				if( $(this).hasClass("selected") ) {
+					if(id == "edyearLat") {
+						eduYearLayout = "Last";
+					}
+				}
+			});
+			jsonToStore['eduYearLayout'] = eduYearLayout;
 
 		//getting first name
 			var html = $('#fName').html();
@@ -843,25 +917,21 @@
 			childJSON["heading"] = $('#sectionEducation h4 strong').text().trim(); 
 			
 			var dataJSON = [];
-			var i = 0;
 			$('#education tr').each(function()
 			{
-				if(i>0) { //for ignoring table heading row 
-					var temp = {};
+				var temp = {};
 
-					var year = $(this).find("td:nth-child(1)").text().trim();
-					var degree = $(this).find("td:nth-child(2)").text().trim();
-					var institute = $(this).find("td:nth-child(3)").text().trim();
-					var grade = $(this).find("td:nth-child(4)").text().trim();
+				var year = $(this).find("td:nth-child(1)").text().trim();
+				var degree = $(this).find("td:nth-child(2)").text().trim();
+				var institute = $(this).find("td:nth-child(3)").text().trim();
+				var grade = $(this).find("td:nth-child(4)").text().trim();
 
-					temp["year"] = year;
-					temp["degree"] = degree;
-					temp["institute"] = institute;
-					temp["grade"] = grade;
+				temp["year"] = year;
+				temp["degree"] = degree;
+				temp["institute"] = institute;
+				temp["grade"] = grade;
 
-					dataJSON.push(temp);
-				}
-				i++;
+				dataJSON.push(temp);
 			});
 			childJSON["data"] = dataJSON;
 
@@ -1040,7 +1110,7 @@
 			var html = $('#footerMsg').html();
 			jsonToStore['footerMsg'] = html;
 		
-		//printing	
+		//sending data to api for storing data in data.json	
 			jsonToSend.push(jsonToStore);
 
 			console.log((jsonToSend));
@@ -1048,6 +1118,17 @@
 			$.post("write_json.php", {jsonToSend: JSON.stringify(jsonToSend)}, function(resp)
 			{
 				console.log(resp);
+				if(resp == 1) {
+					$('.feed').text("Saved successfully").css("color", "#5cb85c");
+				} else if( resp == 0) {
+					$('.feed').text("Failed to write in external file data.json").css("color", "red");
+				
+				} else if( resp == -100 ) {
+					$('.feed').text("Failed to open external file data.json").css("color", "red");
+				} else {
+					$('.feed').text("Unknown error").css("color", "red");
+					console.log(resp);
+				}
 			})
 		});
 	</script>
