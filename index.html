@@ -202,15 +202,6 @@
 						</h5>
 
 						<h5>
-							Font type
-							<div class="toggle-button">
-								<div class="toggle-option selected" data-toggle="font" id="fontVerdanaSans">1</div>
-								<div class="toggle-option" data-toggle="font" id="fontVerdanaSerif">2</div>
-								<div class="toggle-option" data-toggle="font" id="fontRoboto">3</div>
-								<div class="toggle-option" data-toggle="font" id="fontDroid">4</div>
-							</div>
-						</h5>
-						<h5>
 							Title case
 							<div class="toggle-button">
 								<div class="toggle-option selected" data-toggle="case" id="caseNormal">Default</div>
@@ -311,32 +302,32 @@
 						<h5>
 							Publications Layout
 							<div class="toggle-button">
-								<div class="toggle-option publication_visibility">Show</div>
-								<div class="toggle-option selected publication_visibility">Hide</div>
+								<div class="toggle-option publication_visibility" id="showPublication">Show</div>
+								<div class="toggle-option selected publication_visibility" id="hidePublication">Hide</div>
 							</div>
 						</h5>
 
 						<h5>
 							Courses Layout
 							<div class="toggle-button">
-								<div class="toggle-option courses_visibility">Show</div>
-								<div class="toggle-option selected courses_visibility">Hide</div>
+								<div class="toggle-option courses_visibility" id="showCourses">Show</div>
+								<div class="toggle-option selected courses_visibility" id="hideCourses">Hide</div>
 							</div>
 						</h5>
 
 						<h5>
 							Extracurricular Layout
 							<div class="toggle-button">
-								<div class="toggle-option circular_visibility">Show</div>
-								<div class="toggle-option selected circular_visibility">Hide</div>
+								<div class="toggle-option circular_visibility" id="showCurrcular">Show</div>
+								<div class="toggle-option selected circular_visibility" id="hideCurrcular">Hide</div>
 							</div>
 						</h5>
 
 						<h5>
 							Footer 
 							<div class="toggle-button">
-								<div class="toggle-option footer_visibility">Show</div>
-								<div class="toggle-option selected footer_visibility">Hide</div>
+								<div class="toggle-option footer_visibility" id="showFooter">Show</div>
+								<div class="toggle-option selected footer_visibility" id="hideFooter">Hide</div>
 							</div>
 						</h5>
 						<br/>
@@ -626,6 +617,54 @@
 			    				$('#imageHide').addClass("selected");
 			    				$('#imageShow').removeClass("selected");
 			    			}
+			    		} else if(key == "publicationVisibility") {
+			    			if( val == true ) {
+			    				$('#sectionPublications').css('display', "block");
+
+			    				$('#showPublication').addClass("selected");
+			    				$('#hidePublication').removeClass("selected");
+			    			} else {
+			    				$('#sectionPublications').css("display", "none");
+
+			    				$('#hidePublication').addClass("selected");
+			    				$('#showPublication').removeClass("selected");
+			    			}
+			    		} else if(key == "coursesVisibility") {
+			    			if( val == true ) {
+			    				$('#sectionCourses').css('display', "block");
+
+			    				$('#showCourses').addClass("selected");
+			    				$('#hideCourses').removeClass("selected");
+			    			} else {
+			    				$('#sectionCourses').css("display", "none");
+
+			    				$('#hideCourses').addClass("selected");
+			    				$('#showCourses').removeClass("selected");
+			    			}
+			    		} else if(key == "currcularVisibility") {
+			    			if( val == true ) {
+			    				$('#sectionCurricular').css('display', "block");
+
+			    				$('#showCurrcular').addClass("selected");
+			    				$('#hideCurrcular').removeClass("selected");
+			    			} else {
+			    				$('#sectionCurricular').css("display", "none");
+
+			    				$('#hideCurrcular').addClass("selected");
+			    				$('#showCurrcular').removeClass("selected");
+			    			}
+			    		} else if(key == "footerVisibility") {
+			    			if( val == true ) {
+			    				$('#sectionFooterMessage').css('display', "block");
+
+			    				$('#showFooter').addClass("selected");
+			    				$('#hideFooter').removeClass("selected");
+			    			} else {
+			    				$('#sectionFooterMessage').css("display", "none");
+
+			    				$('#hideFooter').addClass("selected");
+			    				$('#showFooter').removeClass("selected");
+			    			}
 			    		} else if(key == "eduYearLayout") {
 			    			if( val == "Last" ) {
 			    				educYearLayout("edyearLat");
@@ -776,9 +815,9 @@
 
 		function toogle_publication_visibility (to_do) {
 			if(to_do == "Show") {
-				$('#sectionPublications').fadeIn(0);
+				$('#sectionPublications').css("display", "block");
 			} else if(to_do == "Hide") {
-				$('#sectionPublications').fadeOut(0);
+				$('#sectionPublications').css("display", "none");
 			}
 
 			$(this).addClass('selected');
@@ -794,15 +833,15 @@
 
 		function toogle_courses_visibility (to_do) {
 			if(to_do == "Show") {
-				$('#sectionCourses').fadeIn(0);
+				$('#sectionCourses').css("display", "block");
 			} else if(to_do == "Hide") {
-				$('#sectionCourses').fadeOut(0);
+				$('#sectionCourses').css("display", "none");
 			}
 
 			$(this).addClass('selected');
 		}
 
-	//when courses visibility is changed
+	//when extr-curricular visibility is changed
 		$('.circular_visibility').on("click", function()
 		{
 			var text = $.trim($(this).text());
@@ -812,15 +851,15 @@
 
 		function toogle_circular_visibility (to_do) {
 			if(to_do == "Show") {
-				$('#sectionCurricular').fadeIn(0);
+				$('#sectionCurricular').css("display", "block");
 			} else if(to_do == "Hide") {
-				$('#sectionCurricular').fadeOut(0);
+				$('#sectionCurricular').css("display", "none");
 			}
 
 			$(this).addClass('selected');
 		}
 
-	//when courses visibility is changed
+	//when footer visibility is changed
 		$('.footer_visibility').on("click", function()
 		{
 			var text = $.trim($(this).text());
@@ -830,9 +869,9 @@
 
 		function toogle_footer_visibility (to_do) {
 			if(to_do == "Show") {
-				$('#sectionFooterMessage').fadeIn(0);
+				$('#sectionFooterMessage').css("display", "block");
 			} else if(to_do == "Hide") {
-				$('#sectionFooterMessage').fadeOut(0);
+				$('#sectionFooterMessage').css("display", "none");
 			}
 
 			$(this).addClass('selected');
@@ -869,20 +908,6 @@
 			} else if ( imageVisibility == "block" ) {
 				jsonToStore['isImageVisible'] = true;
 			}
-
-		//getting education year layout
-			var eduYearLayout = "First";
-
-			$('.eduYearLayout .toggle-option').each(function()
-			{
-				var id = $(this).attr("id");
-				if( $(this).hasClass("selected") ) {
-					if(id == "edyearLat") {
-						eduYearLayout = "Last";
-					}
-				}
-			});
-			jsonToStore['eduYearLayout'] = eduYearLayout;
 
 		//getting first name
 			var html = $('#fName').html();
@@ -1090,6 +1115,8 @@
 				dataJSON.push(temp);
 			});
 			childJSON["data2"] = dataJSON;
+			childJSON["note"] = $('#courses .star').text();
+
 			jsonToStore['courses'] = childJSON;
 
 		//getting cirrculars
@@ -1110,14 +1137,58 @@
 			var html = $('#footerMsg').html();
 			jsonToStore['footerMsg'] = html;
 		
+		//getting education year layout
+			var eduYearLayout = "First";
+
+			$('.eduYearLayout .toggle-option').each(function()
+			{
+				var id = $(this).attr("id");
+				if( $(this).hasClass("selected") ) {
+					if(id == "edyearLat") {
+						eduYearLayout = "Last";
+					}
+				}
+			});
+			jsonToStore['eduYearLayout'] = eduYearLayout;
+
+		//getting publication visibility
+			var publicationVisibility = $('#sectionPublications').css('display');
+			if( publicationVisibility == "none" ) {
+				jsonToStore['publicationVisibility'] = false;
+			} else if ( publicationVisibility == "block" ) {
+				jsonToStore['publicationVisibility'] = true;
+			}
+
+		//getting courses visibility
+			var coursesVisibility = $('#sectionCourses').css('display');
+			if( coursesVisibility == "none" ) {
+				jsonToStore['coursesVisibility'] = false;
+			} else if ( coursesVisibility == "block" ) {
+				jsonToStore['coursesVisibility'] = true;
+			}
+
+		//getting curcullar visibility
+			var currcularVisibility = $('#sectionCurricular').css('display');
+			if( currcularVisibility == "none" ) {
+				jsonToStore['currcularVisibility'] = false;
+			} else if ( currcularVisibility == "block" ) {
+				jsonToStore['currcularVisibility'] = true;
+			}
+
+		//getting footer visibility
+			var footerVisibility = $('#sectionFooterMessage').css('display');
+			if( footerVisibility == "none" ) {
+				jsonToStore['footerVisibility'] = false;
+			} else if ( footerVisibility == "block" ) {
+				jsonToStore['footerVisibility'] = true;
+			}
+
 		//sending data to api for storing data in data.json	
 			jsonToSend.push(jsonToStore);
-
 			console.log((jsonToSend));
 
 			$.post("write_json.php", {jsonToSend: JSON.stringify(jsonToSend)}, function(resp)
 			{
-				console.log(resp);
 				if(resp == 1) {
 					$('.feed').text("Saved successfully").css("color", "#5cb85c");
 				} else if( resp == 0) {
