@@ -393,14 +393,14 @@
 	<script type="text/javascript" src="js/main.js"></script>
 	<script type="text/javascript">
 	//displaying preloader
-		$('.preloader_container').load('preloader.html');
+		$('.preloader_container').load('extra/preloader.html');
 
 	//removing context menu
 		document.addEventListener('contextmenu', event => event.preventDefault());
 
 	//getting the stored data from data.json file
 		var time = Math.floor(Date.now() / 1000);
-		var url = "data.json?v=" + time; // to always load from latest data.json i.e this prevents loading from cache of data.json
+		var url = "extra/data.json?v=" + time; // to always load from latest data.json i.e this prevents loading from cache of data.json
 
 		$.ajax({
 	        type: "GET",
@@ -414,8 +414,27 @@
 	        	}
 	        },
 	        error: function (xhr, ajaxOptions, thrownError) {
-	        //displaying error in preloader
-	        	$('#loading_msg').text("Something went wrong while fetching data from storage file data.json: " + thrownError).css("color", 'red');
+	        //if data.json does not exist then creating a blank data.json and reloading the page
+	        	if(thrownError == "Not Found") {
+	        		$.post("extra/write_json.php", { jsonToSend: "[{}]" }, function(resp)
+					{
+						if(resp == 1) {
+							$('#loading_msg').text("Blank data created").css("color", "#5cb85c");
+							location.reload();
+						} else if( resp == 0) {
+							$('#loading_msg').text("Failed to write in external file data.json. Please check your folder permission").css("color", "red");
+						} else if( resp == -100 ) {
+							$('#loading_msg').text("Failed to open external file data.json").css("color", "red");
+						} else {
+							$('#loading_msg').text("Unknown error").css("color", "red");
+							console.log(resp);
+						}
+					});
+	        	}
+	        	else {
+	        	//displaying error in preloader
+		        	$('#loading_msg').text("Something went wrong while fetching data from storage file data.json: " + thrownError).css("color", 'red');
+	        	}
 	      	}
 	    });
 
@@ -721,6 +740,37 @@
 		    			} else if (val == "1.6em") {
 		    				$('#line6').addClass("selected");
 		    			}
+		    		} else if(key == "case") {
+		    			if(val == "uppercase") {
+		    				$('.section-title').addClass('uppercase');
+
+		    				$('#caseNormal').removeClass("selected");
+		    				$('#caseUpper').addClass("selected");
+		    			}
+		    		} else if(key == "isShaded") {
+		    			if(val == true) {
+		    				$('.section-title').removeClass('ruled');
+							$('.section-title').addClass('shaded');
+
+		    				$('#titleRuled').removeClass("selected");
+		    				$('#titleShaded').addClass("selected");
+		    			}
+		    		} else if(key == "rulerPosition") {
+		    			if(val == "below") {
+		    				$('.section-title').removeClass('rule-above');
+							$('.section-title').addClass('rule-below');
+
+		    				$('#ruleAbove').removeClass("selected");
+		    				$('#ruleBelow').addClass("selected");
+		    			}
+		    		} else if(key == "tableBorder") {
+		    			if(val == false) {
+		    				$('#educationTable').removeClass('customBordered');
+							$('#educationTable').addClass('borderless');
+
+		    				$('#tableShow').removeClass("selected");
+		    				$('#tableHide').addClass("selected");
+		    			}
 			    	} else {
 			    		var html = val.replace("\n", "<br />"); // to break word
 			    	}
@@ -730,7 +780,6 @@
 				}
 
 			//setting page style horizontal margin & line spacing
-				console.log(page_style);
 				if($.trim(page_style) != "") {
 					$('#page').attr("style", page_style);
 				}
@@ -1255,11 +1304,39 @@
 			jsonToStore['line_height'] = line_height;
 			jsonToStore['padding'] = padding;
 			
+		//getting title case
+			if( $('.section-title').hasClass('uppercase') ) {
+				jsonToStore['case'] = "uppercase";
+			} else {
+				jsonToStore['case'] = "default";
+			}
+
+		//getting title ruled/shaded
+			if( $('.section-title').hasClass('shaded') ) {
+				jsonToStore['isShaded'] = true;
+			} else {
+				jsonToStore['isShaded'] = false;
+			}
+
+		//getting title ruler position
+			if( $('.section-title').hasClass('rule-below') ) {
+				jsonToStore['rulerPosition'] = "below";
+			} else {
+				jsonToStore['rulerPosition'] = "above";
+			}
+
+		//getting table border
+			if( $('#educationTable').hasClass('borderless') ) {
+				jsonToStore['tableBorder'] = false;
+			} else {
+				jsonToStore['tableBorder'] = true;
+			}
+
 		//sending data to api for storing data in data.json	
 			jsonToSend.push(jsonToStore);
-			// console.log((jsonToSend));
+			console.log((jsonToSend));
 
-			$.post("write_json.php", {jsonToSend: JSON.stringify(jsonToSend)}, function(resp)
+			$.post("extra/write_json.php", {jsonToSend: JSON.stringify(jsonToSend)}, function(resp)
 			{
 				if(resp == 1) {
 					$('.feed').text("Saved successfully").css("color", "#5cb85c");
@@ -1272,7 +1349,7 @@
 					$('.feed').text("Unknown error").css("color", "red");
 					console.log(resp);
 				}
-			})
+			});
 		});
 	</script>
 </body>
