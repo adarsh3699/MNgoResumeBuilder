@@ -90,18 +90,20 @@ function changeTemplate(toggleType,toggleValue)
 			}
 			break;
 		case 'margin':
+			if(toggleValue=='margin0')
+				$('#page').css('padding','0cm 0cm 0cm 0cm');
 			if(toggleValue=='margin1')
-				$('#page').css('padding','0.2cm 1cm 1cm 1cm');
+				$('#page').css('padding','0cm .25cm .25cm .25cm');
 			else if(toggleValue=='margin2')
-				$('#page').css('padding','0.2cm 1.1cm 1cm 1.1cm');
+				$('#page').css('padding','0cm .5cm .5cm .5cm');
 			else if(toggleValue=='margin3')
-				$('#page').css('padding','0.2cm 1.2cm 1cm 1.2cm');
+				$('#page').css('padding','0cm .75cm .75cm .75cm');
 			else if(toggleValue=='margin4')
-				$('#page').css('padding','0.2cm 1.3cm 1cm 1.3cm');
+				$('#page').css('padding','0cm 1cm 1cm 1cm');
 			else if(toggleValue=='margin5')
-				$('#page').css('padding','0.2cm 1.4cm 1cm 1.4cm');
+				$('#page').css('padding','0cm 1.1cm 1.1cm 1.1cm');
 			else if(toggleValue=='margin6')
-				$('#page').css('padding','0.2cm 1.5cm 1cm 1.5cm');
+				$('#page').css('padding','0cm 1.3cm 1.3cm 1.3cm');
 			break;
 		case 'line':
 			if(toggleValue=='line1')

@@ -179,7 +179,8 @@
 					<div id="customTemplateOptions" style="display: block;">
 						<h5>
 							Horizontal margin
-							<div class="toggle-button">
+							<div class="toggle-button hor_marg">
+								<div class="toggle-option" data-toggle="margin" id="margin0">0</div>
 								<div class="toggle-option selected" data-toggle="margin" id="margin1">1</div>
 								<div class="toggle-option" data-toggle="margin" id="margin2">2</div>
 								<div class="toggle-option" data-toggle="margin" id="margin3">3</div>
@@ -191,7 +192,7 @@
 
 						<h5>
 							Line spacing
-							<div class="toggle-button">
+							<div class="toggle-button line_spacing">
 								<div class="toggle-option" data-toggle="line" id="line1">1</div>
 								<div class="toggle-option" data-toggle="line" id="line2">2</div>
 								<div class="toggle-option selected" data-toggle="line" id="line3">3</div>
@@ -423,264 +424,315 @@
 		{
 			if( json ) 
 			{
+				var page_style = "";
+
 			//if valid json
 				for (var key in json) 
 				{
-				    if (json.hasOwnProperty(key)) 
-				    {
-				    //getting val from json	
-				    	var val = json[key];
+			   //getting val from json	
+			    	var val = json[key];
 
-				    //generating html for different titles
-				    	var html = "";
-				    	if(key == "contactLink") {
-				    	//setting data
-				    		var data = val;
+			    //generating html for different titles
+			    	var html = "";
+			    	if(key == "contactLink") {
+			    	//setting data
+			    		var data = val;
 
-				    		for(var i = 0; i < data.length; i++) {
-			    				var did_this = data[i];
+			    		for(var i = 0; i < data.length; i++) {
+		    				var did_this = data[i];
 
-			    				html += "<li>" + did_this + "</li>"
-			    			}
-				    	} else if(key == "contacts") {
-				    	//setting data
-				    		var data = val;
+		    				html += "<li>" + did_this + "</li>"
+		    			}
+			    	} else if(key == "contacts") {
+			    	//setting data
+			    		var data = val;
 
-				    		for(var i = 0; i < data.length; i++) {
-			    				var did_this = data[i];
+			    		for(var i = 0; i < data.length; i++) {
+		    				var did_this = data[i];
 
-			    				html += "<li>" + did_this + "</li>"
-			    			}
-				    	} else if(key == "education") {
-				    	//setting heading
-				    		var heading = val.heading;
-				    		$('#sectionEducation h4 strong').text(heading);
+		    				html += "<li>" + did_this + "</li>"
+		    			}
+			    	} else if(key == "education") {
+			    	//setting heading
+			    		var heading = val.heading;
+			    		$('#sectionEducation h4 strong').text(heading);
 
-				    	//setting data
-				    		var data = val.data;
-				    		for(var k in data) {
-				    			var year = data[k].year;
-				    			var degree = data[k].degree;
-				    			var institute = data[k].institute;
-				    			var grade = data[k].grade;
+			    	//setting data
+			    		var data = val.data;
+			    		for(var k in data) {
+			    			var year = data[k].year;
+			    			var degree = data[k].degree;
+			    			var institute = data[k].institute;
+			    			var grade = data[k].grade;
 
-				    			html += "<tr><td>" + year + "</td><td>" + degree + "</td><td>" + institute + "</td><td>" + grade + "</td></tr>";
-				    		}
-				    	} else if(key == "experience") {
-				    	//setting heading
-				    		var heading = val.heading;
-				    		$('#sectionExperience h4 strong').text(heading);
-				    		// console.log(heading);
+			    			html += "<tr><td>" + year + "</td><td>" + degree + "</td><td>" + institute + "</td><td>" + grade + "</td></tr>";
+			    		}
+			    	} else if(key == "experience") {
+			    	//setting heading
+			    		var heading = val.heading;
+			    		$('#sectionExperience h4 strong').text(heading);
+			    		// console.log(heading);
 
-				    	//setting data
-				    		var data = val.data;
-				    		for(var k in data) {
-				    			var job_title = data[k].job_title;
-				    			var job_duration = data[k].job_duration;
-				    			var job_company_link = data[k].job_company_link;
-				    			var company_name = data[k].company_name;
-				    			var details = data[k].details;
+			    	//setting data
+			    		var data = val.data;
+			    		for(var k in data) {
+			    			var job_title = data[k].job_title;
+			    			var job_duration = data[k].job_duration;
+			    			var job_company_link = data[k].job_company_link;
+			    			var company_name = data[k].company_name;
+			    			var details = data[k].details;
 
-				    			html += '<li class="li"><div><div class="title">' + job_title + '</div><div class="time right" >' + job_duration + '</div></div><div><div class="link right">' + job_company_link + '</div><div class="company_name">' + company_name + '</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;">';
-				    			for(var i = 0; i < details.length; i++) {
-				    				var did_this = details[i];
-
-				    				html += "<li>" + did_this + "</li>"
-				    			}
-				    			html += "</ul></div></li>";
-				    		}
-				    	} else if(key == "projects") {
-				    	//setting heading
-				    		var heading = val.heading;
-				    		$('#sectionProjects h4 strong').text(heading);
-				    		// console.log(heading);
-				    		
-				    	//setting data
-				    		var data = val.data;
-				    		for(var k in data) {
-				    			var project_title = data[k].project_title;
-				    			var project_duration = data[k].project_duration;
-				    			var project_link = data[k].project_link;
-				    			var company_name = data[k].company_name;
-				    			var details = data[k].details;
-
-				    			html += '<li class="li"><div><div class="title">' + project_title + '</div><div class="time right" >' + project_duration + '</div></div><div><div class="link right">' + project_link + '</div><div class="company_name">' + company_name + '</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;">';
-				    			for(var i = 0; i < details.length; i++) {
-				    				var did_this = details[i];
-
-				    				html += "<li>" + did_this + "</li>"
-				    			}
-				    			html += "</ul></div></li>";
-				    		}
-				    	} else if(key == "skills") {
-				    	//setting heading
-				    		var heading = val.heading;
-				    		$('#sectionSkills h4 strong').text(heading);
-				    		// console.log(heading);
-				    		
-				    	//setting data
-				    		var data = val.data;
-				    		for(var i = 0; i < data.length; i++) {
-			    				var did_this = data[i];
+			    			html += '<li class="li"><div><div class="title">' + job_title + '</div><div class="time right" >' + job_duration + '</div></div><div><div class="link right">' + job_company_link + '</div><div class="company_name">' + company_name + '</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;">';
+			    			for(var i = 0; i < details.length; i++) {
+			    				var did_this = details[i];
 
 			    				html += "<li>" + did_this + "</li>"
 			    			}
-			    		} else if(key == "pors") {
-			    		//setting heading
-				    		var heading = val.heading;
-				    		$('#sectionResponsibility h4 strong').text(heading);
-				    		// console.log(heading);
-				    		
-				    	//setting data
-				    		var data = val.data;
-				    		for(var i = 0; i < data.length; i++) {
-			    				var did_this = data[i];
+			    			html += "</ul></div></li>";
+			    		}
+			    	} else if(key == "projects") {
+			    	//setting heading
+			    		var heading = val.heading;
+			    		$('#sectionProjects h4 strong').text(heading);
+			    		// console.log(heading);
+			    		
+			    	//setting data
+			    		var data = val.data;
+			    		for(var k in data) {
+			    			var project_title = data[k].project_title;
+			    			var project_duration = data[k].project_duration;
+			    			var project_link = data[k].project_link;
+			    			var company_name = data[k].company_name;
+			    			var details = data[k].details;
+
+			    			html += '<li class="li"><div><div class="title">' + project_title + '</div><div class="time right" >' + project_duration + '</div></div><div><div class="link right">' + project_link + '</div><div class="company_name">' + company_name + '</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;">';
+			    			for(var i = 0; i < details.length; i++) {
+			    				var did_this = details[i];
 
 			    				html += "<li>" + did_this + "</li>"
 			    			}
-			    		} else if(key == "achievements") {
-			    		//setting heading
-				    		var heading = val.heading;
-				    		$('#sectionAchievements h4 strong').text(heading);
-				    		// console.log(heading);
-				    		
-				    	//setting data
-				    		var data = val.data;
-				    		for(var i = 0; i < data.length; i++) {
-			    				var did_this = data[i];
+			    			html += "</ul></div></li>";
+			    		}
+			    	} else if(key == "skills") {
+			    	//setting heading
+			    		var heading = val.heading;
+			    		$('#sectionSkills h4 strong').text(heading);
+			    		// console.log(heading);
+			    		
+			    	//setting data
+			    		var data = val.data;
+			    		for(var i = 0; i < data.length; i++) {
+		    				var did_this = data[i];
 
-			    				html += "<li>" + did_this + "</li>"
-			    			}
-			    		} else if(key == "publications") {
-			    		//setting heading
-				    		var heading = val.heading;
-				    		$('#sectionPublications h4 strong').text(heading);
-				    		// console.log(heading);
-				    		
-				    	//setting data
-				    		var data = val.data;
-				    		for(var k in data) {
-				    			var publication_title = data[k].publication_title;
-				    			var published_at = data[k].published_at;
-				    			var mentors = data[k].mentors;
+		    				html += "<li>" + did_this + "</li>"
+		    			}
+		    		} else if(key == "pors") {
+		    		//setting heading
+			    		var heading = val.heading;
+			    		$('#sectionResponsibility h4 strong').text(heading);
+			    		// console.log(heading);
+			    		
+			    	//setting data
+			    		var data = val.data;
+			    		for(var i = 0; i < data.length; i++) {
+		    				var did_this = data[i];
 
-				    			html += '<li><div><div class="title">' + publication_title + '</div><div class="time right">' + published_at + '</div></div><div><div class="mentor">' + mentors + '</div></div></li>';
-				    		}
-				    	} else if(key == "courses") {
-			    		//setting heading
-				    		var heading = val.heading;
-				    		$('#sectionCourses h4 strong').text(heading);
-				    		// console.log(heading);
-				    		
-				    	//setting data
-				    		html += '<div class="row"><div class="col-sm-6 data1">';
-				    		var data1 = val.data1;
-				    		for(var i = 0; i < data1.length; i++) {
-			    				var did_this = data1[i];
+		    				html += "<li>" + did_this + "</li>"
+		    			}
+		    		} else if(key == "achievements") {
+		    		//setting heading
+			    		var heading = val.heading;
+			    		$('#sectionAchievements h4 strong').text(heading);
+			    		// console.log(heading);
+			    		
+			    	//setting data
+			    		var data = val.data;
+			    		for(var i = 0; i < data.length; i++) {
+		    				var did_this = data[i];
 
-			    				html += "<li>" + did_this + "</li>"
-			    			}
-			    			html += '</div><div class="col-sm-6 data2">';
+		    				html += "<li>" + did_this + "</li>"
+		    			}
+		    		} else if(key == "publications") {
+		    		//setting heading
+			    		var heading = val.heading;
+			    		$('#sectionPublications h4 strong').text(heading);
+			    		// console.log(heading);
+			    		
+			    	//setting data
+			    		var data = val.data;
+			    		for(var k in data) {
+			    			var publication_title = data[k].publication_title;
+			    			var published_at = data[k].published_at;
+			    			var mentors = data[k].mentors;
 
-				    		var data2 = val.data2;
-				    		for(var i = 0; i < data2.length; i++) {
-			    				var did_this = data2[i];
+			    			html += '<li><div><div class="title">' + publication_title + '</div><div class="time right">' + published_at + '</div></div><div><div class="mentor">' + mentors + '</div></div></li>';
+			    		}
+			    	} else if(key == "courses") {
+		    		//setting heading
+			    		var heading = val.heading;
+			    		$('#sectionCourses h4 strong').text(heading);
+			    		// console.log(heading);
+			    		
+			    	//setting data
+			    		html += '<div class="row"><div class="col-sm-6 data1">';
+			    		var data1 = val.data1;
+			    		for(var i = 0; i < data1.length; i++) {
+		    				var did_this = data1[i];
 
-			    				html += "<li>" + did_this + "</li>"
-			    			}
-			    			html += '</div></div>';
+		    				html += "<li>" + did_this + "</li>"
+		    			}
+		    			html += '</div><div class="col-sm-6 data2">';
 
-			    			var note = val.note;
-							html += '<div class="star light"><i>' + note + '</i></div>';			    			
-				    	} else if(key == "cirrculars") {
-			    		//setting heading
-				    		var heading = val.heading;
-				    		$('#sectionCurricular h4 strong').text(heading);
-				    		// console.log(heading);
-				    		
-				    	//setting data
-				    		var data = val.data;
-				    		for(var i = 0; i < data.length; i++) {
-			    				var did_this = data[i];
+			    		var data2 = val.data2;
+			    		for(var i = 0; i < data2.length; i++) {
+		    				var did_this = data2[i];
 
-			    				html += "<li>" + did_this + "</li>"
-			    			}
-			    		} else if(key == "isImageVisible") {
-			    			if( val == true ) {
-			    				$('#image_box').css("display", "block");
+		    				html += "<li>" + did_this + "</li>"
+		    			}
+		    			html += '</div></div>';
 
-			    				$('#imageShow').addClass("selected");
-			    				$('#imageHide').removeClass("selected");
-			    			} else {
-			    				$('#image_box').css("display", "none");
+		    			var note = val.note;
+						html += '<div class="star light"><i>' + note + '</i></div>';			    			
+			    	} else if(key == "cirrculars") {
+		    		//setting heading
+			    		var heading = val.heading;
+			    		$('#sectionCurricular h4 strong').text(heading);
+			    		// console.log(heading);
+			    		
+			    	//setting data
+			    		var data = val.data;
+			    		for(var i = 0; i < data.length; i++) {
+		    				var did_this = data[i];
 
-			    				$('#imageHide').addClass("selected");
-			    				$('#imageShow').removeClass("selected");
-			    			}
-			    		} else if(key == "publicationVisibility") {
-			    			if( val == true ) {
-			    				$('#sectionPublications').css('display', "block");
+		    				html += "<li>" + did_this + "</li>"
+		    			}
+		    		} else if(key == "isImageVisible") {
+		    			if( val == true ) {
+		    				$('#image_box').css("display", "block");
 
-			    				$('#showPublication').addClass("selected");
-			    				$('#hidePublication').removeClass("selected");
-			    			} else {
-			    				$('#sectionPublications').css("display", "none");
+		    				$('#imageShow').addClass("selected");
+		    				$('#imageHide').removeClass("selected");
+		    			} else {
+		    				$('#image_box').css("display", "none");
 
-			    				$('#hidePublication').addClass("selected");
-			    				$('#showPublication').removeClass("selected");
-			    			}
-			    		} else if(key == "coursesVisibility") {
-			    			if( val == true ) {
-			    				$('#sectionCourses').css('display', "block");
+		    				$('#imageHide').addClass("selected");
+		    				$('#imageShow').removeClass("selected");
+		    			}
+		    		} else if(key == "publicationVisibility") {
+		    			if( val == true ) {
+		    				$('#sectionPublications').css('display', "block");
 
-			    				$('#showCourses').addClass("selected");
-			    				$('#hideCourses').removeClass("selected");
-			    			} else {
-			    				$('#sectionCourses').css("display", "none");
+		    				$('#showPublication').addClass("selected");
+		    				$('#hidePublication').removeClass("selected");
+		    			} else {
+		    				$('#sectionPublications').css("display", "none");
 
-			    				$('#hideCourses').addClass("selected");
-			    				$('#showCourses').removeClass("selected");
-			    			}
-			    		} else if(key == "currcularVisibility") {
-			    			if( val == true ) {
-			    				$('#sectionCurricular').css('display', "block");
+		    				$('#hidePublication').addClass("selected");
+		    				$('#showPublication').removeClass("selected");
+		    			}
+		    		} else if(key == "coursesVisibility") {
+		    			if( val == true ) {
+		    				$('#sectionCourses').css('display', "block");
 
-			    				$('#showCurrcular').addClass("selected");
-			    				$('#hideCurrcular').removeClass("selected");
-			    			} else {
-			    				$('#sectionCurricular').css("display", "none");
+		    				$('#showCourses').addClass("selected");
+		    				$('#hideCourses').removeClass("selected");
+		    			} else {
+		    				$('#sectionCourses').css("display", "none");
 
-			    				$('#hideCurrcular').addClass("selected");
-			    				$('#showCurrcular').removeClass("selected");
-			    			}
-			    		} else if(key == "footerVisibility") {
-			    			if( val == true ) {
-			    				$('#sectionFooterMessage').css('display', "block");
+		    				$('#hideCourses').addClass("selected");
+		    				$('#showCourses').removeClass("selected");
+		    			}
+		    		} else if(key == "currcularVisibility") {
+		    			if( val == true ) {
+		    				$('#sectionCurricular').css('display', "block");
 
-			    				$('#showFooter').addClass("selected");
-			    				$('#hideFooter').removeClass("selected");
-			    			} else {
-			    				$('#sectionFooterMessage').css("display", "none");
+		    				$('#showCurrcular').addClass("selected");
+		    				$('#hideCurrcular').removeClass("selected");
+		    			} else {
+		    				$('#sectionCurricular').css("display", "none");
 
-			    				$('#hideFooter').addClass("selected");
-			    				$('#showFooter').removeClass("selected");
-			    			}
-			    		} else if(key == "eduYearLayout") {
-			    			if( val == "Last" ) {
-			    				educYearLayout("edyearLat");
+		    				$('#hideCurrcular').addClass("selected");
+		    				$('#showCurrcular').removeClass("selected");
+		    			}
+		    		} else if(key == "footerVisibility") {
+		    			if( val == true ) {
+		    				$('#sectionFooterMessage').css('display', "block");
 
-			    				$('#edyearLat').addClass("selected");
-			    				$('#edyearFirst').removeClass("selected");
-			    			} else {
-			    			// by default it is at first //so nothing is required
-			    			}
-				    	} else {
-				    		var html = val.replace("\n", "<br />"); // to break word
-				    	}
+		    				$('#showFooter').addClass("selected");
+		    				$('#hideFooter').removeClass("selected");
+		    			} else {
+		    				$('#sectionFooterMessage').css("display", "none");
 
-			    	//updating UI
-				       	$('#' + key).html(html);
-				    }
+		    				$('#hideFooter').addClass("selected");
+		    				$('#showFooter').removeClass("selected");
+		    			}
+		    		} else if(key == "eduYearLayout") {
+		    			if( val == "Last" ) {
+		    				educYearLayout("edyearLat");
+
+		    				$('#edyearLat').addClass("selected");
+		    				$('#edyearFirst').removeClass("selected");
+		    			} else {
+		    			// by default it is at first //so nothing is required
+		    			}
+		    		} else if(key == "padding") {
+		    			page_style += "padding: " + val + "; ";
+
+		    		//de-highlihting prevoiusly selected button
+		    			$('.hor_marg .toggle-option').each(function(){
+	    					$(this).removeClass("selected");
+	    				});
+
+		    		//hightlightinhg selectd btn
+		    			if(val == "0cm") {
+		    				$('#margin0').addClass("selected");
+		    			} else if (val == "0cm 0.25cm 0.25cm") {
+		    				$('#margin1').addClass("selected");
+		    			} else if (val == "0cm 0.5cm 0.5cm") {
+		    				$('#margin2').addClass("selected");
+		    			} else if (val == "0cm 0.75cm 0.75cm") {
+		    				$('#margin3').addClass("selected");
+		    			} else if (val == "0cm 1cm 1cm") {
+		    				$('#margin4').addClass("selected");
+		    			} else if (val == "0cm 1.1cm 1.1cm") {
+		    				$('#margin5').addClass("selected");
+		    			} else if (val == "0cm 1.3cm 1.3cm") {
+		    				$('#margin6').addClass("selected");
+		    			}
+		    		} else if(key == "line_height") {
+		    			page_style += "line-height: " + val + "; ";
+
+	    			//de-highlihting prevoiusly selected button
+		    			$('.line_spacing .toggle-option').each(function(){
+	    					$(this).removeClass("selected");
+	    				});
+
+		    		//hightlightinhg selectd btn
+		    			if(val == "1.1em") {
+		    				$('#line1').addClass("selected");
+		    			} else if (val == "1.2em") {
+		    				$('#line2').addClass("selected");
+		    			} else if (val == "1.3em") {
+		    				$('#line3').addClass("selected");
+		    			} else if (val == "1.4em") {
+		    				$('#line4').addClass("selected");
+		    			} else if (val == "1.5em") {
+		    				$('#line5').addClass("selected");
+		    			} else if (val == "1.6em") {
+		    				$('#line6').addClass("selected");
+		    			}
+			    	} else {
+			    		var html = val.replace("\n", "<br />"); // to break word
+			    	}
+
+		    	//updating UI
+			       	$('#' + key).html(html);
+				}
+
+			//setting page style horizontal margin & line spacing
+				console.log(page_style);
+				if($.trim(page_style) != "") {
+					$('#page').attr("style", page_style);
 				}
 
 	        //removing preloader
@@ -1183,9 +1235,29 @@
 				jsonToStore['footerVisibility'] = true;
 			}
 
+		//getting page horizontal margin & line spacing
+			var line_height = "";
+			var padding = "";
+
+			var style = $('#page').attr("style");
+			var res = style.split(";");
+			for( var key in res) {
+				var _this_ = $.trim(res[key]);
+
+				var _break = _this_.split(":");
+				if(_this_.includes("line-height")) {
+					line_height = $.trim(_break[1]);
+				}
+				else if (_this_.includes("padding")) {
+					padding = $.trim(_break[1]);
+				}
+			}
+			jsonToStore['line_height'] = line_height;
+			jsonToStore['padding'] = padding;
+			
 		//sending data to api for storing data in data.json	
 			jsonToSend.push(jsonToStore);
-			console.log((jsonToSend));
+			// console.log((jsonToSend));
 
 			$.post("write_json.php", {jsonToSend: JSON.stringify(jsonToSend)}, function(resp)
 			{
