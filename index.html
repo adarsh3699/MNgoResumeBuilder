@@ -230,6 +230,25 @@
 								<div class="toggle-option" data-toggle="table" id="tableHide">Hide</div>
 							</div>
 						</h5>
+						<br />
+
+						<h5>
+							To make text bold
+							<div class="toggle-button my_button" style="cursor: default;">
+								Control + B
+							</div>
+						</h5>
+
+						<h5>
+							To make text italic
+							<div class="toggle-button my_button" style="cursor: default;">
+								Control + I
+							</div>
+						</h5>
+
+						<h5>
+							<div class="my_button" style="cursor: default;">Note: </div> Bold/Italic will not not work everywhere, but only at places where required.
+						</h5>
 					</div>
 					<hr>
 					
@@ -1053,13 +1072,25 @@
 			var dataJSON = [];
 			$('#education tr').each(function()
 			{
+				var degree = "";
+				var institute = "";
+				var grade = "";
+				var year = "";
+
+			//if year is displayed at last
+				if($('#edyearLat').hasClass("selected")) {
+					degree = $(this).find("td:nth-child(1)").text().trim();
+					institute = $(this).find("td:nth-child(2)").text().trim();
+					grade = $(this).find("td:nth-child(3)").text().trim();
+					year = $(this).find("td:nth-child(4)").text().trim();
+				} else {
+					year = $(this).find("td:nth-child(1)").text().trim();
+					degree = $(this).find("td:nth-child(2)").text().trim();
+					institute = $(this).find("td:nth-child(3)").text().trim();
+					grade = $(this).find("td:nth-child(4)").text().trim();
+				}
+
 				var temp = {};
-
-				var year = $(this).find("td:nth-child(1)").text().trim();
-				var degree = $(this).find("td:nth-child(2)").text().trim();
-				var institute = $(this).find("td:nth-child(3)").text().trim();
-				var grade = $(this).find("td:nth-child(4)").text().trim();
-
 				temp["year"] = year;
 				temp["degree"] = degree;
 				temp["institute"] = institute;
@@ -1092,7 +1123,7 @@
 
 				var detailsJSON = [];
 				$(this).find(".circle li").each(function() {
-					var detail = $(this).text().trim();
+					var detail = $(this).html().trim();
 					detailsJSON.push(detail);
 				});
 
@@ -1125,7 +1156,7 @@
 
 				var detailsJSON = [];
 				$(this).find(".circle li").each(function() {
-					var detail = $(this).text().trim();
+					var detail = $(this).html().trim();
 					detailsJSON.push(detail);
 				});
 
@@ -1342,7 +1373,7 @@
 
 		//sending data to api for storing data in data.json	
 			jsonToSend.push(jsonToStore);
-			console.log((jsonToSend));
+			// console.log((jsonToSend));
 
 			$.post("extra/write_json.php", {jsonToSend: JSON.stringify(jsonToSend)}, function(resp)
 			{
