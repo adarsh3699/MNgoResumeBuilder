@@ -176,6 +176,13 @@
 					<button class="btn btn-block btn-success" onclick="window.print()">Print PDF</button>
 
 					<a class="btn btn-block btn-warning" href="extra/data.json" target="_blank">Export JSON</a>
+					
+					<h5 class="btn btn-info" style="width: 100%; padding: 5px;">
+						Import JSON
+						<div>
+							<input type="file" name="file1" id="file1">	
+						</div>
+					</h5>
 					<hr>
 					
 					<div id="customTemplateOptions" style="display: block;">
@@ -485,7 +492,7 @@
 			    	//setting data
 			    		var data = val;
 
-			    		for(var i = 0; i < data.length; i++) {
+			    		for(i in data) {
 		    				var did_this = data[i];
 
 		    				html += "<li>" + did_this + "</li>"
@@ -494,7 +501,7 @@
 			    	//setting data
 			    		var data = val;
 
-			    		for(var i = 0; i < data.length; i++) {
+			    		for(i in data) {
 		    				var did_this = data[i];
 
 		    				html += "<li>" + did_this + "</li>"
@@ -530,11 +537,13 @@
 			    			var details = data[k].details;
 
 			    			html += '<li class="li"><div><div class="title">' + job_title + '</div><div class="time right" >' + job_duration + '</div></div><div><div class="link right">' + job_company_link + '</div><div class="company_name">' + company_name + '</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;">';
-			    			for(var i = 0; i < details.length; i++) {
+
+		    				for(var i in details) {
 			    				var did_this = details[i];
 
 			    				html += "<li>" + did_this + "</li>"
 			    			}
+			    			
 			    			html += "</ul></div></li>";
 			    		}
 			    	} else if(key == "projects") {
@@ -553,7 +562,7 @@
 			    			var details = data[k].details;
 
 			    			html += '<li class="li"><div><div class="title">' + project_title + '</div><div class="time right" >' + project_duration + '</div></div><div><div class="link right">' + project_link + '</div><div class="company_name">' + company_name + '</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;">';
-			    			for(var i = 0; i < details.length; i++) {
+			    			for(var i in details) {
 			    				var did_this = details[i];
 
 			    				html += "<li>" + did_this + "</li>"
@@ -568,7 +577,7 @@
 			    		
 			    	//setting data
 			    		var data = val.data;
-			    		for(var i = 0; i < data.length; i++) {
+			    		for(var i in data) {
 		    				var did_this = data[i];
 
 		    				html += "<li>" + did_this + "</li>"
@@ -581,7 +590,7 @@
 			    		
 			    	//setting data
 			    		var data = val.data;
-			    		for(var i = 0; i < data.length; i++) {
+			    		for(i in data) {
 		    				var did_this = data[i];
 
 		    				html += "<li>" + did_this + "</li>"
@@ -594,7 +603,7 @@
 			    		
 			    	//setting data
 			    		var data = val.data;
-			    		for(var i = 0; i < data.length; i++) {
+			    		for(i in data) {
 		    				var did_this = data[i];
 
 		    				html += "<li>" + did_this + "</li>"
@@ -623,7 +632,7 @@
 			    	//setting data
 			    		html += '<div class="row"><div class="col-sm-6 data1">';
 			    		var data1 = val.data1;
-			    		for(var i = 0; i < data1.length; i++) {
+			    		for(i in data1) {
 		    				var did_this = data1[i];
 
 		    				html += "<li>" + did_this + "</li>"
@@ -631,7 +640,7 @@
 		    			html += '</div><div class="col-sm-6 data2">';
 
 			    		var data2 = val.data2;
-			    		for(var i = 0; i < data2.length; i++) {
+			    		for(i in data2) {
 		    				var did_this = data2[i];
 
 		    				html += "<li>" + did_this + "</li>"
@@ -648,7 +657,7 @@
 			    		
 			    	//setting data
 			    		var data = val.data;
-			    		for(var i = 0; i < data.length; i++) {
+			    		for(i in data) {
 		    				var did_this = data[i];
 
 		    				html += "<li>" + did_this + "</li>"
@@ -799,8 +808,11 @@
 		    				$('#tableShow').removeClass("selected");
 		    				$('#tableHide').addClass("selected");
 		    			}
-			    	} else {
+			    	} else if(key == "footerMsg" || key == "fName" || key == "sName") {
 			    		var html = val.replace("\n", "<br />"); // to break word
+			    	} else {
+			    	//ignoring any other key
+			    		continue;
 			    	}
 
 		    	//updating UI
@@ -1457,6 +1469,70 @@
 			});
 	    });
 		
+	//function to import json
+		var post_address = "extra/import_json.php";
+		$(document).on('change', '#file1', function()
+	    {
+	      	$('.feed').html('<img src="images/loaders2.gif" class="loading_gif" />');
+
+      	//sending upload request to api 
+	        var property = document.getElementById("file1").files[0];
+	        var image_name = property.name;
+	        var image_extension = image_name.split('.').pop().toLowerCase();
+
+	        if(image_extension == "json" || image_extension == "JSON") {
+	        }
+	        else {
+	        	$('.feed').text("please upload a json file").css("color", 'red');
+	        	return;
+	        }
+
+	        var form_data = new FormData();
+			form_data.append("file", property);
+			$.ajax(
+			{
+				url: post_address,
+				method: "POST",
+				data: form_data,
+				contentType: false,
+				cache: false,
+				processData: false,
+				beforeSend:function()
+				{
+					$('.feed').html('<img src="images/loaders2.gif" class="loading_gif" />');
+				},
+				success: function(data)
+				{
+					if(data == 0)
+					{
+						$('.feed').text('Failed to import JSON').css("color", 'red');
+					}
+					else if(data == -3)
+					{
+						$('.feed').text("Invalid JSON format. Please upload a valid resume JSON").css("color", 'red');
+					}
+					else if(data == -2)
+					{
+						$('.feed').text("File uploading directory not present on server").css("color", 'red');
+					}
+					else if(data == -1)
+					{
+						$('.feed').text("Something went wrong").css("color", 'red');
+					}
+					else if(data == 1)
+					{
+						$('.feed').text("JSON successfully imported").css("color", "#5cb85c");
+						
+						location.reload();
+					}
+					else
+					{
+						console.log(data);
+						$('.feed').text("Unknown error").css("color", 'red');
+					}
+				}
+			});
+	    });
 	</script>
 </body>
 </html>

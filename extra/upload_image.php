@@ -28,7 +28,7 @@
 			$new_name = "image." . "png";
 			$upload_location = $upload_address . $new_name;
 
-		//adding uploaded file info in db
+		//uploading image
 			if(move_uploaded_file($_FILES['file']['tmp_name'], $upload_location))
 			{
 				echo 1;
