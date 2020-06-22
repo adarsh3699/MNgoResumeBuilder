@@ -44,8 +44,10 @@ body {
 	margin: 1% auto 1% auto;
 	padding: 0.2cm 1.3cm 1cm 1.3cm;
 	box-shadow: 0px 0px 20px 0px #000;
-	line-height: 1.4em;
+	line-height: 1.3em;
 	text-align: left;
+
+	font-size: 94%;
 }
 
 #page h2 {
@@ -70,14 +72,16 @@ a.blue:hover {
 }
 
 ul {
+	margin-top: 0px;
+	padding-top: 0px;
 	margin-left: 20px;
 	padding-left: 20px;
 }
 li {
-	margin-top: 1%;
+	margin-top: 2px;
 }
 li li {
-	margin-top: 0.25%;
+	margin-top: 2px;
 }
 
 .row, .container-fluid {
@@ -166,15 +170,13 @@ li li {
 	}
 
 /*-------preloader stuffs---------*/
-
 #image_box {
 	float: left;
 	margin-left: 0px;
 }
 
 #sectionInfo {
-	padding-top: 15px;
-	margin-bottom:10px;
+	/*padding-top: 5px;*/
 	/*background: blue;*/
 }
 
@@ -235,9 +237,8 @@ td.header {
 	border-right: 1px solid #999;
 }
 
-
 .section-title h4 { 
-	margin-top: 15px;
+	margin-top: 3px;
 	margin-bottom: 0px;
 	font-size: 140%;
 }
@@ -245,15 +246,15 @@ td.header {
 	text-transform: uppercase;
 }
 .section-title.shaded h4 {
-	padding: 3px;
+	padding: 2px;
 	padding-left: 10px;
-	font-size: 14px;
 	background-color: #ccc !important;
 }
 
 .section-title.ruled.rule-above hr.hr-above {
 	border: 1px solid hsl(0,0%,40%);
-	margin-top: 0px; margin-bottom: 0px;
+	margin-top: 0px; 
+	margin-bottom: 0px;
 }
 .section-title.ruled.rule-above hr.hr-below {
 	border: none;
@@ -265,13 +266,12 @@ td.header {
 }
 .section-title.ruled.rule-below hr.hr-below {
 	border: 1px solid hsl(0,0%,40%);
-	margin-top: 2px; margin-bottom: 5px;
+	margin-top: 0px; margin-bottom: 0px;
 }
 .section-title.shaded hr { 
 	border: none;
 	margin: 0px;
 }
-
 
 .text {
 	color: #444;
@@ -301,9 +301,6 @@ td.header {
 #sectionProjects .mentor , #sectionProjects .link {
 	display: inline-block;
 }
-#sectionSkills li , #sectionCourses li {
-	margin-top: 0.5%;
-}
 
 #sectionExperience .title , #sectionExperience .time {
 	display: inline-block;
@@ -316,7 +313,7 @@ td.header {
 }
 
 .title {
-	font-size: 113%;
+	font-size: 110%;
 }
 
 .time {

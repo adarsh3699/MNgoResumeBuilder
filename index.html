@@ -20,7 +20,7 @@
 	<div class="preloader_container"></div>
 
 <!-------main window--------->
-	<div class="container-fluid" id="main_window">
+	<div class="container-fluid"  id="main_window">
 		<div class="row">
 		<!------left page----->
 			<div class="col-sm-9 text-center" id="left">
@@ -31,15 +31,15 @@
 							<img src="./images/image.png" height="80" width="80">
 						</div>
 
-						<div class="row" style=" ">
-							<div class="col-sm-5" style="margin-top: 10px; margin-left: 10px; ">
+						<div class="row">
+							<div class="col-sm-5" style="margin-left: 5px;">
 								<div id="contentName">
 									<span id="fName">fName</span> <span id="sName">sName</span>
 								</div>
 								<ul class="light plain_list" id="contactLink" ><li>contactLink</li></ul>
 							</div>
 
-							<ul class="col-sm-5 plain_list light" id="contacts" style="text-align: right; margin-top: 10px; float: right"><li>contacts</li></ul>
+							<ul class="col-sm-5 plain_list light" id="contacts" style="text-align: right; float: right"><li>contacts</li></ul>
 						</div>
 					</div>
 
@@ -50,22 +50,18 @@
 							<h4><strong>Education</strong></h4>
 							<hr class="hr-below">
 						</div>
-						<ul class="nobullet">
-							<li>
-								<table class="table customBordered" id="educationTable">
-									<thead style="font-size: 87%;">
-										<tr>
-											<td class="header"><strong>Year</strong></td>
-											<td class="header"><strong>Degree / Certificate</strong></td>
-											<td class="header"><strong>Institute / Board</strong></td>
-											<td class="header"><strong>CGPA/Percentage</strong></td>
-										</tr>
-									</thead>
-									<tbody id="education">
-									</tbody>
-								</table>
-							</li>
-						</ul>
+						<table class="table customBordered" id="educationTable" style="margin-top: 5px;">
+							<thead style="font-size: 87%;">
+								<tr>
+									<td class="header"><strong>Year</strong></td>
+									<td class="header"><strong>Degree / Certificate</strong></td>
+									<td class="header"><strong>Institute / Board</strong></td>
+									<td class="header"><strong>CGPA/Percentage</strong></td>
+								</tr>
+							</thead>
+							<tbody id="education">
+							</tbody>
+						</table>
 					</div>
 
 
@@ -175,7 +171,7 @@
 					<button class="btn btn-block btn-primary" id="save_btn" >Save</button>
 					<button class="btn btn-block btn-success" onclick="window.print()">Print PDF</button>
 
-					<a class="btn btn-block btn-warning" href="extra/data.json" target="_blank">Export JSON</a>
+					<a class="btn btn-block btn-warning" href="extra/data.json" target="_blank" download>Export JSON</a>
 					
 					<h5 class="btn btn-info" style="width: 100%; padding: 5px;">
 						Import JSON
