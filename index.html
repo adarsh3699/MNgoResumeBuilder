@@ -400,7 +400,13 @@
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 	<script type="text/javascript">
+	//by-passing password verification for local server/host	
+		var website = window.location.host;
+
 		password_verify_url = "../resume_api/verify_user.php";
+		if( website == "localhost:8080" || website == "localhost" ) {
+			password_verify_url = "extra/verify_user.php";
+		}
 
 	//displaying preloader
 		$('.preloader_container').load('extra/preloader.html');
@@ -1361,7 +1367,6 @@
 
 		//sending data to api for storing data in data.json	
 			jsonToSend.push(jsonToStore);
-			// console.log((jsonToSend));
 
 		//asking password
 			var resp = window.prompt("password");
