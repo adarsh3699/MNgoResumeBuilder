@@ -1,0 +1,579 @@
+<html>
+<head>
+	<title>MNgo Resume Builder</title>
+	<link rel="icon" href="images/logo.png" />
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/scroll.css">
+	<link rel="stylesheet" type="text/css" href="css/theme.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<meta name="viewport" content="width=device-width, initial-scale= 1">	
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="language" content="English">
+	<meta name="author" content="Aditya Suman">	
+</head>
+
+<body>
+<!-------main window--------->
+	<div class="container-fluid" style="margin: 0px; padding:0px; border: none; box-shadow: none;">
+		<div class="row" style="margin: 0px; padding:0px; border: none; box-shadow: none;">
+			<div class="col-sm-12" style="margin: 0px; padding:0px; border: none; box-shadow: none;">
+				<div id="page2" class="verdana-sans" style="line-height: 1.3em; padding: 0cm .25cm .25cm; width: 100%; background: white; border: none; box-shadow: none;">
+					
+					<div class="row" id="sectionInfo">
+						<div class="col-xs-6" style="margin: 0px; padding: 0px;">
+							<span id="fName">fName</span> <span id="sName">sName</span>
+							<ul class="light plain_list" id="contactLink" ><li>contactLink</li></ul>
+						</div>
+
+						<ul class="col-xs-6 plain_list light" id="contacts" style="text-align: right; margin: 0px; padding: 0px;">
+							<li>contacts</li>
+						</ul>
+					</div>
+				
+					<div class="section" id="sectionEducation">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h4><strong>Education</strong></h4>
+							<hr class="hr-below">
+						</div>
+						<table class="table customBordered" id="educationTable" style="margin-top: 3px; margin-bottom: 5px; ">
+							<thead style="font-size: 87%;">
+								<tr>
+									<td class="header"><strong>Year</strong></td>
+									<td class="header"><strong>Degree / Certificate</strong></td>
+									<td class="header"><strong>Institute / Board</strong></td>
+									<td class="header"><strong>CGPA/Percentage</strong></td>
+								</tr>
+							</thead>
+							<tbody id="education">
+							</tbody>
+						</table>
+					</div>
+
+
+					<div class="section" id="sectionExperience">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h4><strong>Experience</strong></h4>
+							<hr class="hr-below">
+						</div>
+						<ul style="padding-left: 30px;" class="disc" id="experience">
+						</ul>
+					</div>
+
+
+					<div class="section" id="sectionPublications" style="display: none;">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h4><strong>Publications</strong></h4>
+							<hr class="hr-below">
+						</div>
+						<ul id="publications">
+						</ul>
+					</div>
+
+
+					<div class="section" id="sectionProjects">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h4><strong>Projects</strong></h4>
+							<hr class="hr-below">
+						</div>
+						<ul style="padding-left: 30px;" id="projects" class="disc">
+						</ul>
+					</div>
+
+				
+					<div class="section" id="sectionSkills">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h4><strong>Technical skills</strong></h4>
+							<hr class="hr-below">
+						</div>
+						<ul style="padding-left: 10px;" id="skills">
+						</ul>
+					</div>
+
+
+					<div class="section" id="sectionResponsibility">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h4><strong>Positions of Responsibility</strong></h4>
+							<hr class="hr-below">
+						</div>
+						<ul style="padding-left: 10px;" id="pors">
+						</ul>
+					</div>
+
+
+					<div class="section" id="sectionAchievements">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h4><strong>Achievements</strong></h4>
+							<hr class="hr-below">
+						</div>
+						<ul style="padding-left: 10px;" id="achievements">
+						</ul>
+					</div>
+
+				
+					<div class="section" id="sectionCourses" style="display: none;">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h4><strong>Key courses taken</strong></h4>
+							<hr class="hr-below">
+						</div>
+						<ul id="courses">
+						</ul>
+					</div>
+
+				
+					<div class="section" id="sectionCurricular" style="display: none;">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h4><strong>Extra-curriculars</strong></h4>
+							<hr class="hr-below">
+						</div>
+						<ul id="cirrculars">
+							<li>
+								<span class="title">ABC workshop : </span>
+								<span class="text">Attended a 3-day workshop on Image sensing satellute development.</span>
+							</li>
+						</ul>
+					</div>
+
+					<div class="section" id="sectionFooterMessage" style="display: none;">
+						<div class="section-title rule-above ruled">
+							<hr class="hr-above">
+							<h6 style="margin-left: 20px; "><strong id="footerMsg">your footer message</strong></h6>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!---------scripts-------->
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript">
+	//getting the stored data from data.json file
+		var time = Math.floor(Date.now() / 1000);
+		var url = "extra/data.json?v=" + time; // to always load from latest data.json i.e this prevents loading from cache of data.json
+
+		$.ajax({
+	        type: "GET",
+	        url: url,
+	        dataType: "json",
+	        success: function(data) {
+	        //if some data exist
+	        	if(data) {
+	        		var jsonData = data[0];
+	            	updateUI(jsonData);
+	        	}
+	        },
+	        error: function (xhr, ajaxOptions, thrownError) {
+	        //if data.json does not exist then creating a blank data.json and reloading the page
+	        	if(thrownError == "Not Found") {
+	        		$.post("extra/write_json.php", { jsonToSend: "[{}]" }, function(resp)
+					{
+						if(resp == 1) {
+							$('#loading_msg').text("Blank data created").css("color", "#5cb85c");
+							location.reload();
+						} else if( resp == 0) {
+							$('#loading_msg').text("Failed to write in external file data.json. Please check your folder permission").css("color", "red");
+						} else if( resp == -100 ) {
+							$('#loading_msg').text("Failed to open external file data.json").css("color", "red");
+						} else {
+							$('#loading_msg').text("Unknown error").css("color", "red");
+							console.log(resp);
+						}
+					});
+	        	}
+	        	else {
+	        	//displaying error in preloader
+		        	$('#loading_msg').text("Something went wrong while fetching data from storage file data.json: " + thrownError).css("color", 'red');
+	        	}
+	      	}
+	    });
+
+	//function to update UI from data fetched from json file
+		function updateUI(json) 
+		{
+			if( json ) 
+			{
+				var page_style = "";
+
+			//if valid json
+				for (var key in json) 
+				{
+			   //getting val from json	
+			    	var val = json[key];
+
+			    //generating html for different titles
+			    	var html = "";
+			    	if(key == "contactLink") {
+			    	//setting data
+			    		var data = val;
+
+			    		for(i in data) {
+		    				var did_this = data[i];
+
+		    				html += "<li>" + did_this + "</li>"
+		    			}
+			    	} else if(key == "contacts") {
+			    	//setting data
+			    		var data = val;
+
+			    		for(i in data) {
+		    				var did_this = data[i];
+
+		    				html += "<li>" + did_this + "</li>"
+		    			}
+			    	} else if(key == "education") {
+			    	//setting heading
+			    		var heading = val.heading;
+			    		$('#sectionEducation h4 strong').text(heading);
+
+			    	//setting data
+			    		var data = val.data;
+			    		for(var k in data) {
+			    			var year = data[k].year;
+			    			var degree = data[k].degree;
+			    			var institute = data[k].institute;
+			    			var grade = data[k].grade;
+
+			    			html += "<tr><td>" + year + "</td><td>" + degree + "</td><td>" + institute + "</td><td>" + grade + "</td></tr>";
+			    		}
+			    	} else if(key == "experience") {
+			    	//setting heading
+			    		var heading = val.heading;
+			    		$('#sectionExperience h4 strong').text(heading);
+			    		// console.log(heading);
+
+			    	//setting data
+			    		var data = val.data;
+			    		for(var k in data) {
+			    			var job_title = data[k].job_title;
+			    			var job_duration = data[k].job_duration;
+			    			var job_company_link = data[k].job_company_link;
+			    			var company_name = data[k].company_name;
+			    			var details = data[k].details;
+
+			    			html += '<li class="li"><div><div class="title">' + job_title + '</div><div class="time right" >' + job_duration + '</div></div><div><div class="link right">' + job_company_link + '</div><div class="company_name">' + company_name + '</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;">';
+
+		    				for(var i in details) {
+			    				var did_this = details[i];
+
+			    				html += "<li>" + did_this + "</li>"
+			    			}
+			    			
+			    			html += "</ul></div></li>";
+			    		}
+			    	} else if(key == "projects") {
+			    	//setting heading
+			    		var heading = val.heading;
+			    		$('#sectionProjects h4 strong').text(heading);
+			    		// console.log(heading);
+			    		
+			    	//setting data
+			    		var data = val.data;
+			    		for(var k in data) {
+			    			var project_title = data[k].project_title;
+			    			var project_duration = data[k].project_duration;
+			    			var project_link = data[k].project_link;
+			    			var company_name = data[k].company_name;
+			    			var details = data[k].details;
+
+			    			html += '<li class="li"><div><div class="title">' + project_title + '</div><div class="time right" >' + project_duration + '</div></div><div><div class="link right">' + project_link + '</div><div class="company_name">' + company_name + '</div><ul class="circle" style="margin-left: 0px; padding-left: 25px;">';
+			    			for(var i in details) {
+			    				var did_this = details[i];
+
+			    				html += "<li>" + did_this + "</li>"
+			    			}
+			    			html += "</ul></div></li>";
+			    		}
+			    	} else if(key == "skills") {
+			    	//setting heading
+			    		var heading = val.heading;
+			    		$('#sectionSkills h4 strong').text(heading);
+			    		// console.log(heading);
+			    		
+			    	//setting data
+			    		var data = val.data;
+			    		for(var i in data) {
+		    				var did_this = data[i];
+
+		    				html += "<li>" + did_this + "</li>"
+		    			}
+		    		} else if(key == "pors") {
+		    		//setting heading
+			    		var heading = val.heading;
+			    		$('#sectionResponsibility h4 strong').text(heading);
+			    		// console.log(heading);
+			    		
+			    	//setting data
+			    		var data = val.data;
+			    		for(i in data) {
+		    				var did_this = data[i];
+
+		    				html += "<li>" + did_this + "</li>"
+		    			}
+		    		} else if(key == "achievements") {
+		    		//setting heading
+			    		var heading = val.heading;
+			    		$('#sectionAchievements h4 strong').text(heading);
+			    		// console.log(heading);
+			    		
+			    	//setting data
+			    		var data = val.data;
+			    		for(i in data) {
+		    				var did_this = data[i];
+
+		    				html += "<li>" + did_this + "</li>"
+		    			}
+		    		} else if(key == "publications") {
+		    		//setting heading
+			    		var heading = val.heading;
+			    		$('#sectionPublications h4 strong').text(heading);
+			    		// console.log(heading);
+			    		
+			    	//setting data
+			    		var data = val.data;
+			    		for(var k in data) {
+			    			var publication_title = data[k].publication_title;
+			    			var published_at = data[k].published_at;
+			    			var mentors = data[k].mentors;
+
+			    			html += '<li><div><div class="title">' + publication_title + '</div><div class="time right">' + published_at + '</div></div><div><div class="mentor">' + mentors + '</div></div></li>';
+			    		}
+			    	} else if(key == "courses") {
+		    		//setting heading
+			    		var heading = val.heading;
+			    		$('#sectionCourses h4 strong').text(heading);
+			    		// console.log(heading);
+			    		
+			    	//setting data
+			    		html += '<div class="row"><div class="col-sm-6 data1">';
+			    		var data1 = val.data1;
+			    		for(i in data1) {
+		    				var did_this = data1[i];
+
+		    				html += "<li>" + did_this + "</li>"
+		    			}
+		    			html += '</div><div class="col-sm-6 data2">';
+
+			    		var data2 = val.data2;
+			    		for(i in data2) {
+		    				var did_this = data2[i];
+
+		    				html += "<li>" + did_this + "</li>"
+		    			}
+		    			html += '</div></div>';
+
+		    			var note = val.note;
+						html += '<div class="star light"><i>' + note + '</i></div>';			    			
+			    	} else if(key == "cirrculars") {
+		    		//setting heading
+			    		var heading = val.heading;
+			    		$('#sectionCurricular h4 strong').text(heading);
+			    		// console.log(heading);
+			    		
+			    	//setting data
+			    		var data = val.data;
+			    		for(i in data) {
+		    				var did_this = data[i];
+
+		    				html += "<li>" + did_this + "</li>"
+		    			}
+		    		} else if(key == "isImageVisible") {
+		    			if( val == true ) {
+		    				$('#image_box').css("display", "block");
+
+		    				$('#imageShow').addClass("selected");
+		    				$('#imageHide').removeClass("selected");
+		    			} else {
+		    				$('#image_box').css("display", "none");
+
+		    				$('#imageHide').addClass("selected");
+		    				$('#imageShow').removeClass("selected");
+		    			}
+		    		} else if(key == "publicationVisibility") {
+		    			if( val == true ) {
+		    				$('#sectionPublications').css('display', "block");
+
+		    				$('#showPublication').addClass("selected");
+		    				$('#hidePublication').removeClass("selected");
+		    			} else {
+		    				$('#sectionPublications').css("display", "none");
+
+		    				$('#hidePublication').addClass("selected");
+		    				$('#showPublication').removeClass("selected");
+		    			}
+		    		} else if(key == "coursesVisibility") {
+		    			if( val == true ) {
+		    				$('#sectionCourses').css('display', "block");
+
+		    				$('#showCourses').addClass("selected");
+		    				$('#hideCourses').removeClass("selected");
+		    			} else {
+		    				$('#sectionCourses').css("display", "none");
+
+		    				$('#hideCourses').addClass("selected");
+		    				$('#showCourses').removeClass("selected");
+		    			}
+		    		} else if(key == "currcularVisibility") {
+		    			if( val == true ) {
+		    				$('#sectionCurricular').css('display', "block");
+
+		    				$('#showCurrcular').addClass("selected");
+		    				$('#hideCurrcular').removeClass("selected");
+		    			} else {
+		    				$('#sectionCurricular').css("display", "none");
+
+		    				$('#hideCurrcular').addClass("selected");
+		    				$('#showCurrcular').removeClass("selected");
+		    			}
+		    		} else if(key == "footerVisibility") {
+		    			if( val == true ) {
+		    				$('#sectionFooterMessage').css('display', "block");
+
+		    				$('#showFooter').addClass("selected");
+		    				$('#hideFooter').removeClass("selected");
+		    			} else {
+		    				$('#sectionFooterMessage').css("display", "none");
+
+		    				$('#hideFooter').addClass("selected");
+		    				$('#showFooter').removeClass("selected");
+		    			}
+		    		} else if(key == "eduYearLayout") {
+		    			if( val == "Last" ) {
+		    				educYearLayout("edyearLat");
+
+		    				$('#edyearLat').addClass("selected");
+		    				$('#edyearFirst').removeClass("selected");
+		    			} else {
+		    			// by default it is at first //so nothing is required
+		    			}
+		    		} else if(key == "padding") {
+		    			page_style += "padding: " + val + "; ";
+
+		    		//de-highlihting prevoiusly selected button
+		    			$('.hor_marg .toggle-option').each(function(){
+	    					$(this).removeClass("selected");
+	    				});
+
+		    		//hightlightinhg selectd btn
+		    			if(val == "0cm") {
+		    				$('#margin0').addClass("selected");
+		    			} else if (val == "0cm 0.25cm 0.25cm") {
+		    				$('#margin1').addClass("selected");
+		    			} else if (val == "0cm 0.5cm 0.5cm") {
+		    				$('#margin2').addClass("selected");
+		    			} else if (val == "0cm 0.75cm 0.75cm") {
+		    				$('#margin3').addClass("selected");
+		    			} else if (val == "0cm 1cm 1cm") {
+		    				$('#margin4').addClass("selected");
+		    			} else if (val == "0cm 1.1cm 1.1cm") {
+		    				$('#margin5').addClass("selected");
+		    			} else if (val == "0cm 1.3cm 1.3cm") {
+		    				$('#margin6').addClass("selected");
+		    			}
+		    		} else if(key == "line_height") {
+		    			page_style += "line-height: " + val + "; ";
+
+	    			//de-highlihting prevoiusly selected button
+		    			$('.line_spacing .toggle-option').each(function(){
+	    					$(this).removeClass("selected");
+	    				});
+
+		    		//hightlightinhg selectd btn
+		    			if(val == "1.1em") {
+		    				$('#line1').addClass("selected");
+		    			} else if (val == "1.2em") {
+		    				$('#line2').addClass("selected");
+		    			} else if (val == "1.3em") {
+		    				$('#line3').addClass("selected");
+		    			} else if (val == "1.4em") {
+		    				$('#line4').addClass("selected");
+		    			} else if (val == "1.5em") {
+		    				$('#line5').addClass("selected");
+		    			} else if (val == "1.6em") {
+		    				$('#line6').addClass("selected");
+		    			}
+		    		} else if(key == "case") {
+		    			if(val == "uppercase") {
+		    				$('.section-title').addClass('uppercase');
+
+		    				$('#caseNormal').removeClass("selected");
+		    				$('#caseUpper').addClass("selected");
+		    			}
+		    		} else if(key == "isShaded") {
+		    			if(val == true) {
+		    				$('.section-title').removeClass('ruled');
+							$('.section-title').addClass('shaded');
+
+		    				$('#titleRuled').removeClass("selected");
+		    				$('#titleShaded').addClass("selected");
+		    			}
+		    		} else if(key == "rulerPosition") {
+		    			if(val == "below") {
+		    				$('.section-title').removeClass('rule-above');
+							$('.section-title').addClass('rule-below');
+
+		    				$('#ruleAbove').removeClass("selected");
+		    				$('#ruleBelow').addClass("selected");
+		    			}
+		    		} else if(key == "tableBorder") {
+		    			if(val == false) {
+		    				$('#educationTable').removeClass('customBordered');
+							$('#educationTable').addClass('borderless');
+
+		    				$('#tableShow').removeClass("selected");
+		    				$('#tableHide').addClass("selected");
+		    			}
+			    	} else if(key == "footerMsg" || key == "fName" || key == "sName") {
+			    		var html = val.replace("\n", "<br />"); // to break word
+			    	} else {
+			    	//ignoring any other key
+			    		continue;
+			    	}
+
+		    	//updating UI
+			       	$('#' + key).html(html);
+				}
+
+			//setting page style horizontal margin & line spacing
+				if($.trim(page_style) != "") {
+					$('#page').attr("style", page_style);
+				}
+
+	        //removing preloader
+	            setTimeout(function()
+				{
+					$('.preloader_container').css('z-index', '100').slideUp(200);
+				}, 200);
+			}
+		}
+	
+	//function to change education year layout
+		function educYearLayout(toggleValue) {
+			if(toggleValue=='edyearFirst')
+			{
+				$("#educationTable tr").each(function () {
+					$(this).find("td").eq(0).before($(this).find("td").eq(3));
+				});
+			}
+			else
+			{
+				$("#educationTable tr").each(function () {
+					$(this).find("td").eq(3).after($(this).find("td").eq(0));
+				});
+			}
+		}
+	</script>
+</body>
+</html>

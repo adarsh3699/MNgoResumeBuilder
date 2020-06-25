@@ -170,19 +170,15 @@ li li {
 	}
 
 /*-------preloader stuffs---------*/
-#image_box {
-	float: left;
-	margin-left: 0px;
-}
-
 #sectionInfo {
-	/*padding-top: 5px;*/
-	/*background: blue;*/
+	margin: 0px;
+	padding: 0px;
+	padding-top: 10px;
+	padding-bottom: 3px;
 }
 
-#contentName {
+#fName, #sName {
 	font-size: 33px;
-	margin-bottom: 8px;
 }
 
 #fName {
@@ -199,11 +195,6 @@ li li {
 	margin: 0px; 
 	padding: 0px; 
 	list-style: none;
-}
-
-.col-sm-5 {
-	margin: 0;
-	padding: 2px;
 }
 
 #contentMinor , #contentBranch , #contactLink2 {
