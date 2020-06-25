@@ -10,7 +10,7 @@
 	// $value = 'http://localhost:8080/MNgoResumeBuilder'; // can aso be a url, starting with http..
 	 
 // Convert the HTML string to a PDF using those parameters.  Note if you have a very long HTML string use POST rather than get.
-	$result = file_get_contents("http://api.html2pdfrocket.com/pdf?apikey=" . urlencode($apikey) . "&JavascriptDelay=" . "5000&DisableShrinking=true&FileName='" . $filename . "'&value=" . urlencode($value) );
+	$result = file_get_contents( "http://api.html2pdfrocket.com/pdf?apikey=" . urlencode($apikey) . "&JavascriptDelay=" . "5000&DisableShrinking=true&FileName='" . $filename . "'&value=" . urlencode($value) );
 	 
 // Output headers so that the file is downloaded rather than displayed
 // Remember that header() must be called before any actual output is sent
