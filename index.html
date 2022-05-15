@@ -818,7 +818,7 @@
 		{
 			var text = $.trim($(this).text());
 			
-			var sampleHTML = '<tr><td class="header"><strong>Year</strong></td><td class="header"><strong>Degree / Certificate</strong></td><td class="header"><strong>Institute / Board</strong></td><td class="header"><strong>CGPA/Percentage</strong></td></tr>';
+			var sampleHTML = '<tr><td>Year</td><td>Degree / Certificate</td><td>Institute / Board</td><td>CGPA/Percentage</td></tr>';
 		
 			if( text == "First" ) {
 				var html = sampleHTML;
@@ -1368,40 +1368,41 @@
 		//sending data to api for storing data in data.json	
 			jsonToSend.push(jsonToStore);
 
-		//asking password
-			var resp = window.prompt("password");
+		//sending rqst to write json
+			$.post("extra/write_json.php", {jsonToSend: JSON.stringify(jsonToSend)}, function(resp) {
+				if(resp == 1) {
+					$('.feed').text("Saved successfully").css("color", "#5cb85c");
+				} else if( resp == 0) {
+					$('.feed').text("Failed to write in external file data.json").css("color", "red");
+				
+				} else if( resp == -100 ) {
+					$('.feed').text("Failed to open external file data.json").css("color", "red");
+				} else {
+					$('.feed').text("Unknown error").css("color", "red");
+					console.log(resp);
+				}
+			});
 
-		//verifying password
-			if( resp != "" ) {
-				$.post( password_verify_url, { password: resp }, function(resp) {
-					if(resp == 1) {
-					//sending rqst to write json
-						$.post("extra/write_json.php", {jsonToSend: JSON.stringify(jsonToSend)}, function(resp)
-						{
-							if(resp == 1) {
-								$('.feed').text("Saved successfully").css("color", "#5cb85c");
-							} else if( resp == 0) {
-								$('.feed').text("Failed to write in external file data.json").css("color", "red");
-							
-							} else if( resp == -100 ) {
-								$('.feed').text("Failed to open external file data.json").css("color", "red");
-							} else {
-								$('.feed').text("Unknown error").css("color", "red");
-								console.log(resp);
-							}
-						});
-					} else if( resp == 0) {
-						$('.feed').text("Wrong password").css("color", "red");
-					} else if( resp == -1 ) {
-						$('.feed').text("Something went wrong").css("color", "red");
-					} else {
-						$('.feed').text("Unknown error").css("color", "red");
-						console.log(resp);
-					}
-				});
-			} else {
-				$('.feed').text("Please enter the correct password").css("color", "red");
-			}
+		// //asking password
+		// 	var resp = window.prompt("password");
+
+		// //verifying password
+		// 	if( resp != "" ) {
+		// 		$.post( password_verify_url, { password: resp }, function(resp) {
+		// 			if(resp == 1) {
+					
+		// 			} else if( resp == 0) {
+		// 				$('.feed').text("Wrong password").css("color", "red");
+		// 			} else if( resp == -1 ) {
+		// 				$('.feed').text("Something went wrong").css("color", "red");
+		// 			} else {
+		// 				$('.feed').text("Unknown error").css("color", "red");
+		// 				console.log(resp);
+		// 			}
+		// 		});
+		// 	} else {
+		// 		$('.feed').text("Please enter the correct password").css("color", "red");
+		// 	}
 		});
 
 	//function to upload image
@@ -1485,73 +1486,75 @@
 	        	return;
 	        }
 
-        //asking password
-			var resp = window.prompt("password");
+			//sending rqst import json
+			var post_address = "extra/import_json.php";
 
-		//verifying password
-			if( resp != "" ) {
-				$.post( password_verify_url, { password: resp }, function(resp) {
-					if(resp == 1) {
-					//sending rqst import json
-						var post_address = "extra/import_json.php";
-
-						var form_data = new FormData();
-						form_data.append("file", property);
-						$.ajax(
-						{
-							url: post_address,
-							method: "POST",
-							data: form_data,
-							contentType: false,
-							cache: false,
-							processData: false,
-							beforeSend:function()
-							{
-								$('.feed').html('<img src="images/loaders2.gif" class="loading_gif" />');
-							},
-							success: function(data)
-							{
-								if(data == 0)
-								{
-									$('.feed').text('Failed to import JSON').css("color", 'red');
-								}
-								else if(data == -3)
-								{
-									$('.feed').text("Invalid JSON format. Please upload a valid resume JSON").css("color", 'red');
-								}
-								else if(data == -2)
-								{
-									$('.feed').text("File uploading directory not present on server").css("color", 'red');
-								}
-								else if(data == -1)
-								{
-									$('.feed').text("Something went wrong").css("color", 'red');
-								}
-								else if(data == 1)
-								{
-									$('.feed').text("JSON successfully imported").css("color", "#5cb85c");
-									
-									location.reload();
-								}
-								else
-								{
-									console.log(data);
-									$('.feed').text("Unknown error").css("color", 'red');
-								}
-							}
-						});
-					} else if( resp == 0) {
-						$('.feed').text("Wrong password").css("color", "red");
-					} else if( resp == -1 ) {
-						$('.feed').text("Something went wrong").css("color", "red");
-					} else {
-						$('.feed').text("Unknown error").css("color", "red");
-						console.log(resp);
+			var form_data = new FormData();
+			form_data.append("file", property);
+			$.ajax(
+			{
+				url: post_address,
+				method: "POST",
+				data: form_data,
+				contentType: false,
+				cache: false,
+				processData: false,
+				beforeSend:function()
+				{
+					$('.feed').html('<img src="images/loaders2.gif" class="loading_gif" />');
+				},
+				success: function(data)
+				{
+					if(data == 0)
+					{
+						$('.feed').text('Failed to import JSON').css("color", 'red');
 					}
-				});
-			} else {
-				$('.feed').text("Please enter the correct password").css("color", "red");
-			}
+					else if(data == -3)
+					{
+						$('.feed').text("Invalid JSON format. Please upload a valid resume JSON").css("color", 'red');
+					}
+					else if(data == -2)
+					{
+						$('.feed').text("File uploading directory not present on server").css("color", 'red');
+					}
+					else if(data == -1)
+					{
+						$('.feed').text("Something went wrong").css("color", 'red');
+					}
+					else if(data == 1)
+					{
+						$('.feed').text("JSON successfully imported").css("color", "#5cb85c");
+						
+						location.reload();
+					}
+					else
+					{
+						console.log(data);
+						$('.feed').text("Unknown error").css("color", 'red');
+					}
+				}
+			});
+			
+        // //asking password
+		// 	var resp = window.prompt("password");
+
+		// //verifying password
+		// 	if( resp != "" ) {
+		// 		$.post( password_verify_url, { password: resp }, function(resp) {
+		// 			if(resp == 1) {
+					
+		// 			} else if( resp == 0) {
+		// 				$('.feed').text("Wrong password").css("color", "red");
+		// 			} else if( resp == -1 ) {
+		// 				$('.feed').text("Something went wrong").css("color", "red");
+		// 			} else {
+		// 				$('.feed').text("Unknown error").css("color", "red");
+		// 				console.log(resp);
+		// 			}
+		// 		});
+		// 	} else {
+		// 		$('.feed').text("Please enter the correct password").css("color", "red");
+		// 	}
 	    });
 	</script>
 </body>
