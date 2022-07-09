@@ -46,10 +46,10 @@
 						<table class="table customBordered" id="educationTable" style="margin-top: 3px; margin-bottom: 5px; ">
 							<thead style="font-size: 87%;">
 								<tr>
-									<td class="header"><strong>Year</strong></td>
 									<td class="header"><strong>Degree / Certificate</strong></td>
 									<td class="header"><strong>Institute / Board</strong></td>
 									<td class="header"><strong>CGPA/Percentage</strong></td>
+									<td class="header"><strong>Year</strong></td>
 								</tr>
 							</thead>
 							<tbody id="education">
@@ -500,7 +500,7 @@
 			    			var institute = data[k].institute;
 			    			var grade = data[k].grade;
 
-			    			html += "<tr><td>" + year + "</td><td>" + degree + "</td><td>" + institute + "</td><td>" + grade + "</td></tr>";
+							html += "<tr><td>" + institute + "</td><td>" + grade + "</td><td>" + year + "</td><td>" + degree + "</td></tr>";
 			    		}
 			    	} else if(key == "experience") {
 			    	//setting heading
@@ -818,7 +818,7 @@
 		{
 			var text = $.trim($(this).text());
 			
-			var sampleHTML = '<tr><td>Year</td><td>Degree / Certificate</td><td>Institute / Board</td><td>CGPA/Percentage</td></tr>';
+			var sampleHTML = "<tr><td>Degree / Certificate</td><td>Institute / Board</td><td>CGPA/Percentage</td><td>Year</td></tr>";
 		
 			if( text == "First" ) {
 				var html = sampleHTML;
