@@ -46,10 +46,10 @@
 						<table class="table customBordered" id="educationTable" style="margin-top: 3px; margin-bottom: 5px; ">
 							<thead style="font-size: 87%;">
 								<tr>
+									<td class="header"><strong>Year</strong></td>
 									<td class="header"><strong>Degree / Certificate</strong></td>
 									<td class="header"><strong>Institute / Board</strong></td>
 									<td class="header"><strong>CGPA/Percentage</strong></td>
-									<td class="header"><strong>Year</strong></td>
 								</tr>
 							</thead>
 							<tbody id="education">
@@ -495,12 +495,12 @@
 			    	//setting data
 			    		var data = val.data;
 			    		for(var k in data) {
-			    			var year = data[k].year;
-			    			var degree = data[k].degree;
 			    			var institute = data[k].institute;
 			    			var grade = data[k].grade;
+			    			var year = data[k].year;
+			    			var degree = data[k].degree;
 
-							html += "<tr><td>" + institute + "</td><td>" + grade + "</td><td>" + year + "</td><td>" + degree + "</td></tr>";
+							html += "<tr><td>" + year + "</td><td>" + degree + "</td><td>" + institute + "</td><td>" + grade + "</td></tr>";
 			    		}
 			    	} else if(key == "experience") {
 			    	//setting heading
@@ -1085,10 +1085,10 @@
 				}
 
 				var temp = {};
-				temp["year"] = year;
 				temp["degree"] = degree;
 				temp["institute"] = institute;
 				temp["grade"] = grade;
+				temp["year"] = year;
 
 				dataJSON.push(temp);
 			});
